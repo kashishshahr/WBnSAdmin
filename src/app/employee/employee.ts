@@ -1,0 +1,12 @@
+export class empClass{
+  public constructor(
+    public employee_id:number,
+    public employee_name:string,
+    public employee_mobileno:number,
+    public employee_salary:number,
+    fk_user_email:string
+
+  ){
+
+  }
+}

@@ -1,0 +1,15 @@
+<form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+  <mat-form-field>
+  <input matInput formControlName="user_email" placeholder="Enter Email">
+  <mat-label *ngIf="loginForm.get('user_email').hasError('required') && !loginForm.get('user_email').pristine">Email Should NOT be empty</mat-label>
+  <mat-label *ngIf="loginForm.get('user_email').hasError('email') && !loginForm.get('user_email').pristine">Invalid Email</mat-label>
+</mat-form-field>
+<br>
+<mat-form-field>
+  <input matInput formControlName="user_password" placeholder="Enter Password">
+  <mat-label *ngIf="loginForm.get('user_password').hasError('required') && !loginForm.get('user_password').pristine">Password Should NOT be empty</mat-label>
+
+</mat-form-field>
+<button  type="submit" mat-button color="primary">LogIn</button>
+
+</form>

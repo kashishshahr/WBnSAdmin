@@ -1,0 +1,20 @@
+.example-card {
+  width: 400px;
+  height:500px;
+  background-color: aliceblue;
+  color: black;
+  position: relative;
+  top:100px;
+  left:100px;
+}
+
+.example-header-image {
+  background-image: url("C:\Users\Kashish\Pictures\iconContact.png");
+  background-size: cover;
+}
+.login_action{
+
+  position: relative;
+  top:100px;
+  left:100px;
+}

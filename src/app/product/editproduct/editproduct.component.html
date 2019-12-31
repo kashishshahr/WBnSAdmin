@@ -1,0 +1,11 @@
+<form #f="ngForm" (submit)="onSubmit(f)">
+<div>
+    <input [(ngModel)]="product_id" class="form-control" #id name="id" type="number" readonly value="{{product_id}}"><br>
+<input [(ngModel)]="product_name" class="form-control" #name name="name" type="string" value="{{product_name}}"><br>
+<input [(ngModel)]="product_price" class="form-control" #price name="price" type="number" value={{product_price}}><br>
+<input [(ngModel)]="product_qty" class="form-control" #qty name="qty" type="number" value={{product_qty}}><br>
+<input [(ngModel)]="product_desc"class="form-control" #desc name="desc" type="number" value={{product_desc}}><br>
+<button class="btn btn-primary" type="submit" >Save</button><br>
+<button class="btn btn-primary" (click)="onCancel()">Cancel</button>
+</div>
+</form>

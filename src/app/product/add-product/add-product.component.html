@@ -1,0 +1,17 @@
+
+
+   <form #f="ngForm" (submit)="onSubmit(f)">
+
+     <input ngModel readonly  class="form-control" #p_id1 name="product_id" type="number" placeholder="ID">
+    <input ngModel   class="form-control" #p_name1 name="product_name" type="string" placeholder="Enter name">
+    <input ngModel  class="form-control" #p_price1 name="product_price" type="number" placeholder="Enter price">
+    <input ngModel  class="form-control" #p_qty1 name="product_qty" type="number" placeholder="Enter qty">
+   <input style="height: 80px;" ngModel class="form-control" #p_desc1 name="product_desc" type="text" placeholder="Enter Desc">
+   <input type="file" name="product_img" #p_img1 ngModel (change)="onChange($event)">
+
+    <button class="btn btn-primary" type="submit">ADD</button>
+    <button class="btn btn-primary" (click)="onCancel()">Cancel</button>
+  </form>
+  <form>
+
+  </form>

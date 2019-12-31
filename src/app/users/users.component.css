@@ -1,0 +1,25 @@
+td{
+  width: 350px;
+}
+hr.new1 {
+  border-top: 10px solid red;
+  border-radius: 5px;
+  width: 80%;
+}
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td, th {
+  width: 25%;
+}
+div.sign{
+  position: absolute;
+  top:100px;
+  left:300px;
+}
