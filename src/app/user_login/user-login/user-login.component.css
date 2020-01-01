@@ -9,7 +9,7 @@
 }
 
 .example-header-image {
-  background-image: url("C:\Users\Kashish\Pictures\iconContact.png");
+  /* background-image: url("C:\Users\Kashish\Pictures\iconContact.png"); */
   background-size: cover;
 }
 .login_action{

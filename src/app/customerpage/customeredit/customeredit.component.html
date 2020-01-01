@@ -1,0 +1,20 @@
+<form [formGroup]="CustomerUpdateForm" (ngSubmit)="onCustomerEdit()" class="container">
+  <mat-form-field>
+    <input matInput placeholder="Enter Name" formControlName="customer_name"  >
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="Enter Mobile No" formControlName="customer_mobileno"  >
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="Enter Address" formControlName="customer_address"  >
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="Enter Photo" formControlName="customer_photo">
+  </mat-form-field>
+  <br>
+
+    <button type="submit" mat-button color="primary" >UPDATE</button>
+</form>

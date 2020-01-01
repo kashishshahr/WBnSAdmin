@@ -19,14 +19,23 @@ import { HttpClientModule } from '@angular/common/http';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { HomepageComponent } from './homepage/homepage/homepage.component';
 import { ViewmoreComponent } from './viewmore/viewmore.component';
-import { MatInputModule,MatTableModule,MatDialogModule} from '@angular/material';
+import { MatInputModule, MatTableModule, MatDialogModule, MatSelectModule, MatRadioModule, MatCardModule, MatSortModule, MatPaginatorModule } from '@angular/material';
 import { MyprofileComponent } from './myprofile/myprofile.component';
 import { EdituserdataComponent } from './signup/edituserdata/edituserdata.component';
 import { ProductComponent } from './product/product.component';
 import { UsersComponent } from './users/users.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { AddEmployeeComponent } from './employee/add-employee/add-employee.component';
-import { CustomerComponent } from './customer/customer.component';
+import { CustomerpageComponent } from './customerpage/customerpage.component';
+import { CustomeraddComponent } from './customerpage/customeradd/customeradd.component';
+import { CustomereditComponent } from './customerpage/customeredit/customeredit.component';
+import { ViewmorecustmoreComponent } from './customerpage/viewmorecustmore/viewmorecustmore.component';
+import { CartpageComponent } from './cartpage/cartpage.component';
+import { CartaddComponent } from './cartpage/cartadd/cartadd.component';
+import { CarteditComponent } from './cartpage/cartedit/cartedit.component';
+import { CategorypageComponent } from './categorypage/categorypage.component';
+import { CategoryaddComponent } from './categorypage/categoryadd/categoryadd.component';
+import { CategoryeditComponent } from './categorypage/categoryedit/categoryedit.component';
 
 
 @NgModule({
@@ -45,27 +54,42 @@ import { CustomerComponent } from './customer/customer.component';
     UsersComponent,
     EmployeeComponent,
     AddEmployeeComponent,
-    CustomerComponent
+    CustomerpageComponent,
+    CustomeraddComponent,
+    CustomereditComponent,
+    ViewmorecustmoreComponent,
+    CartpageComponent,
+    CartaddComponent,
+    CarteditComponent,
+    CategorypageComponent,
+    CategoryaddComponent,
+    CategoryeditComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     LayoutModule,
     routingArr,
-    MatToolbarModule,
-    MatButtonModule,
-    MatTableModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule,
-MatInputModule,
-HttpClientModule,
-MatDialogModule,
+    HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatIconModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatInputModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatCardModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule,
+    MatDialogModule,
 
   ],
-  entryComponents:[
+  entryComponents: [
+    ViewmorecustmoreComponent,
     ViewmoreComponent
   ],
   providers: [],

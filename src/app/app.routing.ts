@@ -12,8 +12,15 @@ import { UserauthguardService } from './userauthguard.service';
 import { ProductComponent } from './product/product.component';
 import { UsersComponent } from './users/users.component';
 import { EmployeeComponent } from './employee/employee.component';
-import { CustomerComponent } from './customer/customer.component';
 import { AddEmployeeComponent } from './employee/add-employee/add-employee.component';
+import { CustomerpageComponent } from './customerpage/customerpage.component';
+import { CustomeraddComponent } from './customerpage/customeradd/customeradd.component';
+import { CustomereditComponent } from './customerpage/customeredit/customeredit.component';
+import { CartpageComponent } from './cartpage/cartpage.component';
+import { CartaddComponent } from './cartpage/cartadd/cartadd.component';
+import { CategorypageComponent } from './categorypage/categorypage.component';
+import { CategoryaddComponent } from './categorypage/categoryadd/categoryadd.component';
+import { CategoryeditComponent } from './categorypage/categoryedit/categoryedit.component';
 const arr: Routes = [
   { path: '', component: UserLoginComponent },
   {
@@ -22,13 +29,20 @@ const arr: Routes = [
       { path: 'signupDisplay', component: SignupDisplayComponent },
       { path: 'users', component: UsersComponent },
       { path: 'employees', component: EmployeeComponent },
-      { path: 'customers', component:  CustomerComponent},
       { path: 'AddEmp', component: AddEmployeeComponent },
       { path: 'products', component: ProductComponent},
       { path: 'HomePage', component: HomepageComponent },
       { path: 'MyProfile', component: MyprofileComponent },
       { path: 'EditUserData', component: EdituserdataComponent },
       { path: 'AddProduct', component: AddProductComponent },
+      { path: 'customer', component: CustomerpageComponent },
+      { path: 'customeradd', component: CustomeraddComponent },
+      { path: 'customeredit/:customer_id', component: CustomereditComponent },
+      { path: 'cart', component: CartpageComponent },
+      { path: 'cartadd', component: CartaddComponent },
+      { path: 'category', component: CategorypageComponent },
+      { path: 'categoryadd', component: CategoryaddComponent },
+      { path: 'categoryedit/:category_id', component: CategoryeditComponent },
       { path: '**', component: PagenotfoundComponent },
     ]
   },
