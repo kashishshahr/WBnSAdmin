@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
-import { prod } from '../product';
+
 import { UsersDataService } from './users-data.service';
 import { Router } from '@angular/router';
 import { userCLass } from './users';
@@ -25,13 +25,20 @@ export class UsersComponent implements OnInit {
   ngOnInit() {
     this._emp.getAllEmployee().subscribe(
       (data: any) => {
-        console.log(data);
+        // console.log(data);
         this.dataSource.data = data;
         this.userArr = data;
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
       }
     );
+  }
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
   onAddCustClick() {
     this._route.navigate(['/nav/signupDisplay']);

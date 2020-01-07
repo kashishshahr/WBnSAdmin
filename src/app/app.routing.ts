@@ -14,21 +14,41 @@ import { UsersComponent } from './users/users.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { CustomerComponent } from './customer/customer.component';
 import { AddEmployeeComponent } from './employee/add-employee/add-employee.component';
+import { EditproductComponent } from './product/editproduct/editproduct.component';
+import { OrderComponent } from './order/order.component';
+import { AddOrderComponent } from './order/add-order/add-order.component';
+import { EditOrderComponent } from './order/edit-order/edit-order.component';
+import { EditcustomerComponent } from './customer/editcustomer/editcustomer.component';
+import { EditemployeeComponent } from './employee/editemployee/editemployee.component';
 const arr: Routes = [
   { path: '', component: UserLoginComponent },
   {
     path: 'nav', canActivate:[UserauthguardService], component: MainNavComponent, children: [
       { path: '', component: HomepageComponent },
-      { path: 'signupDisplay', component: SignupDisplayComponent },
       { path: 'users', component: UsersComponent },
+
       { path: 'employees', component: EmployeeComponent },
-      { path: 'customers', component:  CustomerComponent},
       { path: 'AddEmp', component: AddEmployeeComponent },
+      { path: 'EditEmployee/:employee_id', component: EditemployeeComponent },
+
+
+      { path: 'customers', component:  CustomerComponent},
+      { path: 'signupDisplay', component: SignupDisplayComponent },
+      { path: 'EditCustomer/:customer_id', component:  EditcustomerComponent},
+
       { path: 'products', component: ProductComponent},
+      { path: 'AddProduct', component: AddProductComponent },
+      { path: 'EditProduct/:product_id', component: EditproductComponent },
+
       { path: 'HomePage', component: HomepageComponent },
       { path: 'MyProfile', component: MyprofileComponent },
       { path: 'EditUserData', component: EdituserdataComponent },
-      { path: 'AddProduct', component: AddProductComponent },
+
+      { path: 'orders', component:OrderComponent },
+      { path: 'AddOrder', component:AddOrderComponent},
+      { path: 'EditOrder/:order_id', component:EditOrderComponent},
+
+
       { path: '**', component: PagenotfoundComponent },
     ]
   },

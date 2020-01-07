@@ -11,7 +11,7 @@ import { MatTableDataSource, MatPaginator, MatSort, MatDialog } from '@angular/m
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-  displayedColumns: string[] = ['product_name', 'actions'];
+  displayedColumns: string[] = ['product_name','product_mfg', 'actions'];
   dataSource: MatTableDataSource<prod>;
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
@@ -46,7 +46,10 @@ export class ProductComponent implements OnInit {
   onAddClick() {
     this._route.navigate(['/nav/AddProduct']);
   }
-
+  openEdit(row)
+  {
+    this._route.navigate(['/nav/EditProduct/',row.product_id]);
+  }
   onDelete(item) {
     let x: number = this.prodArr.indexOf(item);
     this._prod.deleteProduct(item.product_id).subscribe(
@@ -57,6 +60,13 @@ export class ProductComponent implements OnInit {
       }
     );
     this._route.navigate(['/nav/products']);
+  }
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
   // constructor(private _Router: Router, private _proddata: ProductService) { }
   // flag: boolean = false;

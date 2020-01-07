@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../product.service';
+
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { prod } from '../product';
 
 @Component({
@@ -11,48 +13,54 @@ import { prod } from '../product';
 export class EditproductComponent implements OnInit {
 
   constructor(private _router: Router, private _act: ActivatedRoute, private _proddata: ProductService) { }
-  p_id: number;
-  p_name: string;
-  p_price: number;
-  p_qty: number;
-  p_desc: Text;
-  img:File;
-
+  product_id: number;
+  product_img:File;
+EditProductForm:FormGroup;
   ngOnInit() {
 
-    this.p_id = this._act.snapshot.params['product_id'];
-    this._proddata.getProductById(this.p_id).subscribe(
-      (data: prod[]) => {
-        this.p_id = data[0].product_id;
-        this.p_name = data[0].product_name;
-        this.p_price = data[0].product_price;
-        this.p_qty = data[0].product_qty;
-        this.p_desc = data[0].product_desc;
-        this.img = data[0].img;
+    this.product_id = this._act.snapshot.params['product_id'];
 
-      }
-    );
-  }
-  onSubmit(f) {
-    console.log(f.value.id);
-    let item = new prod(f.value.id, f.value.name, f.value.price, f.value.qty, f.value.p_soh,f.value.img);
 
-    this._proddata.updateProductData(item).subscribe(
+    this.EditProductForm=new FormGroup({
+      product_id:new FormControl,
+      product_name:new FormControl(null,[Validators.required]),
+      product_price:new FormControl(null),
+      product_qty:new FormControl(null),
+      product_mfg:new FormControl(null),
+      product_desc:new FormControl(null),
+      product_img:new FormControl(null)
+    });
+    this._proddata.getProductById(this.product_id).subscribe(
       (data: prod[]) => {
-        this._router.navigate(['product']);
+        this.editProductFormDataBind(data[0]);
+        this.product_img=data[0].product_img;
       }
     );
   }
-  onAdd() {
-    let item = new prod(this.p_id, this.p_name, this.p_price, this.p_qty, this.p_desc,this.img);
-    this._proddata.updateProductData(item).subscribe(
+  editProductFormDataBind(item:prod)
+  {
+    this.EditProductForm.patchValue({
+      product_id:item.product_id,
+      product_name:item.product_name,
+      product_price:item.product_price,
+      product_qty:item.product_qty,
+      product_mfg:item.product_mfg,
+      product_desc:item.product_desc,
+      product_img:item.product_img
+
+    });
+  }
+  onSubmit() {
+
+    this._proddata.updateProductData(this.EditProductForm.value).subscribe(
       (data: prod[]) => {
-        this._router.navigate([""]);
+        this._router.navigate(['/nav/products']);
       }
     );
   }
+
   onCancel() {
-    this._router.navigate([""]);
+    this._router.navigate(["/nav/products"]);
   }
 
 }

@@ -1,9 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { HomepagesService } from '../homepages.service';
 import { MatTableDataSource, MatPaginator, MatSort, MatDialog } from '@angular/material';
-import { prod } from 'src/app/product';
+
 import { Router } from '@angular/router';
 import { ViewmoreComponent } from 'src/app/viewmore/viewmore.component';
+import { prod } from 'src/app/product/product';
 
 @Component({
   selector: 'app-homepage',

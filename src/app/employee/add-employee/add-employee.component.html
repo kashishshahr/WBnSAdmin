@@ -22,7 +22,10 @@
         <label class="alert alert-danger" *ngIf="addEmpForm.get('employee_name').hasError('minlength') && !addEmpForm.get('employee_name').pristine" >Name shoul be > 5</label>
         <label class="alert alert-danger" *ngIf="addEmpForm.get('employee_name').hasError('pattern') && !addEmpForm.get('employee_name').pristine" > Only Chars</label>
       </div>
-
+<div class="form-group" class="radio">
+  <input type="radio" name="employee_gender" value="male" formControlName="employee_gender" >Male
+  <input type="radio" name="employee_gender" value="female" formControlName="employee_gender" >Female
+</div>
       <div class="form-group">
         +91 &nbsp; <input style="width: auto;" maxlength="10" type="text" class="form-control" placeholder="Enter Employee Mobile" formControlName="employee_mobileno">
         <label class="alert alert-danger" *ngIf="addEmpForm.get('employee_mobileno').hasError('required') && !addEmpForm.get('employee_mobileno').pristine" >mobile no is required</label>
@@ -36,6 +39,8 @@
 
           <div class="form-group">
             <button [disabled]="!addEmpForm.valid" type="submit" class="btn btn-primary">SignUP</button>
+            <button (click)="onClick()" type="submit" class="btn btn-primary">Cancel</button>
+
        </div>
   </form>
   </div>

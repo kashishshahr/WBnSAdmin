@@ -19,7 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { HomepageComponent } from './homepage/homepage/homepage.component';
 import { ViewmoreComponent } from './viewmore/viewmore.component';
-import { MatInputModule,MatTableModule,MatDialogModule} from '@angular/material';
+import { MatInputModule,MatTableModule,MatDialogModule, MatPaginatorModule, MatSortModule} from '@angular/material';
 import { MyprofileComponent } from './myprofile/myprofile.component';
 import { EdituserdataComponent } from './signup/edituserdata/edituserdata.component';
 import { ProductComponent } from './product/product.component';
@@ -27,6 +27,14 @@ import { UsersComponent } from './users/users.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { AddEmployeeComponent } from './employee/add-employee/add-employee.component';
 import { CustomerComponent } from './customer/customer.component';
+import { EditproductComponent } from './product/editproduct/editproduct.component';
+import { OrderComponent } from './order/order.component';
+import { AddOrderComponent } from './order/add-order/add-order.component';
+import { EditOrderComponent } from './order/edit-order/edit-order.component';
+import { ViewmoreemployeeComponent } from './employee/viewmoreemployee/viewmoreemployee.component';
+import { ViewmorecustomerComponent } from './customer/viewmorecustomer/viewmorecustomer.component';
+import { EditcustomerComponent } from './customer/editcustomer/editcustomer.component';
+import { EditemployeeComponent } from './employee/editemployee/editemployee.component';
 
 
 @NgModule({
@@ -45,7 +53,15 @@ import { CustomerComponent } from './customer/customer.component';
     UsersComponent,
     EmployeeComponent,
     AddEmployeeComponent,
-    CustomerComponent
+    CustomerComponent,
+    EditproductComponent,
+    OrderComponent,
+    AddOrderComponent,
+    EditOrderComponent,
+    ViewmoreemployeeComponent,
+    ViewmorecustomerComponent,
+    EditcustomerComponent,
+    EditemployeeComponent
   ],
   imports: [
     BrowserModule,
@@ -58,6 +74,9 @@ import { CustomerComponent } from './customer/customer.component';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatButtonModule,
 MatInputModule,
 HttpClientModule,
 MatDialogModule,
@@ -66,7 +85,9 @@ MatDialogModule,
 
   ],
   entryComponents:[
-    ViewmoreComponent
+    ViewmoreComponent,
+    ViewmoreemployeeComponent,
+    ViewmorecustomerComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

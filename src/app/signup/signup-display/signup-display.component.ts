@@ -63,4 +63,9 @@ export class SignupDisplayComponent implements OnInit {
     return null;
 
   }
+
+  onClick()
+  {
+    this._route.navigate(['/nav/users']);
+  }
 }

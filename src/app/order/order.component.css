@@ -15,9 +15,6 @@ table {
 td, th {
   width: 25%;
 }
-td{
-  height: 70px;;
-}
 div.sign{
   position: absolute;
   top:100px;

@@ -28,4 +28,19 @@ getAllEmployee()
 {
   return this._http.get(this.emp_url);
 }
+deleteEmployee(employee_id)
+{
+  let header=new HttpHeaders().set(environment.header1,environment.header2);
+  return this._http.delete(this.emp_url+employee_id,{headers:header});
+}
+getEmployeeById(employee_id)
+{
+  let header=new HttpHeaders().set(environment.header1,environment.header2);
+  return this._http.get(this.emp_url+employee_id,{headers:header});
+}
+updateEmployee(obj)
+{ let body=JSON.stringify(obj);
+  let header=new HttpHeaders().set(environment.header1,environment.header2);
+  return this._http.put(this.emp_url+obj.employee_id,body,{headers:header});
+}
 }

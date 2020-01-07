@@ -1,0 +1,17 @@
+<form [formGroup]="EditCustomerForm" (submit)="onEditSubmit()" class="container">
+  <div>
+    <h3>Customer Name</h3>
+<input formControlName="customer_name" class="form-control" type="text"><br>
+
+<h3>Customer MobileNo</h3>
+<input formControlName="customer_mobileno" class="form-control" type="text" minlength="10" maxlength="10"><br>
+<h3>Customer Address</h3>
+<input formControlName="customer_address" class="form-control" type="text"><br>
+  </div>
+  <button mat-fab color="primary">
+    <mat-icon>done</mat-icon>
+  </button>
+  <button mat-fab color="primary" (click)="onCancel()">
+    <mat-icon>cancel</mat-icon>
+  </button>
+  </form>

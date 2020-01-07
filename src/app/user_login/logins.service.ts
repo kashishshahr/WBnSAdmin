@@ -11,7 +11,7 @@ export class LoginsService {
   login(item)
   {
     let x = new HttpHeaders().set(environment.header1,environment.header2);
-    let body=JSON.stringify(item)
+    let body=JSON.stringify(item);
     return this._http.post(this.url,body,{headers:x});
 
   }
