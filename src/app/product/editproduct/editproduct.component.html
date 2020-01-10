@@ -12,7 +12,9 @@
 <input formControlName="product_mfg" class="form-control" type="text" ><br>
 <h3>Product Desc</h3>
 <input formControlName="product_desc" class="form-control" type="text"><br>
-<img width="150px" height="150px" src="http://localhost:3000/images/{{product_img}}">{{product_img}}
+<img  width="150px" height="150px" [src]="imageURl">
+
+<input type="file" name="product_img" #p_img1 (change)="onChange($event)">
 
 <button class="btn btn-primary" type="submit" >Save</button><br>
 <button class="btn btn-primary" (click)="onCancel()">Cancel</button>

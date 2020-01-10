@@ -14,7 +14,7 @@ export class ViewmoreComponent implements OnInit {
   constructor(public dialogRef:MatDialogRef<ViewmoreComponent>,
     @Inject(MAT_DIALOG_DATA) public data:prod,) { }
   product_name:string="";
-  product_img:File;
+  product_img:string;
   product_desc:Text;
   product_price:Number;
 

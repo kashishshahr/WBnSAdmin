@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { custClass } from './customer';
 import { MatTableDataSource, MatPaginator, MatSort, MatDialog } from '@angular/material';
-import { CustomerDataService } from './customer-data.service';
 import { ViewmorecustomerComponent } from './viewmorecustomer/viewmorecustomer.component';
 import { SignupsService } from '../signup/signups.service';
 import { Router } from '@angular/router';
@@ -18,12 +17,12 @@ export class CustomerComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  constructor(private _route:Router, private _dialog:MatDialog, private _cust: CustomerDataService,private _sign:SignupsService) {
+  constructor(private _route:Router, private _dialog:MatDialog,private _sign:SignupsService) {
     this.dataSource = new MatTableDataSource();
   }
   custArr: custClass[] = [];
   ngOnInit() {
-    this._cust.getAllCustomer().subscribe(
+    this._sign.getAllCustomer().subscribe(
       (data: any) => {
         this.dataSource.data = data;
         this.custArr = data;

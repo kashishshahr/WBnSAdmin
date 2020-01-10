@@ -20,3 +20,15 @@ div.sign{
   top:100px;
   left:300px;
 }
+
+body
+{
+  background-color: darkred;
+  font-size: 30px;
+  color: chartreuse;
+}
+.square {
+  height: rech;
+  width: recw;
+  background-color: rgb(17, 134, 236);
+}

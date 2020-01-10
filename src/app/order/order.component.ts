@@ -2,8 +2,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { OrderDataService } from './order-data.service';
 import { FormGroup, FormControl } from '@angular/forms';
-import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
+import { MatTableDataSource, MatPaginator, MatSort, MatDialog } from '@angular/material';
 import { orderClass } from './order';
+import { ViewmoreorderComponent } from './viewmoreorder/viewmoreorder.component';
 
 @Component({
   selector: 'app-order',
@@ -12,7 +13,7 @@ import { orderClass } from './order';
 })
 export class OrderComponent implements OnInit {
 
-  constructor(private _router: Router, private _order: OrderDataService) { this.dataSource = new MatTableDataSource(); }
+  constructor(private _router: Router, private _order: OrderDataService,private _dialog:MatDialog) { this.dataSource = new MatTableDataSource(); }
   displayedColumns: string[] = [ 'order_name', 'order_amount', 'order_date', 'actions'];
   dataSource: MatTableDataSource<orderClass>;
 
@@ -20,20 +21,33 @@ export class OrderComponent implements OnInit {
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
   order_id: number;
-
+  oc:number=0;
   orderArr: orderClass[] = [];
   ngOnInit() {
     this._order.getAllOrders().subscribe(
       (data: orderClass[]) => {
+
         this.dataSource.data = data;
         this.orderArr = data;
         // console.log(data);
         // console.log(this.prodArr)
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
+        // this.oc=data.length;
+        // console.log(this.oc);
+        console.log(this.orderArr);
+
       }
+
     );
+
   }
+  openDialog(row) {
+    this._dialog.open(ViewmoreorderComponent, {
+      data: row
+    });
+  }
+
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
 

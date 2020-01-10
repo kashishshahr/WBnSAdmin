@@ -19,13 +19,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { HomepageComponent } from './homepage/homepage/homepage.component';
 import { ViewmoreComponent } from './viewmore/viewmore.component';
-import { MatInputModule,MatTableModule,MatDialogModule, MatPaginatorModule, MatSortModule} from '@angular/material';
+
+import { MatInputModule,MatTableModule,MatDialogModule, MatPaginatorModule, MatSortModule, MatCardModule} from '@angular/material';
+
+
+
 import { MyprofileComponent } from './myprofile/myprofile.component';
 import { EdituserdataComponent } from './signup/edituserdata/edituserdata.component';
 import { ProductComponent } from './product/product.component';
 import { UsersComponent } from './users/users.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { AddEmployeeComponent } from './employee/add-employee/add-employee.component';
+
 import { CustomerComponent } from './customer/customer.component';
 import { EditproductComponent } from './product/editproduct/editproduct.component';
 import { OrderComponent } from './order/order.component';
@@ -35,6 +40,13 @@ import { ViewmoreemployeeComponent } from './employee/viewmoreemployee/viewmoree
 import { ViewmorecustomerComponent } from './customer/viewmorecustomer/viewmorecustomer.component';
 import { EditcustomerComponent } from './customer/editcustomer/editcustomer.component';
 import { EditemployeeComponent } from './employee/editemployee/editemployee.component';
+import { CartpageComponent } from './cartpage/cartpage.component';
+import { CartaddComponent } from './cartpage/cartadd/cartadd.component';
+import { CarteditComponent } from './cartpage/cartedit/cartedit.component';
+import { CategorypageComponent } from './categorypage/categorypage.component';
+import { CategoryaddComponent } from './categorypage/categoryadd/categoryadd.component';
+import { CategoryeditComponent } from './categorypage/categoryedit/categoryedit.component';
+import { ViewmoreorderComponent } from './order/viewmoreorder/viewmoreorder.component';
 
 
 @NgModule({
@@ -61,33 +73,46 @@ import { EditemployeeComponent } from './employee/editemployee/editemployee.comp
     ViewmoreemployeeComponent,
     ViewmorecustomerComponent,
     EditcustomerComponent,
-    EditemployeeComponent
+    EditemployeeComponent,
+
+    CartpageComponent,
+    CartaddComponent,
+    CarteditComponent,
+    CategorypageComponent,
+    CategoryaddComponent,
+    CategoryeditComponent,
+    ViewmoreorderComponent
+
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     LayoutModule,
     routingArr,
-    MatToolbarModule,
-    MatButtonModule,
-    MatTableModule,
-    MatSidenavModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     MatIconModule,
+    MatButtonModule,
+  MatInputModule,
+    MatToolbarModule,
+    MatSidenavModule,
     MatListModule,
+    MatButtonModule,
+
     MatPaginatorModule,
     MatSortModule,
-    MatButtonModule,
-MatInputModule,
+    MatTableModule,
+    MatDialogModule,
+    MatCardModule,
 HttpClientModule,
-MatDialogModule,
-    FormsModule,
-    ReactiveFormsModule
 
   ],
   entryComponents:[
     ViewmoreComponent,
     ViewmoreemployeeComponent,
-    ViewmorecustomerComponent
+    ViewmorecustomerComponent,
+    ViewmoreorderComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

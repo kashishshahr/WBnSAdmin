@@ -33,6 +33,6 @@ export class AddOrderComponent implements OnInit {
 
   onClick()
   {
-    this._route.navigate(['/nav/orders']);
+    this._Route.navigate(['/nav/orders']);
   }
 }

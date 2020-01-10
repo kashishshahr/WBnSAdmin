@@ -21,6 +21,7 @@ export class UsersComponent implements OnInit {
   constructor(private _emp: UsersDataService, private _route: Router) {
     this.dataSource = new MatTableDataSource();
   }
+
   userArr: userCLass[] = [];
   ngOnInit() {
     this._emp.getAllEmployee().subscribe(
@@ -56,4 +57,5 @@ this._route.navigate(['/nav/AddEmp'])
   {
     this._route.navigate(['/nav/customers']);
   }
+  hide= true;
 }

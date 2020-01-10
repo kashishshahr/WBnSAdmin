@@ -22,7 +22,7 @@ customerAdd(obj){
   return this._http.post(this.cust_url,body,{headers:head1});
 }
 
-getAllEmployee()
+getAllCustomer()
 {
   return this._http.get(this.cust_url);
 }
