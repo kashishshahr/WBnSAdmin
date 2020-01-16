@@ -21,16 +21,22 @@ import { CartaddComponent } from './cartpage/cartadd/cartadd.component';
 import { CategorypageComponent } from './categorypage/categorypage.component';
 import { CategoryaddComponent } from './categorypage/categoryadd/categoryadd.component';
 import { CategoryeditComponent } from './categorypage/categoryedit/categoryedit.component';
+import { SupplierComponent } from './supplier/supplier.component';
+import { SupplieraddComponent } from './supplier/supplieradd/supplieradd.component';
+import { SuppliereditComponent } from './supplier/supplieredit/supplieredit.component';
+import { PurchaseComponent } from './purchase/purchase.component';
+import { PurchaseaddComponent } from './purchase/purchaseadd/purchaseadd.component';
+import { PurchaseeditComponent } from './purchase/purchaseedit/purchaseedit.component';
 const arr: Routes = [
   { path: '', component: UserLoginComponent },
   {
-    path: 'nav', canActivate:[UserauthguardService], component: MainNavComponent, children: [
+    path: 'nav', canActivate: [UserauthguardService], component: MainNavComponent, children: [
       { path: '', component: HomepageComponent },
       { path: 'signupDisplay', component: SignupDisplayComponent },
       { path: 'users', component: UsersComponent },
       { path: 'employees', component: EmployeeComponent },
       { path: 'AddEmp', component: AddEmployeeComponent },
-      { path: 'products', component: ProductComponent},
+      { path: 'products', component: ProductComponent },
       { path: 'HomePage', component: HomepageComponent },
       { path: 'MyProfile', component: MyprofileComponent },
       { path: 'EditUserData', component: EdituserdataComponent },
@@ -43,6 +49,12 @@ const arr: Routes = [
       { path: 'category', component: CategorypageComponent },
       { path: 'categoryadd', component: CategoryaddComponent },
       { path: 'categoryedit/:category_id', component: CategoryeditComponent },
+      { path: 'supplier', component: SupplierComponent },
+      { path: 'supplieradd', component: SupplieraddComponent },
+      { path: 'supplieredit/:supplier_id', component: SuppliereditComponent },
+      { path: 'purchase', component: PurchaseComponent },
+      { path: 'purchaseadd', component: PurchaseaddComponent },
+      { path: 'purchaseedit/:purchase_id', component: PurchaseeditComponent },
       { path: '**', component: PagenotfoundComponent },
     ]
   },

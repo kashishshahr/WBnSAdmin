@@ -36,6 +36,14 @@ import { CarteditComponent } from './cartpage/cartedit/cartedit.component';
 import { CategorypageComponent } from './categorypage/categorypage.component';
 import { CategoryaddComponent } from './categorypage/categoryadd/categoryadd.component';
 import { CategoryeditComponent } from './categorypage/categoryedit/categoryedit.component';
+import { SupplierComponent } from './supplier/supplier.component';
+import { SupplieraddComponent } from './supplier/supplieradd/supplieradd.component';
+import { SuppliereditComponent } from './supplier/supplieredit/supplieredit.component';
+import { SupplierviewmoreComponent } from './supplier/supplierviewmore/supplierviewmore.component';
+import { PurchaseComponent } from './purchase/purchase.component';
+import { PurchaseaddComponent } from './purchase/purchaseadd/purchaseadd.component';
+import { PurchaseeditComponent } from './purchase/purchaseedit/purchaseedit.component';
+import { PurchaseviewmoreComponent } from './purchase/purchaseviewmore/purchaseviewmore.component';
 
 
 @NgModule({
@@ -47,6 +55,7 @@ import { CategoryeditComponent } from './categorypage/categoryedit/categoryedit.
     PagenotfoundComponent,
     HomepageComponent,
     ViewmoreComponent,
+    ViewmorecustmoreComponent,
     MyprofileComponent,
     EdituserdataComponent,
     AddProductComponent,
@@ -57,13 +66,20 @@ import { CategoryeditComponent } from './categorypage/categoryedit/categoryedit.
     CustomerpageComponent,
     CustomeraddComponent,
     CustomereditComponent,
-    ViewmorecustmoreComponent,
     CartpageComponent,
     CartaddComponent,
     CarteditComponent,
     CategorypageComponent,
     CategoryaddComponent,
-    CategoryeditComponent
+    CategoryeditComponent,
+    SupplierComponent,
+    SupplieraddComponent,
+    SuppliereditComponent,
+    PurchaseComponent,
+    PurchaseaddComponent,
+    PurchaseeditComponent,
+    SupplierviewmoreComponent,
+    PurchaseviewmoreComponent
   ],
   imports: [
     BrowserModule,
@@ -89,8 +105,10 @@ import { CategoryeditComponent } from './categorypage/categoryedit/categoryedit.
 
   ],
   entryComponents: [
+    ViewmoreComponent,
     ViewmorecustmoreComponent,
-    ViewmoreComponent
+    SupplierviewmoreComponent,
+    PurchaseviewmoreComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -10,6 +10,7 @@ export class LoginsService {
   constructor(private _http:HttpClient) { }
   login(item)
   {
+    console.log(item)
     let x = new HttpHeaders().set(environment.header1,environment.header2);
     let body=JSON.stringify(item)
     return this._http.post(this.url,body,{headers:x});

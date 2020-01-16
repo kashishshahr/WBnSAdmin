@@ -25,7 +25,6 @@ export class ViewmorecustmoreComponent implements OnInit {
     this.mobileno = this._data.customer_mobileno;
     this.address = this._data.customer_address;
     this.photo = this._data.customer_photo;
-
   }
   onCancelClick() {
     this.dialogRef.close();

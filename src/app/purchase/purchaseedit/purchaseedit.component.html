@@ -1,0 +1,20 @@
+<div class="container">
+
+  <form [formGroup]="purchaseEditForm" (ngSubmit)="onPurchaseEdit()">
+
+    <div class="form-group">
+      <input class="form-control" formControlName="quantity">
+    </div>
+    <div class="form-group">
+      <input class="form-control" formControlName="purchase_price">
+    </div>
+    <div class="form-group">
+      <input class="form-control" placeholder="Enter Address" formControlName="purchase_date">
+    </div>
+
+    <div class="form-group">
+      <button [disabled]="!purchaseEditForm.valid" type="submit" class="btn btn-primary">Edit Purchase</button> |
+      <button (click)="OnCncel()" class="btn btn-primary">Cancel</button>
+    </div>
+  </form>
+</div>
