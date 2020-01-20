@@ -20,7 +20,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { HomepageComponent } from './homepage/homepage/homepage.component';
 import { ViewmoreComponent } from './viewmore/viewmore.component';
 
-import { MatInputModule,MatTableModule,MatDialogModule, MatPaginatorModule, MatSortModule, MatCardModule} from '@angular/material';
+import { MatInputModule,MatTableModule,MatDialogModule, MatPaginatorModule, MatSortModule, MatCardModule, MatCheckbox, MatCheckboxModule} from '@angular/material';
 
 
 
@@ -47,6 +47,9 @@ import { CategorypageComponent } from './categorypage/categorypage.component';
 import { CategoryaddComponent } from './categorypage/categoryadd/categoryadd.component';
 import { CategoryeditComponent } from './categorypage/categoryedit/categoryedit.component';
 import { ViewmoreorderComponent } from './order/viewmoreorder/viewmoreorder.component';
+import { OrderdetailComponent } from './orderdetail/orderdetail.component';
+import { OrderdeliveryComponent } from './orderdelivery/orderdelivery.component';
+import { ViewmorecartpageComponent } from './cartpage/viewmorecartpage/viewmorecartpage.component';
 
 
 @NgModule({
@@ -81,7 +84,10 @@ import { ViewmoreorderComponent } from './order/viewmoreorder/viewmoreorder.comp
     CategorypageComponent,
     CategoryaddComponent,
     CategoryeditComponent,
-    ViewmoreorderComponent
+    ViewmoreorderComponent,
+    OrderdetailComponent,
+    OrderdeliveryComponent,
+    ViewmorecartpageComponent
 
   ],
   imports: [
@@ -99,7 +105,7 @@ import { ViewmoreorderComponent } from './order/viewmoreorder/viewmoreorder.comp
     MatSidenavModule,
     MatListModule,
     MatButtonModule,
-
+MatCheckboxModule,
     MatPaginatorModule,
     MatSortModule,
     MatTableModule,
@@ -112,7 +118,8 @@ HttpClientModule,
     ViewmoreComponent,
     ViewmoreemployeeComponent,
     ViewmorecustomerComponent,
-    ViewmoreorderComponent
+    ViewmoreorderComponent,
+    ViewmorecartpageComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

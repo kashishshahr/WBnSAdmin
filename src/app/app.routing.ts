@@ -26,6 +26,8 @@ import { CartaddComponent } from './cartpage/cartadd/cartadd.component';
 import { CategorypageComponent } from './categorypage/categorypage.component';
 import { CategoryaddComponent } from './categorypage/categoryadd/categoryadd.component';
 import { CategoryeditComponent } from './categorypage/categoryedit/categoryedit.component';
+import { OrderdeliveryComponent } from './orderdelivery/orderdelivery.component';
+import { OrderdetailComponent } from './orderdetail/orderdetail.component';
 const arr: Routes = [
   { path: '', component: UserLoginComponent },
   {
@@ -55,7 +57,13 @@ const arr: Routes = [
       { path: 'AddOrder', component:AddOrderComponent},
       { path: 'EditOrder/:order_id', component:EditOrderComponent},
 
+      { path: 'order_deliveries', component:OrderdeliveryComponent },
+      // { path: 'AddOrder', component:AddOrderComponent},
+      // { path: 'EditOrder/:order_id', component:EditOrderComponent},
 
+      { path: 'order_details', component:OrderdetailComponent },
+      // { path: 'AddOrder', component:AddOrderComponent},
+      // { path: 'EditOrder/:order_id', component:EditOrderComponent},
 
       { path: 'cart', component: CartpageComponent },
       { path: 'cartadd', component: CartaddComponent },

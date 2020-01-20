@@ -3,6 +3,7 @@ import { MatTableDataSource, MatPaginator, MatSort, MatDialog } from '@angular/m
 import { cart } from './cart';
 import { CartdataService } from './cartdata.service';
 import { Router } from '@angular/router';
+import { ViewmorecartpageComponent } from './viewmorecartpage/viewmorecartpage.component';
 
 
 @Component({
@@ -11,18 +12,24 @@ import { Router } from '@angular/router';
   styleUrls: ['./cartpage.component.css']
 })
 export class CartpageComponent implements OnInit {
-  cart_arr: cart[];
-  displayedColumns: string[] = ['fk_user_email', 'fk_product_id', 'action'];
+
+  cart_arr: cart[]=[];
+  displayedColumns: string[] = ['cart_id', 'fk_user_email', 'product_name', 'action'];
   dataSource: MatTableDataSource<cart>;
+
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
-  constructor(private _data: CartdataService, private router: Router, public _dialog: MatDialog) {
+
+  constructor(private _data: CartdataService, private router: Router, public _dialog: MatDialog)
+  {
     this.dataSource = new MatTableDataSource();
   }
 
-  ngOnInit() {
+  ngOnInit()
+  {
     this._data.getAllCart().subscribe(
       (data: cart[]) => {
+        // console.log(data[0]);
         this.cart_arr = data;
         this.dataSource.data = data;
         this.dataSource.paginator = this.paginator;
@@ -30,24 +37,34 @@ export class CartpageComponent implements OnInit {
       }
     );
   }
-  applyFilter(filterValue: string) {
+  openDialog(row) {
+    this._dialog.open(ViewmorecartpageComponent, {
+      data: row
+    });
+  }
+  applyFilter(filterValue: string)
+  {
     this.dataSource.filter = filterValue.trim().toLowerCase();
-
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
   }
-  onDelete(row: cart) {
-    if (confirm("do you want to delete?")) {
+
+  onDelete(row: cart)
+  {
+    if (confirm("do you want to delete?"))
+    {
       this._data.deleteCart(row.cart_id).subscribe(
-        (data: cart) => {
+        (data: cart) =>
+        {
           this.cart_arr.splice(this.cart_arr.indexOf(row), 1);
           this.dataSource.data = this.cart_arr;
         }
       );
     }
   }
-  onCartAdd() {
+  onCartAdd()
+  {
     this.router.navigate(['/nav/cartadd']);
   }
 }

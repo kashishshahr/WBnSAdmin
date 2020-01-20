@@ -11,8 +11,9 @@ import { MatTableDataSource, MatPaginator, MatSort, MatDialog } from '@angular/m
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-  displayedColumns: string[] = ['product_name','product_mfg', 'actions'];
+  displayedColumns: string[] = ['product_id', 'product_name', 'cat_name', 'product_mfg', 'product_price', 'actions'];
   dataSource: MatTableDataSource<prod>;
+  deleteFlag:boolean=false;
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -22,7 +23,7 @@ export class ProductComponent implements OnInit {
   }
 
   prodArr: prod[] = [];
-  prod_table:prod[]=[];
+  prod_table: prod[] = [];
   ngOnInit() {
     this._prod.getAllProduct().subscribe(
       (data: prod[]) => {
@@ -33,6 +34,35 @@ export class ProductComponent implements OnInit {
         this.dataSource.sort = this.sort;
       }
     );
+  }
+  del_arr: prod[] = [];
+  onChange(item: prod) {
+    if (this.del_arr.find(x => x == item)) {
+      this.del_arr.splice(this.del_arr.indexOf(item), 1);
+      if(this.del_arr.length==0)
+      {
+      this.deleteFlag=false;
+      }
+    }
+    else {
+      this.del_arr.push(item);
+      this.deleteFlag=true;
+    }
+    //console.log(this.del_arr);
+  }
+
+  onClick() {
+    // console.log(this.del_arr);
+    this._prod.deleteAllProductData(this.del_arr).subscribe((data: any) => {
+      for (let i = 0; i < this.del_arr.length; i++) {
+        if (this.prodArr.find(x => x == this.del_arr[i])) {
+          this.prodArr.splice(this.prodArr.indexOf(this.del_arr[i]), 1);
+          this.dataSource.data = this.prodArr;
+          this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
+        }
+      }
+    });
   }
   onSignUpClick() {
     this._route.navigate(['/nav/signupDisplay']);
@@ -46,9 +76,8 @@ export class ProductComponent implements OnInit {
   onAddClick() {
     this._route.navigate(['/nav/AddProduct']);
   }
-  openEdit(row)
-  {
-    this._route.navigate(['/nav/EditProduct/',row.product_id]);
+  openEdit(row) {
+    this._route.navigate(['/nav/EditProduct/', row.product_id]);
   }
   onDelete(item) {
     let x: number = this.prodArr.indexOf(item);
@@ -56,7 +85,7 @@ export class ProductComponent implements OnInit {
       (data: any) => {
         console.log(data)
         this.prodArr.splice(x, 1);
-        this.dataSource.data=this.prodArr;
+        this.dataSource.data = this.prodArr;
       }
     );
     this._route.navigate(['/nav/products']);

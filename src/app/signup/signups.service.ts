@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { custClass } from '../customer/customer';
 @Injectable({
   providedIn: 'root'
 })
@@ -31,6 +32,7 @@ deleteCustomer(c_id)
   let header=new HttpHeaders().set(environment.header1,environment.header2);
   return this._http.delete(this.cust_url+c_id,{headers:header});
 }
+
 getCustomerById(c_id)
 {
   let header=new HttpHeaders().set(environment.header1,environment.header2);
@@ -40,5 +42,10 @@ updateCustomer(obj)
 { let body=JSON.stringify(obj);
   let header=new HttpHeaders().set(environment.header1,environment.header2);
   return this._http.put(this.cust_url+obj.customer_id,body,{headers:header});
+}
+deleteAllCustomerData(id: custClass[]) {
+  let body = JSON.stringify(id);
+  let head = new HttpHeaders().set(environment.header1, environment.header2);
+  return this._http.post(this.cust_url + id, body, { headers: head });
 }
 }

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { userCLass } from './users';
 
 @Injectable({
   providedIn: 'root'
@@ -8,19 +9,26 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class UsersDataService {
 private url:string=environment.url+'user/';
   constructor(private _http:HttpClient) { }
-  getAllEmployee()
+  getAllUser()
   {
     return this._http.get(this.url);
   }
-  addEmployee(item)
+  addUser(item)
   {
     let body=JSON.stringify(item);
     let x=new HttpHeaders().set(environment.header1,environment.header2);
     return this._http.post(this.url+item,{headers:x});
   }
-  deleteEmployee(employee_id:number)
+  deleteUser(User_id:number)
   {
     let x=new HttpHeaders().set(environment.header1,environment.header2);
-    return this._http.delete(this.url+employee_id,{headers:x});
+    return this._http.delete(this.url+User_id,{headers:x});
+  }
+
+  deleteAllUserData(id: userCLass[]) {
+    // console.log(id);
+    let body = JSON.stringify(id);
+    let head = new HttpHeaders().set(environment.header1, environment.header2);
+    return this._http.post(this.url + id, body, { headers: head });
   }
 }

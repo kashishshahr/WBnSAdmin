@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./customer.component.css']
 })
 export class CustomerComponent implements OnInit {
-  displayedColumns: string[] = ['customer_name', 'actions'];
+  displayedColumns: string[] = ['customer_id','customer_name', 'actions'];
   dataSource: MatTableDataSource<custClass>;
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
@@ -21,6 +21,40 @@ export class CustomerComponent implements OnInit {
     this.dataSource = new MatTableDataSource();
   }
   custArr: custClass[] = [];
+  del_arr: custClass[] = [];
+  deleteFlag:boolean=false;
+  onChange(item) {
+    if (this.del_arr.find(x => x == item)) {
+      this.del_arr.splice(this.del_arr.indexOf(item), 1);
+      if(this.del_arr.length==0)
+      {
+      this.deleteFlag=false;
+      }
+    }
+    else {
+      this.del_arr.push(item);
+
+      this.deleteFlag=true;
+    }
+    //console.log(this.del_arr);
+  }
+
+  onClick() {
+    // console.log(this.del_arr);
+    this._sign.deleteAllCustomerData(this.del_arr).subscribe((data) => {
+      for (let i = 0; i < this.del_arr.length; i++) {
+        if (this.custArr.find(x => x == this.del_arr[i])) {
+          console.log("SUCCESS");
+          this.custArr.splice(this.custArr.indexOf(this.del_arr[i]), 1);
+          this.dataSource.data = this.custArr;
+          this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
+        }
+      }
+    });
+  }
+
+
   ngOnInit() {
     this._sign.getAllCustomer().subscribe(
       (data: any) => {
@@ -30,6 +64,17 @@ export class CustomerComponent implements OnInit {
         this.dataSource.sort = this.sort;
       }
     );
+  }
+
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
+  onAddCustClick() {
+    this._route.navigate(['/nav/signupDisplay']);
   }
   openDialog(row) {
     this._dialog.open(ViewmorecustomerComponent, {
@@ -54,7 +99,7 @@ export class CustomerComponent implements OnInit {
     this._route.navigate(['/nav/EditCustomer',item.customer_id]);
   }
 
-  onClick()
+  onUsersClick()
   {
     this._route.navigate(['/nav/users']);
   }
