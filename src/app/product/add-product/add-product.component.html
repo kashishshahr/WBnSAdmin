@@ -7,7 +7,7 @@
     <input ngModel  class="form-control" #p_price1 name="product_price" type="number" placeholder="Enter price">
     <input ngModel  class="form-control" #p_qty1 name="product_qty" type="number" placeholder="Enter qty">
     <input ngModel  class="form-control" #p_mfg name="product_mfg" type="string" placeholder="Enter mfg">
-
+<select name="fk_cat_id"><option *ngFor="let item of catArr" [value]="item.category_id">{{item.category_name}}</option></select>
 
    <input style="height: 80px;" ngModel class="form-control" #p_desc1 name="product_desc" type="text" placeholder="Enter Desc">
    <input type="file" name="product_img" #p_img1 ngModel (change)="onChange($event)">

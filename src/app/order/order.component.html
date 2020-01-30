@@ -1,12 +1,6 @@
 <div *ngIf="orderArr.length<1">
   <img src="./../../assets/Loader.gif">
 </div>
-<div>
-  <div  style="width:220px;height:120px;border:1px solid white ">
-    <img src="http://localhost:3000/images/logo.png" alt="Smiley face" height="100" width="200">
-  </div>
-    <hr class="new1">
-  </div>
 
   <ng-container matColumnDef="AddAction">
     <button (click)="onAddOrder()" mat-raised-button color="primary" aria-label="Example icon-button with a heart icon">
@@ -32,7 +26,7 @@
 
       <ng-container matColumnDef="order_date">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Order Date</th>
-        <td mat-cell *matCellDef="let row" > {{row.order_date}} </td>
+        <td mat-cell *matCellDef="let row" > {{row.order_date | date}} </td>
       </ng-container>
 
       <ng-container matColumnDef="actions">

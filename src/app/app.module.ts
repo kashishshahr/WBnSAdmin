@@ -106,6 +106,7 @@ import { ViewmorecartpageComponent } from './cartpage/viewmorecartpage/viewmorec
     MatListModule,
     MatButtonModule,
 MatCheckboxModule,
+MatIconModule,
     MatPaginatorModule,
     MatSortModule,
     MatTableModule,

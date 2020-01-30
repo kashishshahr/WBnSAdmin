@@ -10,3 +10,10 @@ table {
 td, th {
   width: 25%;
 }
+
+th{
+  font-size: large;
+  color:maroon;
+  border-bottom: solid black;
+}
+

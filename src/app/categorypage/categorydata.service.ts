@@ -31,7 +31,7 @@ export class CategorydataService {
     let head1 = new HttpHeaders().set(environment.header1, environment.header2);
     return this._http.put(this.url + item.category_id, body, { headers: head1 });
   }
-  deleteAllCategoryData(id:number[])
+  deleteAllCategoryData(id)
   {
     let body=JSON.stringify(id);
     let head=new HttpHeaders().set(environment.header1, environment.header2);

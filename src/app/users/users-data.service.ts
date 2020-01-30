@@ -8,6 +8,7 @@ import { userCLass } from './users';
 })
 export class UsersDataService {
 private url:string=environment.url+'user/';
+
   constructor(private _http:HttpClient) { }
   getAllUser()
   {
@@ -31,4 +32,11 @@ private url:string=environment.url+'user/';
     let head = new HttpHeaders().set(environment.header1, environment.header2);
     return this._http.post(this.url + id, body, { headers: head });
   }
+
+updateAdminPass(obj)
+{ console.log(obj);
+  let body=JSON.stringify(obj);
+  let header=new HttpHeaders().set(environment.header1,environment.header2);
+  return this._http.put(this.url+obj.user_email,body,{headers:header});
+}
 }

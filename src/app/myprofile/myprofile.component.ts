@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { SignupsService } from '../signup/signups.service';
 
 @Component({
   selector: 'app-myprofile',
@@ -8,12 +9,12 @@ import { Router } from '@angular/router';
 })
 export class MyprofileComponent implements OnInit {
 
-  constructor(private _route:Router) { }
-
+  constructor(private _route:Router,private _act:ActivatedRoute,private _sign:SignupsService) { }
+uid:number;
   ngOnInit() {
   }
   OnEditMyProfile()
   {
-    this._route.navigate(['EditUserData'])
+    this._route.navigate(['/nav/EditUserData']);
   }
 }

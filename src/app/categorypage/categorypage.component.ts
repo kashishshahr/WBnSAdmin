@@ -13,12 +13,11 @@ export class CategorypageComponent implements OnInit {
   category_arr: Category[] = [];
   displayedColumns: string[] = ['cat_id', 'category_name', 'action'];
   dataSource: MatTableDataSource<Category>;
-  deleteFlag:boolean=false;
+  deleteFlag: boolean = false;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  constructor(private _data: CategorydataService, private _route: Router, private router: Router, public _dialog: MatDialog)
-  {
+  constructor(private _data: CategorydataService, private _route: Router, private router: Router, public _dialog: MatDialog) {
     this.dataSource = new MatTableDataSource();
   }
 
@@ -39,33 +38,32 @@ export class CategorypageComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
-  del_arr: number[] = [];
+  del_arr: Category[] = [];
 
-  onChange(category_id) {
-    if (this.del_arr.find(x => x == category_id)) {
-      this.del_arr.splice(this.del_arr.indexOf(category_id), 1);
-      if(this.del_arr.length==0)
-      {
-      this.deleteFlag=false;
+  onChange(item:Category) {
+    if (this.del_arr.find(x => x == item)) {
+      this.del_arr.splice(this.del_arr.indexOf(item), 1);
+      if (this.del_arr.length == 0) {
+        this.deleteFlag = false;
       }
     }
     else {
-      this.del_arr.push(category_id);
-      this.deleteFlag=true;
+      this.del_arr.push(item);
+      this.deleteFlag = true;
     }
     // console.log(this.del_arr);
   }
   onClick() {
     console.log(this.del_arr);
     this._data.deleteAllCategoryData(this.del_arr).subscribe((data) => {
-        for (let i = 0; i < this.del_arr.length; i++) {
+      for (let i = 0; i < this.del_arr.length; i++) {
 
-          let x = this.category_arr.find(x => x.category_id == this.del_arr[i]);
-          this.category_arr.splice(this.category_arr.indexOf(x), 1);
-          this.dataSource.data = this.category_arr;
-          this.dataSource.paginator = this.paginator;
-          this.dataSource.sort = this.sort;
-        }
+        let x = this.category_arr.find(x => x == this.del_arr[i]);
+        this.category_arr.splice(this.category_arr.indexOf(x), 1);
+        this.dataSource.data = this.category_arr;
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+      }
 
     });
   }

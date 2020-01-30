@@ -43,6 +43,7 @@ updateCustomer(obj)
   let header=new HttpHeaders().set(environment.header1,environment.header2);
   return this._http.put(this.cust_url+obj.customer_id,body,{headers:header});
 }
+
 deleteAllCustomerData(id: custClass[]) {
   let body = JSON.stringify(id);
   let head = new HttpHeaders().set(environment.header1, environment.header2);

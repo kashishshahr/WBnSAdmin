@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../product.service';
 import { prod } from '../product';
+import { CategorydataService } from 'src/app/categorypage/categorydata.service';
+import { Category } from 'src/app/categorypage/category';
 
 
 @Component({
@@ -17,8 +19,14 @@ export class AddProductComponent implements OnInit {
   // p_price: number;
   // p_qty: number;
   // p_soh: number;
-  constructor(private _Router: Router, private proddata: ProductService, private _act: ActivatedRoute) { }
-  ngOnInit() {  }
+  catArr:Category[]=[];
+  constructor(private _cat:CategorydataService,private _Router: Router, private proddata: ProductService, private _act: ActivatedRoute) { }
+  ngOnInit() {
+    this._cat.getAllCategory().subscribe((data:Category[])=>{
+      console.log(data);
+      this.catArr=data;
+    });
+  }
 
   onSubmit(f) {
     // console.log(f);
@@ -28,7 +36,7 @@ export class AddProductComponent implements OnInit {
     fd.append('product_price',f.value.product_price);
     fd.append('product_qty',f.value.product_qty);
     fd.append('product_mfg',f.value.product_mfg);
-
+    fd.append('fk_cat_id',f.value.fk_cat_id);
     fd.append('product_desc',f.value.product_desc);
     fd.append('product_img',this.selectedfile,this.selectedfile.name);
     console.log(fd);

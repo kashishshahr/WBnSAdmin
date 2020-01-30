@@ -10,6 +10,7 @@ export class CartdataService {
   constructor(private _http: HttpClient) { }
 
   getAllCart() {
+    console.log("in service");
     return this._http.get(this.url);
   }
   deleteCart(cart_id) {

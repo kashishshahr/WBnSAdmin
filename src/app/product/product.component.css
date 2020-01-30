@@ -16,3 +16,9 @@ div.sign{
   top:100px;
   left:300px;
 }
+
+th{
+  font-size: large;
+  color:maroon;
+  border-bottom: solid black;
+}

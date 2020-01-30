@@ -34,6 +34,9 @@ const arr: Routes = [
     path: 'nav', canActivate:[UserauthguardService], component: MainNavComponent, children: [
       { path: '', component: HomepageComponent },
       { path: 'users', component: UsersComponent },
+      { path: 'EditUserData', component:EdituserdataComponent},
+      {path:'MyProfile',component:MyprofileComponent},
+
 
       { path: 'employees', component: EmployeeComponent },
       { path: 'AddEmp', component: AddEmployeeComponent },
