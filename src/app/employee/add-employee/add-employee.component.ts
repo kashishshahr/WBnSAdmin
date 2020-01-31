@@ -27,6 +27,7 @@ export class AddEmployeeComponent implements OnInit {
 
     });
   }
+
   onAddEmp() {
     let userobj = {
       user_email: this.addEmpForm.value.user_email,

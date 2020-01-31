@@ -14,7 +14,7 @@ import { ViewmoreorderComponent } from './viewmoreorder/viewmoreorder.component'
 export class OrderComponent implements OnInit {
 
   constructor(private _router: Router, private _order: OrderDataService,private _dialog:MatDialog) { this.dataSource = new MatTableDataSource(); }
-  displayedColumns: string[] = [ 'order_name', 'order_amount', 'order_date', 'actions'];
+  displayedColumns: string[] = [ 'order_status', 'order_amount', 'order_date', 'actions'];
   dataSource: MatTableDataSource<orderClass>;
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
@@ -26,7 +26,6 @@ export class OrderComponent implements OnInit {
   ngOnInit() {
     this._order.getAllOrders().subscribe(
       (data: orderClass[]) => {
-
         this.dataSource.data = data;
         this.orderArr = data;
         // console.log(data);
@@ -35,10 +34,8 @@ export class OrderComponent implements OnInit {
         this.dataSource.sort = this.sort;
         // this.oc=data.length;
         // console.log(this.oc);
-        console.log(this.orderArr);
-
+        // console.log(this.orderArr);
       }
-
     );
 
   }
@@ -62,7 +59,6 @@ export class OrderComponent implements OnInit {
   onEditOrder(item)
   {
     this._router.navigate(['/nav/EditOrder',item.order_id]);
-
   }
   onDelete(row) {
     console.log(row.order_id);

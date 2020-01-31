@@ -21,7 +21,9 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { HomepageComponent } from './homepage/homepage/homepage.component';
 import { ViewmoreComponent } from './viewmore/viewmore.component';
 
-import { MatInputModule, MatTableModule, MatDialogModule, MatPaginatorModule, MatSortModule, MatCardModule } from '@angular/material';
+import { MatInputModule,MatTableModule,MatDialogModule, MatPaginatorModule, MatSortModule, MatCardModule, MatCheckbox, MatCheckboxModule} from '@angular/material';
+
+
 
 import { MyprofileComponent } from './myprofile/myprofile.component';
 import { EdituserdataComponent } from './signup/edituserdata/edituserdata.component';
@@ -54,6 +56,10 @@ import { PurchaseComponent } from './purchase/purchase.component';
 import { PurchaseaddComponent } from './purchase/purchaseadd/purchaseadd.component';
 import { PurchaseeditComponent } from './purchase/purchaseedit/purchaseedit.component';
 import { PurchaseviewmoreComponent } from './purchase/purchaseviewmore/purchaseviewmore.component';
+import { OrderdetailComponent } from './orderdetail/orderdetail.component';
+import { OrderdeliveryComponent } from './orderdelivery/orderdelivery.component';
+import { ViewmorecartpageComponent } from './cartpage/viewmorecartpage/viewmorecartpage.component';
+
 
 
 @NgModule({
@@ -99,6 +105,9 @@ import { PurchaseviewmoreComponent } from './purchase/purchaseviewmore/purchasev
     SupplierviewmoreComponent,
     PurchaseviewmoreComponent,
     ViewmoreorderComponent,
+    OrderdetailComponent,
+    OrderdeliveryComponent,
+    ViewmorecartpageComponent
   ],
   imports: [
     BrowserModule,
@@ -115,7 +124,8 @@ import { PurchaseviewmoreComponent } from './purchase/purchaseviewmore/purchasev
     MatSidenavModule,
     MatListModule,
     MatButtonModule,
-
+MatCheckboxModule,
+MatIconModule,
     MatPaginatorModule,
     MatSortModule,
     MatTableModule,
@@ -132,7 +142,8 @@ import { PurchaseviewmoreComponent } from './purchase/purchaseviewmore/purchasev
     ViewmoreComponent,
     ViewmoreemployeeComponent,
     ViewmorecustomerComponent,
-    ViewmoreorderComponent
+    ViewmoreorderComponent,
+    ViewmorecartpageComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

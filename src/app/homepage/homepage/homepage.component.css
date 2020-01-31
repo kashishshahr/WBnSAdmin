@@ -23,12 +23,9 @@ div.sign{
 
 body
 {
-  background-color: darkred;
+  background-color: darkgrey;
   font-size: 30px;
-  color: chartreuse;
+  font-family: 'Times New Roman', Times, serif;
+  color: black;
 }
-.square {
-  height: rech;
-  width: recw;
-  background-color: rgb(17, 134, 236);
-}
+

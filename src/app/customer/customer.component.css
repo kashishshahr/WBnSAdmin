@@ -1,3 +1,9 @@
+
+th{
+  font-size: large;
+  color:maroon;
+  border-bottom: solid black;
+}
 hr.new1 {
   border-top: 10px solid red;
   border-radius: 5px;

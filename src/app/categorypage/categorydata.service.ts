@@ -8,6 +8,7 @@ import { environment } from 'src/environments/environment';
 })
 export class CategorydataService {
   url: string =environment.url +  "category/";
+  deleteUrl:string=environment.url  + "categoryDelete/";
   constructor(private _http: HttpClient) { }
   getAllCategory() {
     return this._http.get(this.url);
@@ -29,5 +30,12 @@ export class CategorydataService {
     let body = JSON.stringify(item);
     let head1 = new HttpHeaders().set(environment.header1, environment.header2);
     return this._http.put(this.url + item.category_id, body, { headers: head1 });
+  }
+  deleteAllCategoryData(id)
+  {
+    let body=JSON.stringify(id);
+    let head=new HttpHeaders().set(environment.header1, environment.header2);
+    return this._http.post(this.deleteUrl,body,{headers:head});
+    // console.log(id);
   }
 }

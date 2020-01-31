@@ -11,24 +11,55 @@ import { userCLass } from './users';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-  displayedColumns: string[] = ['user_email','user_type', 'actions'];
-  dataSource: MatTableDataSource<userCLass>;
 
+  userArr: userCLass[] = [];
+  displayedColumns: string[] = ['user_id', 'user_email', 'user_type'];
+  dataSource: MatTableDataSource<userCLass>;
+  deleteFlag:boolean=false;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
 
-  constructor(private _emp: UsersDataService, private _route: Router) {
+  constructor(private _user: UsersDataService, private _route: Router) {
     this.dataSource = new MatTableDataSource();
   }
+  del_arr: userCLass[] = [];
+  onChange(item) {
+    if (this.del_arr.find(x => x == item)) {
+      this.del_arr.splice(this.del_arr.indexOf(item), 1);
+      if(this.del_arr.length==0)
+      {
+      this.deleteFlag=false;
+      }
+    }
+    else
+    {
+      this.del_arr.push(item);
 
-  userArr: userCLass[] = [];
+      this.deleteFlag=true;
+    }
+    // console.log(this.del_arr);
+  }
+
+  onClick() {
+    // console.log(this.del_arr);
+    this._user.deleteAllUserData(this.del_arr).subscribe((data) => {
+      for (let i = 0; i < this.del_arr.length; i++) {
+        if (this.userArr.find(x => x == this.del_arr[i])) {
+          this.userArr.splice(this.userArr.indexOf(this.del_arr[i]), 1);
+          this.dataSource.data = this.userArr;
+          this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
+        }
+      }
+    });
+  }
   ngOnInit() {
-    this._emp.getAllEmployee().subscribe(
-      (data: any) => {
+    this._user.getAllUser().subscribe(
+      (data: userCLass[]) => {
         // console.log(data);
-        this.dataSource.data = data;
         this.userArr = data;
+        this.dataSource.data = data;
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
       }
@@ -41,21 +72,13 @@ export class UsersComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
-  onAddCustClick() {
-    this._route.navigate(['/nav/signupDisplay']);
-  }
-  onAddEmpClick()
-  {
-this._route.navigate(['/nav/AddEmp'])
-  }
-  onEmpClick()
-  {
+
+  onEmpClick() {
     this._route.navigate(['/nav/employees']);
 
   }
-  onCustClick()
-  {
+  onCustClick() {
     this._route.navigate(['/nav/customers']);
   }
-  hide= true;
+  hide = true;
 }

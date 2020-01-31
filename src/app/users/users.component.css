@@ -1,3 +1,9 @@
+
+th{
+  font-size: large;
+  color:maroon;
+  border-bottom: solid black;
+}
 td{
   width: 350px;
 }

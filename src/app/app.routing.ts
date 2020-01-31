@@ -32,12 +32,18 @@ import { SuppliereditComponent } from './supplier/supplieredit/supplieredit.comp
 import { PurchaseComponent } from './purchase/purchase.component';
 import { PurchaseaddComponent } from './purchase/purchaseadd/purchaseadd.component';
 import { PurchaseeditComponent } from './purchase/purchaseedit/purchaseedit.component';
+import { OrderdeliveryComponent } from './orderdelivery/orderdelivery.component';
+import { OrderdetailComponent } from './orderdetail/orderdetail.component';
 const arr: Routes = [
   { path: '', component: UserLoginComponent },
   {
     path: 'nav', canActivate: [UserauthguardService], component: MainNavComponent, children: [
       { path: '', component: HomepageComponent },
       { path: 'users', component: UsersComponent },
+      { path: 'EditUserData', component:EdituserdataComponent},
+      {path:'MyProfile',component:MyprofileComponent},
+
+
       { path: 'employees', component: EmployeeComponent },
       { path: 'AddEmp', component: AddEmployeeComponent },
       { path: 'EditEmployee/:employee_id', component: EditemployeeComponent },
@@ -54,9 +60,18 @@ const arr: Routes = [
       { path: 'MyProfile', component: MyprofileComponent },
       { path: 'EditUserData', component: EdituserdataComponent },
 
-      { path: 'orders', component: OrderComponent },
-      { path: 'AddOrder', component: AddOrderComponent },
-      { path: 'EditOrder/:order_id', component: EditOrderComponent },
+
+      { path: 'orders', component:OrderComponent },
+      { path: 'AddOrder', component:AddOrderComponent},
+      { path: 'EditOrder/:order_id', component:EditOrderComponent},
+
+      { path: 'order_deliveries', component:OrderdeliveryComponent },
+      // { path: 'AddOrder', component:AddOrderComponent},
+      // { path: 'EditOrder/:order_id', component:EditOrderComponent},
+
+      { path: 'order_details', component:OrderdetailComponent },
+      // { path: 'AddOrder', component:AddOrderComponent},
+      // { path: 'EditOrder/:order_id', component:EditOrderComponent},
 
       { path: 'cart', component: CartpageComponent },
       { path: 'cartadd', component: CartaddComponent },

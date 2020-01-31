@@ -25,6 +25,7 @@ export class SignupDisplayComponent implements OnInit {
       customer_name: new FormControl(null, [Validators.required, Validators.minLength(5), Validators.pattern('[a-zA-z]*')]),
       customer_address: new FormControl(null),
       customer_mobileno: new FormControl(null, [Validators.required, Validators.maxLength(10), Validators.pattern('[0-9]*')])
+
     });
   }
   onSignUp() {
