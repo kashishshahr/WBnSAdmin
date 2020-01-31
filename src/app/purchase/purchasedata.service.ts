@@ -12,7 +12,7 @@ export class PurchasedataService {
   constructor(private _http: HttpClient) { }
 
   getAllPurchase() {
-    return this._http.get(this.url);
+    return this._http.get<purchase[]>(this.url);
   }
   deletePurchase(purchase_id) {
     let x = new HttpHeaders().set(environment.header1, environment.header2);

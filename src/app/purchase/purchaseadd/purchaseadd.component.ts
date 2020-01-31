@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PurchasedataService } from '../purchasedata.service';
+import { purchase } from '../purchase';
+import { prod } from 'WBandS/src/app/product/product';
+import { ProductService } from 'WBandS/src/app/product/product.service';
+import { SupplierdataService } from 'src/app/supplier/supplierdata.service';
+import { supplier } from 'src/app/supplier/supplier';
 
 @Component({
   selector: 'app-purchaseadd',
@@ -11,7 +16,9 @@ import { PurchasedataService } from '../purchasedata.service';
 export class PurchaseaddComponent implements OnInit {
 
   purchaseAddForm: FormGroup;
-  constructor(private _route: Router, private _data: PurchasedataService) { }
+  product_data: prod[];
+  supplier_data: supplier[];
+  constructor(private _route: Router, private _data: PurchasedataService, private pro_data: ProductService, private sup_data: SupplierdataService) { }
 
   ngOnInit() {
     this.purchaseAddForm = new FormGroup({
@@ -19,13 +26,28 @@ export class PurchaseaddComponent implements OnInit {
       purchase_price: new FormControl(null, [Validators.required, Validators.pattern('[0-9]*')]),
       purchase_date: new FormControl(null),
       purchase_id: new FormControl(null),
-      fk_product_id: new FormControl(),
-      fk_supplier_id: new FormControl()
+      fk_product_id: new FormControl(null),
+      fk_supplier_id: new FormControl(null)
     });
+
+    this.pro_data.getAllProduct().subscribe(
+      (data: any[]) => {
+        this.product_data = data;
+        console.log(data);
+      }
+    );
+
+    this.sup_data.getAllSupplier().subscribe(
+      (data: any[]) => {
+        this.supplier_data = data;
+        console.log(data);
+      }
+    );
   }
   onPurchaseAdd() {
+    console.log(this.purchaseAddForm.value);
     this._data.addPurchase(this.purchaseAddForm.value).subscribe(
-      (data: any[]) => {
+      (data: purchase[]) => {
         console.log(data);
         this._route.navigate(['/nav/purchase']);
       }

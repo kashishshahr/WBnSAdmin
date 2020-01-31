@@ -16,9 +16,19 @@
       <td mat-cell *matCellDef="let row"> {{row.purchase_price}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="quantity">
-      <th mat-header-cell *matHeaderCellDef> Purchase Quantity </th>
+    <!-- <ng-container matColumnDef="quantity">
+      <th mat-header-cell *matHeaderCellDef> Quantity </th>
       <td mat-cell *matCellDef="let row"> {{row.quantity}} </td>
+    </ng-container> -->
+
+    <ng-container matColumnDef="product_name">
+      <th mat-header-cell *matHeaderCellDef> Purchase Name </th>
+      <td mat-cell *matCellDef="let row"> {{row.product_name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="supplier_name">
+      <th mat-header-cell *matHeaderCellDef> Supplier Name </th>
+      <td mat-cell *matCellDef="let row"> {{row.supplier_name}} </td>
     </ng-container>
 
     <ng-container matColumnDef="action">
@@ -27,11 +37,11 @@
         <button (click)="onDeletePurchase(row)" mat-mini-fab color="primary"
           aria-label="Example icon-button with a heart icon">
           <mat-icon>delete</mat-icon>
-        </button> |
+        </button>
         <button (click)="onEditPurchase(row.purchase_id)" mat-mini-fab color="primary"
           aria-label="Example icon-button with a heart icon">
           <mat-icon>edit</mat-icon>
-        </button> |
+        </button>
         <button (click)="onViewMore(row)" mat-mini-fab color="primary"
           aria-label="Example icon-button with a heart icon">
           <mat-icon>more</mat-icon>

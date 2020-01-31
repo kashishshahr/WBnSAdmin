@@ -14,7 +14,7 @@ export class PurchaseComponent implements OnInit {
 
   purchase_arr: purchase[];
 
-  displayedColumns: string[] = ['purchase_price', 'quantity', 'action'];
+  displayedColumns: string[] = ['purchase_price', 'product_name', 'supplier_name', 'action'];
   dataSource: MatTableDataSource<purchase>;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
