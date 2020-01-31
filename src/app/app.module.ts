@@ -19,17 +19,26 @@ import { HttpClientModule } from '@angular/common/http';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { HomepageComponent } from './homepage/homepage/homepage.component';
 import { ViewmoreComponent } from './viewmore/viewmore.component';
-import { MatInputModule, MatTableModule, MatDialogModule, MatSelectModule, MatRadioModule, MatCardModule, MatSortModule, MatPaginatorModule } from '@angular/material';
+
+import { MatInputModule, MatTableModule, MatDialogModule, MatPaginatorModule, MatSortModule, MatCardModule } from '@angular/material';
+
 import { MyprofileComponent } from './myprofile/myprofile.component';
 import { EdituserdataComponent } from './signup/edituserdata/edituserdata.component';
 import { ProductComponent } from './product/product.component';
+import { EditproductComponent } from './product/editproduct/editproduct.component';
 import { UsersComponent } from './users/users.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { AddEmployeeComponent } from './employee/add-employee/add-employee.component';
-import { CustomerpageComponent } from './customerpage/customerpage.component';
-import { CustomeraddComponent } from './customerpage/customeradd/customeradd.component';
-import { CustomereditComponent } from './customerpage/customeredit/customeredit.component';
-import { ViewmorecustmoreComponent } from './customerpage/viewmorecustmore/viewmorecustmore.component';
+import { EditemployeeComponent } from './employee/editemployee/editemployee.component';
+import { ViewmoreemployeeComponent } from './employee/viewmoreemployee/viewmoreemployee.component';
+
+import { CustomerComponent } from './customer/customer.component';
+import { EditcustomerComponent } from './customer/editcustomer/editcustomer.component';
+import { ViewmorecustomerComponent } from './customer/viewmorecustomer/viewmorecustomer.component';
+import { OrderComponent } from './order/order.component';
+import { AddOrderComponent } from './order/add-order/add-order.component';
+import { EditOrderComponent } from './order/edit-order/edit-order.component';
+import { ViewmoreorderComponent } from './order/viewmoreorder/viewmoreorder.component';
 import { CartpageComponent } from './cartpage/cartpage.component';
 import { CartaddComponent } from './cartpage/cartadd/cartadd.component';
 import { CarteditComponent } from './cartpage/cartedit/cartedit.component';
@@ -55,7 +64,6 @@ import { PurchaseviewmoreComponent } from './purchase/purchaseviewmore/purchasev
     PagenotfoundComponent,
     HomepageComponent,
     ViewmoreComponent,
-    ViewmorecustmoreComponent,
     MyprofileComponent,
     EdituserdataComponent,
     AddProductComponent,
@@ -63,9 +71,18 @@ import { PurchaseviewmoreComponent } from './purchase/purchaseviewmore/purchasev
     UsersComponent,
     EmployeeComponent,
     AddEmployeeComponent,
-    CustomerpageComponent,
-    CustomeraddComponent,
-    CustomereditComponent,
+    EditemployeeComponent,
+    ViewmoreemployeeComponent,
+    CustomerComponent,
+    EditcustomerComponent,
+
+    EditproductComponent,
+    OrderComponent,
+    AddOrderComponent,
+    EditOrderComponent,
+
+    ViewmorecustomerComponent,
+
     CartpageComponent,
     CartaddComponent,
     CarteditComponent,
@@ -79,7 +96,8 @@ import { PurchaseviewmoreComponent } from './purchase/purchaseviewmore/purchasev
     PurchaseaddComponent,
     PurchaseeditComponent,
     SupplierviewmoreComponent,
-    PurchaseviewmoreComponent
+    PurchaseviewmoreComponent,
+    ViewmoreorderComponent,
   ],
   imports: [
     BrowserModule,
@@ -91,24 +109,28 @@ import { PurchaseviewmoreComponent } from './purchase/purchaseviewmore/purchasev
     ReactiveFormsModule,
     MatIconModule,
     MatButtonModule,
+    MatInputModule,
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
-    MatInputModule,
-    MatSelectModule,
-    MatRadioModule,
-    MatCardModule,
-    MatTableModule,
-    MatSortModule,
+    MatButtonModule,
+
     MatPaginatorModule,
+    MatSortModule,
+    MatTableModule,
     MatDialogModule,
+    MatCardModule,
+    HttpClientModule,
 
   ],
   entryComponents: [
     ViewmoreComponent,
-    ViewmorecustmoreComponent,
     SupplierviewmoreComponent,
-    PurchaseviewmoreComponent
+    PurchaseviewmoreComponent,
+    ViewmoreComponent,
+    ViewmoreemployeeComponent,
+    ViewmorecustomerComponent,
+    ViewmoreorderComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -49,9 +49,9 @@ export class CategorypageComponent implements OnInit {
     }
   }
   onCartAdd() {
-    this._route.navigate(['categoryadd']);
+    this._route.navigate(['/nav/categoryadd']);
   }
   onCategoryEdit(category_id) {
-    this._route.navigate(['categoryedit', category_id]);
+    this._route.navigate(['/nav/categoryedit', category_id]);
   }
 }

@@ -1,0 +1,62 @@
+<div>
+  <div  style="width:220px;height:120px;border:1px solid white ">
+    <img src="http://localhost:3000/images/logo.png" alt="Smiley face" height="100" width="200">
+  <div  class="sign">
+    <button  mat-raised-button style="width: 150px;background-color:darkseagreen;" (click)="onAddOrder()">AddOrder</button>
+  </div>
+  </div>
+    <hr class="new1">
+  </div>
+
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+
+      <!-- ID Column -->
+      <!-- <ng-container matColumnDef="order_id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>order_id</th>
+        <td mat-cell *matCellDef="let row"> {{row.order_id}} </td>
+      </ng-container> -->
+
+      <ng-container matColumnDef="order_name">
+        <th style="width: 10px;" mat-header-cell *matHeaderCellDef mat-sort-header>order_status</th>
+        <td mat-cell *matCellDef="let row"> {{row.order_status}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="order_amount">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>order_amount</th>
+        <td mat-cell *matCellDef="let row"> Rs:{{row.order_amount}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="order_date">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>order date</th>
+        <td mat-cell *matCellDef="let row" > {{row.order_date}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Actions </th>
+        <td mat-cell *matCellDef="let row">
+
+          <button mat-fab (click)="onDelete(row)">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button mat-fab class="form-control" (click)="onEditOrder(row)">
+            <mat-icon>edit</mat-icon>
+          </button>
+
+          <button mat-fab (click)="openDialog(row)">
+            <mat-icon>scatter_plot</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+      </tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>

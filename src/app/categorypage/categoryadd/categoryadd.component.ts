@@ -22,7 +22,7 @@ export class CategoryaddComponent implements OnInit {
     this._data.addCategory(this.categoryAddForm.value).subscribe(
       (data: any[]) => {
         console.log(data);
-        this._route.navigate(['/nav/category']);
+        this._route.navigate(['/nav/categories']);
       }
     );
   }

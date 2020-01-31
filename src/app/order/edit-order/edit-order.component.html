@@ -1,0 +1,21 @@
+<form [formGroup]="EditOrderForm" (ngSubmit)="onSubmit()" class="container">
+  <div>
+    <h3>Order Id</h3>
+      <input formControlName="order_id" class="form-control" readonly ><br>
+
+      <h3>Order Amount</h3>
+  <input formControlName="order_amount" class="form-control" type="string"><br>
+  <h3>Date</h3>
+  <input formControlName="order_date" class="form-control" type="string"><br>
+
+  <h3>Order status</h3>
+  <select formControlName="order_status" class="form-control">
+    <option>Done</option>
+    <option>Pending</option>
+  </select>
+<br>
+  <button class="form-control" class="btn btn-primary" type="submit" >Save</button><hr>
+  <button class="btn btn-primary" (click)="onCancel()">Cancel</button>
+  </div>
+  </form>
+

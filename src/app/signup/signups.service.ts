@@ -22,4 +22,23 @@ customerAdd(obj){
   return this._http.post(this.cust_url,body,{headers:head1});
 }
 
+getAllCustomer()
+{
+  return this._http.get(this.cust_url);
+}
+deleteCustomer(c_id)
+{
+  let header=new HttpHeaders().set(environment.header1,environment.header2);
+  return this._http.delete(this.cust_url+c_id,{headers:header});
+}
+getCustomerById(c_id)
+{
+  let header=new HttpHeaders().set(environment.header1,environment.header2);
+  return this._http.get(this.cust_url+c_id,{headers:header});
+}
+updateCustomer(obj)
+{ let body=JSON.stringify(obj);
+  let header=new HttpHeaders().set(environment.header1,environment.header2);
+  return this._http.put(this.cust_url+obj.customer_id,body,{headers:header});
+}
 }

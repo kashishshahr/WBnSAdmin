@@ -22,7 +22,7 @@ export class CategorydataService {
     let x = new HttpHeaders().set(environment.header1, environment.header2);
     return this._http.post(this.url, item);
   }
-  getCategorybyid(category_id: string) {
+  getCategorybyid(category_id) {
     return this._http.get(this.url + category_id);
   }
   updateCategory(item: Category) {

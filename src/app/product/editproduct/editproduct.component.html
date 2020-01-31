@@ -1,10 +1,21 @@
-<form #f="ngForm" (submit)="onSubmit(f)">
+<form [formGroup]="EditProductForm" (submit)="onSubmit()" class="container">
 <div>
-    <input [(ngModel)]="product_id" class="form-control" #id name="id" type="number" readonly value="{{product_id}}"><br>
-<input [(ngModel)]="product_name" class="form-control" #name name="name" type="string" value="{{product_name}}"><br>
-<input [(ngModel)]="product_price" class="form-control" #price name="price" type="number" value={{product_price}}><br>
-<input [(ngModel)]="product_qty" class="form-control" #qty name="qty" type="number" value={{product_qty}}><br>
-<input [(ngModel)]="product_desc"class="form-control" #desc name="desc" type="number" value={{product_desc}}><br>
+    <input formControlName="product_id" class="form-control" readonly ><br>
+    <h3>Product NAME</h3>
+
+<input formControlName="product_name" class="form-control" type="string"><br>
+<h3>Product Price</h3>
+<input formControlName="product_price" class="form-control"type="number"><br>
+<h3>Product QTY</h3>
+<input formControlName="product_qty" class="form-control" type="number" ><br>
+<h3>Product MFG</h3>
+<input formControlName="product_mfg" class="form-control" type="text" ><br>
+<h3>Product Desc</h3>
+<input formControlName="product_desc" class="form-control" type="text"><br>
+<img  width="150px" height="150px" [src]="imageURl">
+
+<input type="file" name="product_img" #p_img1 (change)="onChange($event)">
+
 <button class="btn btn-primary" type="submit" >Save</button><br>
 <button class="btn btn-primary" (click)="onCancel()">Cancel</button>
 </div>

@@ -18,12 +18,14 @@ export class CategoryeditComponent implements OnInit {
 
   ngOnInit() {
     this.category_id = this._activate_route.snapshot.params['category_id'];
-    console.log(this.category_id);
+   // console.log(this.category_id);
     this.CategoryUpdateForm = new FormGroup({
+      category_id:new FormControl,
       category_name: new FormControl(null)
     });
-    this._data.getCategorybyid(this.category_id.toString()).subscribe(
+    this._data.getCategorybyid(this.category_id).subscribe(
       (data: Category[]) => {
+
         this.formDataBind(data[0]);
       }
     );
@@ -31,14 +33,16 @@ export class CategoryeditComponent implements OnInit {
   formDataBind(item: Category) {
     console.log(item);
     this.CategoryUpdateForm.patchValue({
+      category_id:item.category_id,
       category_name: item.category_name
     });
   }
 
-  onCategoryEdit(category_id) {
+  onCategoryEdit() {
     this._data.updateCategory(this.CategoryUpdateForm.value).subscribe(
       (data: Category) => {
-        this._route.navigate(['/nav/category', category_id]);
+        console.log(data[0]);
+        this._route.navigate(['/nav/categories']);
       }
     );
   }

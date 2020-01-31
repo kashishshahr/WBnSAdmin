@@ -21,6 +21,7 @@ export class AddEmployeeComponent implements OnInit {
       }, [this.passwordmatch.bind(this)]),
       user_type: new FormControl('Employee'),
       employee_name: new FormControl(null, [Validators.required, Validators.minLength(5), Validators.pattern('[a-zA-z]*')]),
+      employee_gender:new FormControl(null),
       employee_mobileno: new FormControl(null, [Validators.required, Validators.maxLength(10)]),
       employee_salary: new FormControl(null)
 
@@ -35,6 +36,7 @@ export class AddEmployeeComponent implements OnInit {
 
     let empobj = {
       employee_name: this.addEmpForm.value.employee_name,
+      employee_gender: this.addEmpForm.value.employee_gender,
       employee_mobileno: this.addEmpForm.value.employee_mobileno,
       employee_salary: this.addEmpForm.value.employee_salary,
       fk_user_email: this.addEmpForm.value.user_email
@@ -60,5 +62,10 @@ export class AddEmployeeComponent implements OnInit {
       }
       return null;
     }
+  }
+
+  onClick()
+  {
+    this._route.navigate(['/nav/users']);
   }
 }

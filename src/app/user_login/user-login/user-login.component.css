@@ -1,11 +1,14 @@
 .example-card {
-  width: 400px;
+  width: 500px;
   height:500px;
-  background-color: aliceblue;
   color: black;
   position: relative;
-  top:100px;
-  left:100px;
+  top:20%;
+  left:35%;
+
+  background-color: rgb(231, 226, 226);
+  border-radius: 10%;
+
 }
 
 .example-header-image {
@@ -17,4 +20,12 @@
   position: relative;
   top:100px;
   left:100px;
+}
+
+.showPass
+{
+  color: brown;
+  position: relative;
+  top:10px;
+  left: 100px;
 }

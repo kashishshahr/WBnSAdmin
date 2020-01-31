@@ -1,9 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { HomepagesService } from '../homepages.service';
 import { MatTableDataSource, MatPaginator, MatSort, MatDialog } from '@angular/material';
-import { prod } from 'src/app/product';
+
 import { Router } from '@angular/router';
 import { ViewmoreComponent } from 'src/app/viewmore/viewmore.component';
+import { prod } from 'src/app/product/product';
+import { OrderDataService } from 'src/app/order/order-data.service';
+import { orderClass } from 'src/app/order/order';
 
 @Component({
   selector: 'app-homepage',
@@ -11,39 +14,60 @@ import { ViewmoreComponent } from 'src/app/viewmore/viewmore.component';
   styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent implements OnInit {
-  displayedColumns: string[] = ['product_name','actions'];
+  displayedColumns: string[] = ['product_name', 'actions'];
   dataSource: MatTableDataSource<prod>;
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  constructor(private _prod:HomepagesService,private _route:Router,public _dialog:MatDialog) {
-    this.dataSource=new MatTableDataSource();
-   }
+  constructor(private _prod: HomepagesService, private _order: OrderDataService, private _route: Router, public _dialog: MatDialog) {
+    this.dataSource = new MatTableDataSource();
+  }
+  oc: number = 0;
+  poc: number = 0;
+  doc: number = 0;
+  i: number;
+  orderArray: orderClass[] = [];
+  prodArr: prod[] = [];
 
-   prodArr:prod[]=[];
+  recw:string="50px";
+  rech:number=50;
   ngOnInit() {
     this._prod.getAllProducts().subscribe(
-      (data:prod[])=>{
-        this.prodArr=data;
-        this.dataSource.data=data;
-        this.dataSource.paginator=this.paginator;
-        this.dataSource.sort=this.sort;
+      (data: prod[]) => {
+        this.prodArr = data;
+        this.dataSource.data = data;
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
       }
     );
+
+    this._order.getAllOrders().subscribe(
+      (data: orderClass[]) => {
+        this.orderArray = data;
+        this.oc=data.length;
+        for (this.i = 0; this.i < this.orderArray.length; this.i++) {
+          if (this.orderArray[this.i].order_status == "Pending") {
+            this.poc++;
+          }
+          else if (this.orderArray[this.i].order_status == "Done") {
+            this.doc++;
+          }
+        }
+      });
   }
+
   onSignUpClick()
   {
     this._route.navigate(['signupDisplay']);
   }
-  onLoginClick()
-  {
+
+  onLoginClick() {
     this._route.navigate(['loginDisplay']);
   }
-  openDialog(row)
-  {
-    this._dialog.open(ViewmoreComponent,{
-data:row
+  openDialog(row) {
+    this._dialog.open(ViewmoreComponent, {
+      data: row
     });
   }
 }

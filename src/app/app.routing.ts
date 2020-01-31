@@ -13,9 +13,14 @@ import { ProductComponent } from './product/product.component';
 import { UsersComponent } from './users/users.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { AddEmployeeComponent } from './employee/add-employee/add-employee.component';
-import { CustomerpageComponent } from './customerpage/customerpage.component';
-import { CustomeraddComponent } from './customerpage/customeradd/customeradd.component';
-import { CustomereditComponent } from './customerpage/customeredit/customeredit.component';
+
+import { EditproductComponent } from './product/editproduct/editproduct.component';
+import { OrderComponent } from './order/order.component';
+import { AddOrderComponent } from './order/add-order/add-order.component';
+import { EditOrderComponent } from './order/edit-order/edit-order.component';
+import { EditcustomerComponent } from './customer/editcustomer/editcustomer.component';
+import { EditemployeeComponent } from './employee/editemployee/editemployee.component';
+import { CustomerComponent } from './customer/customer.component';
 import { CartpageComponent } from './cartpage/cartpage.component';
 import { CartaddComponent } from './cartpage/cartadd/cartadd.component';
 import { CategorypageComponent } from './categorypage/categorypage.component';
@@ -32,29 +37,42 @@ const arr: Routes = [
   {
     path: 'nav', canActivate: [UserauthguardService], component: MainNavComponent, children: [
       { path: '', component: HomepageComponent },
-      { path: 'signupDisplay', component: SignupDisplayComponent },
       { path: 'users', component: UsersComponent },
       { path: 'employees', component: EmployeeComponent },
       { path: 'AddEmp', component: AddEmployeeComponent },
+      { path: 'EditEmployee/:employee_id', component: EditemployeeComponent },
+
+      { path: 'customers', component: CustomerComponent },
+      { path: 'signupDisplay', component: SignupDisplayComponent },
+      { path: 'EditCustomer/:customer_id', component: EditcustomerComponent },
+
       { path: 'products', component: ProductComponent },
+      { path: 'AddProduct', component: AddProductComponent },
+      { path: 'EditProduct/:product_id', component: EditproductComponent },
+
       { path: 'HomePage', component: HomepageComponent },
       { path: 'MyProfile', component: MyprofileComponent },
       { path: 'EditUserData', component: EdituserdataComponent },
-      { path: 'AddProduct', component: AddProductComponent },
-      { path: 'customer', component: CustomerpageComponent },
-      { path: 'customeradd', component: CustomeraddComponent },
-      { path: 'customeredit/:customer_id', component: CustomereditComponent },
+
+      { path: 'orders', component: OrderComponent },
+      { path: 'AddOrder', component: AddOrderComponent },
+      { path: 'EditOrder/:order_id', component: EditOrderComponent },
+
       { path: 'cart', component: CartpageComponent },
       { path: 'cartadd', component: CartaddComponent },
-      { path: 'category', component: CategorypageComponent },
+
+      { path: 'categories', component: CategorypageComponent },
       { path: 'categoryadd', component: CategoryaddComponent },
       { path: 'categoryedit/:category_id', component: CategoryeditComponent },
+
       { path: 'supplier', component: SupplierComponent },
       { path: 'supplieradd', component: SupplieraddComponent },
       { path: 'supplieredit/:supplier_id', component: SuppliereditComponent },
+
       { path: 'purchase', component: PurchaseComponent },
       { path: 'purchaseadd', component: PurchaseaddComponent },
       { path: 'purchaseedit/:purchase_id', component: PurchaseeditComponent },
+
       { path: '**', component: PagenotfoundComponent },
     ]
   },

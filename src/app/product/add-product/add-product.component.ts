@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../product.service';
-import { prod } from 'src/app/product';
+import { prod } from '../product';
+
 
 @Component({
   selector: 'app-add-product',
@@ -26,6 +27,8 @@ export class AddProductComponent implements OnInit {
     fd.append('product_name',f.value.product_name);
     fd.append('product_price',f.value.product_price);
     fd.append('product_qty',f.value.product_qty);
+    fd.append('product_mfg',f.value.product_mfg);
+
     fd.append('product_desc',f.value.product_desc);
     fd.append('product_img',this.selectedfile,this.selectedfile.name);
     console.log(fd);

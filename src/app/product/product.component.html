@@ -1,9 +1,14 @@
 <div>
+
   <div  style="width:220px;height:120px;border:1px solid white ">
     <img src="http://localhost:3000/images/logo.png" alt="Smiley face" height="100" width="200">
   <div  class="sign">
     <button  mat-raised-button style="width: 150px;background-color:darkseagreen;" (click)="onAddClick()">AddProduct</button>
   </div>
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+
   </div>
     <hr class="new1">
   </div>
@@ -17,11 +22,19 @@
         <td mat-cell *matCellDef="let row"> {{row.product_name}} </td>
       </ng-container>
 
+      <ng-container matColumnDef="product_mfg">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> mfg </th>
+        <td mat-cell *matCellDef="let row"> {{row.product_mfg}} </td>
+      </ng-container>
+
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Actions </th>
         <td mat-cell *matCellDef="let row">
           <button mat-button (click)="onDelete(row)">
             <mat-icon>delete</mat-icon>
+          </button>|
+          <button mat-button (click)="openEdit(row)">
+            <mat-icon>edit</mat-icon>
           </button>|
           <button mat-button (click)="openDialog(row)">
             <mat-icon>scatter_plot</mat-icon>
@@ -33,6 +46,6 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns;">
       </tr>
     </table>
-
+    <mat-paginator [pageSizeOptions]="[1, 10, 25, 100]"></mat-paginator>
     <!-- <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator> -->
   </div>

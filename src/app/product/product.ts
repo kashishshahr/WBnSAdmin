@@ -4,7 +4,8 @@ export class prod{
   public product_name:string,
   public product_price:number,
   public product_qty:number,
+  public product_mfg:string,
   public product_desc:Text,
-  public img:File){
+  public product_img:string){
   }
 }
