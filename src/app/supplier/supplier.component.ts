@@ -24,7 +24,7 @@ export class SupplierComponent implements OnInit {
   ngOnInit() {
     this._data.getAllSupplier().subscribe(
       (data: supplier[]) => {
-        console.log(data);
+        // console.log(data);
         this.supplier_arr = data;
         this.dataSource.data = data;
         this.dataSource.paginator = this.paginator;
