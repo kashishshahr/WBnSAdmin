@@ -1,0 +1,38 @@
+.book {
+  position: relative;
+  /* background-color: black; */
+  top: 30%;
+  left: 10%;
+  width: 450px;
+  height: 40%;
+  background-size: 450px;
+  background-image: url("../../assets/books.png");
+  background-size: 150;
+
+  background-repeat: no-repeat;
+  font-size: 100px;
+}
+.stationery {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  width: 450px;
+  height: 40%;
+  background-size: 450px;
+  background-image: url("../../assets/stationery.png");
+  background-repeat: no-repeat;
+  font-size: 100px;
+}
+
+.bookb {
+  position: relative;
+  left: 50%;
+  background-color: black;
+  color: blanchedalmond;
+}
+.stationeryb {
+  position: relative;
+  left: 50%;
+  background-color: black;
+  color: blanchedalmond;
+}

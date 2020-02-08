@@ -1,0 +1,24 @@
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td, th {
+  width: fit-content;
+}
+
+div.sign{
+  position: absolute;
+  top:100px;
+  left:300px;
+}
+
+th{
+  font-size: large;
+  color:maroon;
+  border-bottom: solid black;
+}

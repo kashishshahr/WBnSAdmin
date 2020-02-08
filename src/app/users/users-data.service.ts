@@ -25,7 +25,11 @@ private url:string=environment.url+'user/';
     let x=new HttpHeaders().set(environment.header1,environment.header2);
     return this._http.delete(this.url+User_id,{headers:x});
   }
-
+  getUserById(user_email: string) {
+    // console.log(p_id);
+    let x = new HttpHeaders().set(environment.header1, environment.header2);
+    return this._http.get(this.url + user_email, { headers: x });
+  }
   deleteAllUserData(id: userCLass[]) {
     // console.log(id);
     let body = JSON.stringify(id);

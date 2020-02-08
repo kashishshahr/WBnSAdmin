@@ -11,20 +11,22 @@ import { prod } from '../product/product';
 })
 export class ViewmoreComponent implements OnInit {
 
-  constructor(public dialogRef:MatDialogRef<ViewmoreComponent>,
-    @Inject(MAT_DIALOG_DATA) public data:prod,) { }
-  product_name:string="";
-  product_img:string;
-  product_desc:Text;
-  product_price:Number;
+  constructor(public dialogRef: MatDialogRef<ViewmoreComponent>,
+
+    @Inject(MAT_DIALOG_DATA) public data: prod, ) { }
+  product_name: string = "";
+  product_img: string;
+  product_desc: Text;
+  product_price: Number;
 
 
 
   ngOnInit() {
-    this.product_name=this.data.product_name;
-    this.product_img=this.data.product_img;
-    this.product_desc=this.data.product_desc;
-    this.product_price=this.data.product_price;
+    console.log(this.data);
+    this.product_name = this.data.product_name;
+    this.product_img = this.data.product_img;
+    this.product_desc = this.data.product_desc;
+    this.product_price = this.data.product_price;
   }
 
 }

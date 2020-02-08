@@ -1,0 +1,31 @@
+<form [formGroup]="EditBookForm" (submit)="onSubmit()" class="container">
+  <div>
+    <!-- <input formControlName="book_id" class="form-control" readonly ><br> -->
+
+    <h3>Book NAME</h3>
+    <input formControlName="book_name" class="form-control" type="string"><br>
+
+    <h3>Book Category</h3>
+    <select formControlName="fk_cat_id" class="form-control">
+      <option *ngFor="let item of CategoryDataArr" [value]="item.category_id" >
+        {{item.category_name}}</option>
+    </select>
+
+    <h3>Book Price</h3>
+    <input formControlName="book_price" class="form-control" type="number"><br>
+    <h3>Book QUANTITY</h3>
+    <input formControlName="book_qty" class="form-control" type="number"><br>
+    <h3>Standard</h3>
+    <input formControlName="standard" class="form-control" type="text"><br>
+    <h3>Book Description</h3>
+    <input formControlName="book_description" class="form-control" type="text"><br>
+    <h3>Book Publication</h3>
+    <input formControlName="book_publication" class="form-control" type="text"><br>
+
+    <img mat-card-image width="150" height="150" src="{{bookurl}}" >
+    <input type="file" name="book_img" (change)="onChange($event)">
+
+    <button class="btn btn-primary" type="submit">Save</button><br>
+    <button class="btn btn-primary" (click)="onCancel()">Cancel</button>
+  </div>
+</form>

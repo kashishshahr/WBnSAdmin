@@ -1,0 +1,25 @@
+<h1>Sending TO Supplier</h1>
+<br>
+<div class="example-container">
+  <mat-form-field  style="background-color: khaki;">
+    <input readonly  matInput placeholder="Supplier's Email" [formControl]="email" required>
+    <mat-error *ngIf="email.invalid">{{getMailErrorMessage()}}</mat-error>
+  </mat-form-field>
+<br>
+  <mat-form-field>
+    <input matInput [formControl]="subject" placeholder="Subject">
+    <mat-error *ngIf="subject.invalid">{{getErrorMessage()}}</mat-error>
+
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <textarea matInput  [formControl]="message" placeholder="Message For Supplier"></textarea>
+    <mat-error *ngIf="message.invalid">{{getMessageErrorMessage()}}</mat-error>
+
+  </mat-form-field>
+
+  <div class="example-button-row">
+    <button [disabled]="subject.invalid || message.invalid" mat-raised-button color="accent" (click)="onDoneClick()">Send</button>
+
+  </div>
+</div>

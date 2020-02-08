@@ -21,6 +21,7 @@ export class SuppliereditComponent implements OnInit {
     this.supplier_id = this._activate_route.snapshot.params['supplier_id'];
     this.SupplierUpdateForm = new FormGroup({
       supplier_name: new FormControl(null),
+      supplier_email: new FormControl(null),
       supplier_mobileno: new FormControl(null),
       supplier_address: new FormControl(null),
       supplier_desc: new FormControl(null),
@@ -35,6 +36,7 @@ export class SuppliereditComponent implements OnInit {
   formDataBind(item: supplier) {
     this.SupplierUpdateForm.patchValue({
       supplier_name: item.supplier_name,
+      supplier_email: item.supplier_email,
       supplier_mobileno: item.supplier_mobileno,
       supplier_address: item.supplier_address,
       supplier_desc: item.supplier_desc,

@@ -45,7 +45,8 @@ deleteFlag:boolean=false;
 
   onClick() {
     // console.log(this.del_arr);
-    this._emp.deleteAllEmployeeData(this.del_arr).subscribe((data: any) => {
+    this._emp.deleteAllEmployeeData(this.del_arr).subscribe(
+      (data: any) => {
       for (let i = 0; i < this.del_arr.length; i++) {
         if (this.empArr.find(x => x == this.del_arr[i])) {
           this.empArr.splice(this.empArr.indexOf(this.del_arr[i]), 1);
@@ -59,7 +60,7 @@ deleteFlag:boolean=false;
 
   ngOnInit() {
     this._emp.getAllEmployee().subscribe(
-      (data: any) => {
+      (data: empClass[]) => {
         this.dataSource.data = data;
         this.empArr = data;
         this.dataSource.paginator = this.paginator;

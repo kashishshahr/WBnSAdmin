@@ -35,6 +35,10 @@ export class ProductComponent implements OnInit {
       }
     );
   }
+  onProductListClick()
+  {
+    this._route.navigate(['/nav/productList']);
+  }
   del_arr: prod[] = [];
   onChange(item: prod) {
     if (this.del_arr.find(x => x == item)) {
@@ -63,9 +67,6 @@ export class ProductComponent implements OnInit {
         }
       }
     });
-  }
-  onSignUpClick() {
-    this._route.navigate(['/nav/signupDisplay']);
   }
 
   openDialog(row) {
@@ -97,6 +98,7 @@ export class ProductComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
+}
   // constructor(private _Router: Router, private _proddata: ProductService) { }
   // flag: boolean = false;
   // proarr: prod[] = [];
@@ -136,4 +138,4 @@ export class ProductComponent implements OnInit {
   //     }
   //   );
   // }
-}
+

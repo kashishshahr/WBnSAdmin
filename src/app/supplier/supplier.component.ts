@@ -4,6 +4,7 @@ import { MatTableDataSource, MatPaginator, MatSort, MatDialog } from '@angular/m
 import { SupplierdataService } from './supplierdata.service';
 import { Router } from '@angular/router';
 import { SupplierviewmoreComponent } from './supplierviewmore/supplierviewmore.component';
+import { OrdertosupplierComponent } from './ordertosupplier/ordertosupplier.component';
 
 @Component({
   selector: 'app-supplier',
@@ -13,7 +14,7 @@ import { SupplierviewmoreComponent } from './supplierviewmore/supplierviewmore.c
 export class SupplierComponent implements OnInit {
 
   supplier_arr: supplier[];
-  displayedColumns: string[] = ['supplier_name', 'supplier_mobileno', 'action'];
+  displayedColumns: string[] = ['supplier_name','supplier_email', 'supplier_mobileno', 'action'];
   dataSource: MatTableDataSource<supplier>;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -48,6 +49,12 @@ export class SupplierComponent implements OnInit {
         }
       );
     }
+  }
+  onMailClick(row :supplier)
+  {
+    this._dialog.open(OrdertosupplierComponent,{
+      data:row
+    });
   }
   onSupplierAdd() {
     this._router.navigate(['/nav/supplieradd']);

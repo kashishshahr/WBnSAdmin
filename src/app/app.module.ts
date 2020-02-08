@@ -59,6 +59,14 @@ import { PurchaseviewmoreComponent } from './purchase/purchaseviewmore/purchasev
 import { OrderdetailComponent } from './orderdetail/orderdetail.component';
 import { OrderdeliveryComponent } from './orderdelivery/orderdelivery.component';
 import { ViewmorecartpageComponent } from './cartpage/viewmorecartpage/viewmorecartpage.component';
+import { ForgottenPasswordComponent } from './user_login/forgotten-password/forgotten-password.component';
+import { OtppageComponent } from './user_login/forgotten-password/otppage/otppage.component';
+import { BookPageComponent } from './book-page/book-page.component';
+import { ProductsComponent } from './products/products.component';
+import { ViewmorebookComponent } from './book-page/viewmorebook/viewmorebook.component';
+import { BookaddComponent } from './book-page/bookadd/bookadd.component';
+import { BookeditComponent } from './book-page/bookedit/bookedit.component';
+import { OrdertosupplierComponent } from './supplier/ordertosupplier/ordertosupplier.component';
 
 
 
@@ -71,6 +79,7 @@ import { ViewmorecartpageComponent } from './cartpage/viewmorecartpage/viewmorec
     PagenotfoundComponent,
     HomepageComponent,
     ViewmoreComponent,
+    ViewmorebookComponent,
     MyprofileComponent,
     EdituserdataComponent,
     AddProductComponent,
@@ -107,7 +116,16 @@ import { ViewmorecartpageComponent } from './cartpage/viewmorecartpage/viewmorec
     ViewmoreorderComponent,
     OrderdetailComponent,
     OrderdeliveryComponent,
-    ViewmorecartpageComponent
+    ViewmorecartpageComponent,
+
+    ForgottenPasswordComponent,
+    OtppageComponent,
+    BookPageComponent,
+    ProductsComponent,
+    ViewmorebookComponent,
+    BookaddComponent,
+    BookeditComponent,
+    OrdertosupplierComponent
   ],
   imports: [
     BrowserModule,
@@ -123,12 +141,13 @@ import { ViewmorecartpageComponent } from './cartpage/viewmorecartpage/viewmorec
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
+    MatTableModule,
     MatButtonModule,
 MatCheckboxModule,
 MatIconModule,
     MatPaginatorModule,
     MatSortModule,
-    MatTableModule,
+
     MatDialogModule,
     MatCardModule,
 
@@ -136,10 +155,12 @@ MatIconModule,
 
   ],
   entryComponents: [
+    OrdertosupplierComponent,
     ViewmoreComponent,
     SupplierviewmoreComponent,
     PurchaseviewmoreComponent,
     ViewmoreComponent,
+    ViewmorebookComponent,
     ViewmoreemployeeComponent,
     ViewmorecustomerComponent,
     ViewmoreorderComponent,
