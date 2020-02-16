@@ -1,9 +1,9 @@
 export class bookClass{
   public constructor(
-   public book_id:number,
+   public product_id:number,
    public book_name:string,
-   public book_price:number,
-   public book_qty:number,
+   public product_price:number,
+   public product_qty:number,
    public book_img:string,
    public book_publication:string,
    public standard:string,

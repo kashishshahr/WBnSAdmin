@@ -14,8 +14,8 @@ export class ViewmorebookComponent implements OnInit {
   book_name:string="";
   book_img:string;
   book_description:string;
-  book_price:Number;
-  book_qty:number;
+  product_price:Number;
+  product_qty:number;
   book_publication:string;
 standard:string;
 
@@ -24,8 +24,8 @@ standard:string;
     this.book_name=this.data.book_name;
     this.book_img=this.data.book_img;
     this.book_description=this.data.book_description;
-    this.book_price=this.data.book_price;
-    this.book_qty=this.data.book_qty;
+    this.product_price=this.data.product_price;
+    this.product_qty=this.data.product_qty;
     this.book_publication=this.data.book_publication;
 
 this.standard=this.data.standard;

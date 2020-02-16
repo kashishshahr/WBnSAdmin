@@ -18,10 +18,10 @@ catArr:Category[]=[];
   ngOnInit()
   {
     this.bookAddForm=new FormGroup({
-    book_id:new FormControl(null),
+      product_id:new FormControl(null),
     book_name:new FormControl("A"),
-    book_price:new FormControl(3),
-    book_qty:new FormControl(5),
+    product_price:new FormControl(3),
+    product_qty:new FormControl(5),
     fk_cat_id:new FormControl(null),
     book_img:new FormControl(null),
     book_publication:new FormControl("abc"),
@@ -44,8 +44,8 @@ catArr:Category[]=[];
 
     let fd=new FormData();
     fd.append('book_name',this.bookAddForm.value.book_name);
-    fd.append('book_price',this.bookAddForm.value.book_price);
-    fd.append('book_qty',this.bookAddForm.value.book_qty);
+    fd.append('product_price',this.bookAddForm.value.product_price);
+    fd.append('product_qty',this.bookAddForm.value.product_qty);
     fd.append('book_publication',this.bookAddForm.value.book_publication);
     fd.append('standard',this.bookAddForm.value.standard);
     fd.append('book_description',this.bookAddForm.value.book_description);

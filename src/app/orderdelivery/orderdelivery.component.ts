@@ -38,4 +38,15 @@ applyFilter(filterValue: string) {
     this.dataSource.paginator.firstPage();
   }
 }
+openDialog(row) {
+console.log(row);
+
+}
+
+onDelete(row){
+console.log(row);
+}
+onEditOrder(row){
+  console.log(row);
+}
 }

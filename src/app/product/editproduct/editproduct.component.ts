@@ -17,7 +17,7 @@ export class EditproductComponent implements OnInit {
 
   constructor(private _router: Router, private _act: ActivatedRoute, private _proddata: ProductService, private _catData: CategorydataService) { }
   product_id: number;
-  prod_img: String = "";
+
   img1: string = '';
   CategoryDataArr: Category[] = [];
   EditProductForm: FormGroup;
