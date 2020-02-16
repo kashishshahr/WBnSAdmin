@@ -1,6 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { EmployeeDataService } from './employee-data.service';
-import { MatPaginator, MatSort, MatTableDataSource, MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 import { empClass } from './employee';
 import { ViewmoreemployeeComponent } from './viewmoreemployee/viewmoreemployee.component';
 import { Router } from '@angular/router';

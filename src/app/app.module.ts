@@ -21,7 +21,13 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { HomepageComponent } from './homepage/homepage/homepage.component';
 import { ViewmoreComponent } from './viewmore/viewmore.component';
 
-import { MatInputModule,MatTableModule,MatDialogModule, MatPaginatorModule, MatSortModule, MatCardModule, MatCheckbox, MatCheckboxModule} from '@angular/material';
+import { MatCardModule } from '@angular/material/card';
+import { MatCheckbox, MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
 
 
 

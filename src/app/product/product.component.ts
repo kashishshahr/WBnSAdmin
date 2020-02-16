@@ -3,7 +3,10 @@ import { prod } from './product';
 import { ProductService } from './product.service';
 import { ActivatedRoute, RouterModule, Router } from '@angular/router';
 import { ViewmoreComponent } from '../viewmore/viewmore.component';
-import { MatTableDataSource, MatPaginator, MatSort, MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-product',
