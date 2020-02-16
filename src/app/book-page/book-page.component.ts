@@ -82,7 +82,7 @@ export class BookPageComponent implements OnInit {
         this.dataSource.data = this.bookArr;
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
-        console.log(data)
+        // console.log(data)
       }
     );
 

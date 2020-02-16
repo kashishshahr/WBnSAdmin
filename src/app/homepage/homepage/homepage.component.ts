@@ -10,6 +10,8 @@ import { ViewmoreComponent } from 'src/app/viewmore/viewmore.component';
 import { prod } from 'src/app/product/product';
 import { OrderDataService } from 'src/app/order/order-data.service';
 import { orderClass } from 'src/app/order/order';
+import { UsersDataService } from 'src/app/users/users-data.service';
+import { userCLass } from 'src/app/users/users';
 
 @Component({
   selector: 'app-homepage',
@@ -23,18 +25,19 @@ export class HomepageComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  constructor(private _prod: HomepagesService, private _order: OrderDataService, private _route: Router, public _dialog: MatDialog) {
+  constructor(private _prod: HomepagesService, private _order: OrderDataService, private _route: Router, public _dialog: MatDialog, private _user: UsersDataService) {
     this.dataSource = new MatTableDataSource();
   }
   oc: number = 0;
   poc: number = 0;
   doc: number = 0;
   i: number;
+  cc: number = 0;
   orderArray: orderClass[] = [];
   prodArr: prod[] = [];
 
-  recw:string="50px";
-  rech:number=50;
+  recw: string = "50px";
+  rech: number = 50;
   ngOnInit() {
     this._prod.getAllProducts().subscribe(
       (data: prod[]) => {
@@ -48,7 +51,7 @@ export class HomepageComponent implements OnInit {
     this._order.getAllOrders().subscribe(
       (data: orderClass[]) => {
         this.orderArray = data;
-        this.oc=data.length;
+        this.oc = data.length;
         for (this.i = 0; this.i < this.orderArray.length; this.i++) {
           if (this.orderArray[this.i].order_status == "Pending") {
             this.poc++;
@@ -58,10 +61,17 @@ export class HomepageComponent implements OnInit {
           }
         }
       });
+    this._user.getAllUser().subscribe((data: userCLass[]) => {
+      for (this.i = 0; this.i < data.length; this.i++) {
+
+        if (data[this.i].user_type == "visitor") {
+          this.cc++;
+        }
+      }
+    });
   }
 
-  onSignUpClick()
-  {
+  onSignUpClick() {
     this._route.navigate(['signupDisplay']);
   }
 
