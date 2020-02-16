@@ -24,7 +24,7 @@ export class UserLoginComponent implements OnInit {
   onLogin() {
     this._login.login(this.loginForm.value).subscribe(
       (data: any) => {
-        console.log(data);
+        // console.log(data);
         if (data.length == 1) {
           // alert('valid');
           localStorage.setItem('user_email', this.loginForm.get('user_email').value);

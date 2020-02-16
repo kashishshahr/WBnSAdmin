@@ -27,16 +27,12 @@
       <a mat-icon-button matSuffix (click)="onShowPass()" >
       <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
       </a>
-
   <mat-label *ngIf="loginForm.get('user_password').hasError('required') && !loginForm.get('user_password').pristine">Password Should NOT be empty</mat-label>
-
-
-      </mat-card-content>
+  <div class="forgotpass"><a routerLink="/ForgotPassword">Forgot Password?</a></div>
+</mat-card-content>
   <mat-card-actions>
     <button type="submit"  style="width: 380px;" mat-flat-button color="primary">LogIn</button>
   </mat-card-actions>
-
 </form>
-
 </mat-card>
 </body>

@@ -15,6 +15,7 @@ export class SupplieraddComponent implements OnInit {
   ngOnInit() {
     this.supplierAddForm = new FormGroup({
       supplier_name: new FormControl(null, [Validators.required, Validators.minLength(5), Validators.pattern('[a-zA-Z]*')]),
+      supplier_email: new FormControl(null, [Validators.required, Validators.email]),
       supplier_mobileno: new FormControl(null, [Validators.required, Validators.maxLength(10), Validators.pattern('[0-9]*')]),
       supplier_address: new FormControl(null),
       supplier_desc: new FormControl(null)

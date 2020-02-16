@@ -21,9 +21,13 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { HomepageComponent } from './homepage/homepage/homepage.component';
 import { ViewmoreComponent } from './viewmore/viewmore.component';
 
-import { MatInputModule, MatTableModule, MatDialogModule, MatPaginatorModule, MatSortModule, MatCardModule, MatCheckboxModule } from '@angular/material';
-
-
+import { MatCardModule } from '@angular/material/card';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
 
 import { MyprofileComponent } from './myprofile/myprofile.component';
 import { EdituserdataComponent } from './signup/edituserdata/edituserdata.component';
@@ -59,10 +63,21 @@ import { PurchaseaddComponent } from './purchase/purchaseadd/purchaseadd.compone
 import { PurchaseeditComponent } from './purchase/purchaseedit/purchaseedit.component';
 import { PurchaseviewmoreComponent } from './purchase/purchaseviewmore/purchaseviewmore.component';
 import { OrderdeliveryComponent } from './orderdelivery/orderdelivery.component';
+
 import { OrderdetailComponent } from './orderdetail/orderdetail.component';
 import { OrderdeliveryaddComponent } from './orderdelivery/orderdeliveryadd/orderdeliveryadd.component';
 import { OrderdeliveryeditComponent } from './orderdelivery/orderdeliveryedit/orderdeliveryedit.component';
 import { ViewmoreorderdeliveryComponent } from './orderdelivery/viewmoreorderdelivery/viewmoreorderdelivery.component';
+
+import { ForgottenPasswordComponent } from './user_login/forgotten-password/forgotten-password.component';
+import { OtppageComponent } from './user_login/forgotten-password/otppage/otppage.component';
+import { BookPageComponent } from './book-page/book-page.component';
+import { ProductsComponent } from './products/products.component';
+import { ViewmorebookComponent } from './book-page/viewmorebook/viewmorebook.component';
+import { BookaddComponent } from './book-page/bookadd/bookadd.component';
+import { BookeditComponent } from './book-page/bookedit/bookedit.component';
+import { OrdertosupplierComponent } from './supplier/ordertosupplier/ordertosupplier.component';
+
 
 @NgModule({
   declarations: [
@@ -73,6 +88,7 @@ import { ViewmoreorderdeliveryComponent } from './orderdelivery/viewmoreorderdel
     PagenotfoundComponent,
     HomepageComponent,
     ViewmoreComponent,
+    ViewmorebookComponent,
     MyprofileComponent,
     EdituserdataComponent,
     AddProductComponent,
@@ -110,9 +126,21 @@ import { ViewmoreorderdeliveryComponent } from './orderdelivery/viewmoreorderdel
     OrderdetailComponent,
     OrderdeliveryComponent,
     ViewmorecartpageComponent,
+
     OrderdeliveryaddComponent,
     OrderdeliveryeditComponent,
-    ViewmoreorderdeliveryComponent
+    ViewmoreorderdeliveryComponent,
+
+
+    ForgottenPasswordComponent,
+    OtppageComponent,
+    BookPageComponent,
+    ProductsComponent,
+    ViewmorebookComponent,
+    BookaddComponent,
+    BookeditComponent,
+    OrdertosupplierComponent
+
   ],
   imports: [
     BrowserModule,
@@ -128,12 +156,13 @@ import { ViewmoreorderdeliveryComponent } from './orderdelivery/viewmoreorderdel
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
+    MatTableModule,
     MatButtonModule,
     MatCheckboxModule,
     MatIconModule,
     MatPaginatorModule,
     MatSortModule,
-    MatTableModule,
+
     MatDialogModule,
     MatCardModule,
 
@@ -142,10 +171,12 @@ import { ViewmoreorderdeliveryComponent } from './orderdelivery/viewmoreorderdel
 
   ],
   entryComponents: [
+    OrdertosupplierComponent,
     ViewmoreComponent,
     SupplierviewmoreComponent,
     PurchaseviewmoreComponent,
     ViewmoreComponent,
+    ViewmorebookComponent,
     ViewmoreemployeeComponent,
     ViewmorecustomerComponent,
     ViewmoreorderComponent,

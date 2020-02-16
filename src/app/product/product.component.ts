@@ -3,7 +3,10 @@ import { prod } from './product';
 import { ProductService } from './product.service';
 import { ActivatedRoute, RouterModule, Router } from '@angular/router';
 import { ViewmoreComponent } from '../viewmore/viewmore.component';
-import { MatTableDataSource, MatPaginator, MatSort, MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-product',
@@ -35,6 +38,10 @@ export class ProductComponent implements OnInit {
       }
     );
   }
+  onProductListClick()
+  {
+    this._route.navigate(['/nav/productList']);
+  }
   del_arr: prod[] = [];
   onChange(item: prod) {
     if (this.del_arr.find(x => x == item)) {
@@ -60,9 +67,6 @@ export class ProductComponent implements OnInit {
         }
       }
     });
-  }
-  onSignUpClick() {
-    this._route.navigate(['/nav/signupDisplay']);
   }
 
   openDialog(row) {
@@ -94,3 +98,4 @@ export class ProductComponent implements OnInit {
     }
   }
 }
+

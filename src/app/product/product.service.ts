@@ -29,12 +29,12 @@ export class ProductService {
     let x = new HttpHeaders().set(environment.header1, environment.header2);
     return this._http.get(this.url + p_id, { headers: x });
   }
-  updateProductData(item: prod) {
+  updateProductData(product_id,item) {
     // console.log(item);
-    let body = JSON.stringify(item);
-    // console.log(body);
-    let x = new HttpHeaders().set(environment.header1, environment.header2);
-    return this._http.put(this.url + item.product_id, body, { headers: x });
+    // let body = JSON.stringify(item);
+    // let x = new HttpHeaders().set('Content-type', 'application/json');
+    return this._http.put(this.url+product_id, item);
+    // return this._http.post(this.url+item.product_id, item);
   }
 
   deleteAllProductData(id: prod[]) {

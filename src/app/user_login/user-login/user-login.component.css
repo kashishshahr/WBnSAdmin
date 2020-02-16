@@ -29,3 +29,7 @@
   top:10px;
   left: 100px;
 }
+div.forgotpass{
+  color: blue;
+  text-decoration-line: underline;
+}

@@ -1,6 +1,14 @@
 <div *ngIf="prodArr.length<1">
   <img src="./../../assets/Loader.gif">
 </div>
+<div>
+  <button
+    style="width: 150px;; color:black;font-size: 20px;" disabled>Books</button>
+    <button mat-raised-button
+    style="width: fit-content;background-color:red; color:black;font-size: 20px;" (click)="onProductListClick()">Back to Product List</button>
+</div>
+
+
 <mat-form-field>
     <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
   </mat-form-field>

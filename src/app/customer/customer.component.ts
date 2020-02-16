@@ -1,6 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { custClass } from './customer';
-import { MatTableDataSource, MatPaginator, MatSort, MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 import { ViewmorecustomerComponent } from './viewmorecustomer/viewmorecustomer.component';
 import { SignupsService } from '../signup/signups.service';
 import { Router } from '@angular/router';

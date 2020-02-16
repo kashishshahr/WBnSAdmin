@@ -1,5 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatTableDataSource, MatPaginator, MatSort, MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 import { cart } from './cart';
 import { CartdataService } from './cartdata.service';
 import { Router } from '@angular/router';
@@ -29,7 +32,7 @@ export class CartpageComponent implements OnInit {
   {
     this._data.getAllCart().subscribe(
       (data: cart[]) => {
-        console.log(data[0]);
+        // console.log(data[0]);
         this.cart_arr = data;
         this.dataSource.data = data;
         this.dataSource.paginator = this.paginator;

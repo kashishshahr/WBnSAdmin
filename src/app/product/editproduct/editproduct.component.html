@@ -20,6 +20,9 @@
     <input formControlName="product_desc" class="form-control" type="text"><br>
     <img width="150px" height="150px" [src]="imageURL"><br><br>
 
+    <img mat-card-image width="150" height="150" src="{{producturl}}">
+    <input type="file" name="pic" (change)="onChange($event)">
+
     <input type="file" name="product_img" #p_img1 (change)="onChange($event)">
     <br><br>
     <button class="btn btn-primary" type="submit">Save</button> |

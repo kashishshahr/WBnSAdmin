@@ -31,7 +31,7 @@ export class AddProductComponent implements OnInit {
   onSubmit(f) {
     // console.log(f);
     let fd=new FormData();
-    fd.append('product_id',f.value.product_id);
+    fd.append('product_id ',f.value.product_id);
     fd.append('product_name',f.value.product_name);
     fd.append('product_price',f.value.product_price);
     fd.append('product_qty',f.value.product_qty);
