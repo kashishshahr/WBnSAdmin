@@ -3,10 +3,10 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PurchasedataService } from '../purchasedata.service';
 import { purchase } from '../purchase';
-import { prod } from 'WBandS/src/app/product/product';
-import { ProductService } from 'WBandS/src/app/product/product.service';
 import { SupplierdataService } from 'src/app/supplier/supplierdata.service';
 import { supplier } from 'src/app/supplier/supplier';
+import { prod } from 'src/app/product/product';
+import { ProductService } from 'src/app/product/product.service';
 
 @Component({
   selector: 'app-purchaseadd',
@@ -53,7 +53,7 @@ export class PurchaseaddComponent implements OnInit {
       }
     );
   }
-  OnCncel() {
+  OnCancel() {
     this._route.navigate(['/nav/purchase']);
   }
 }

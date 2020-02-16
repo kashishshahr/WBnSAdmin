@@ -14,7 +14,7 @@ import { ViewmorecartpageComponent } from './viewmorecartpage/viewmorecartpage.c
 export class CartpageComponent implements OnInit {
 
   cart_arr: cart[]=[];
-  displayedColumns: string[] = ['cart_id', 'fk_user_email', 'product_name', 'action'];
+  displayedColumns: string[] = ['fk_user_email', 'product_name', 'action'];
   dataSource: MatTableDataSource<cart>;
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;

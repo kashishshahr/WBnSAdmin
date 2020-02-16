@@ -13,7 +13,7 @@ import { MatTableDataSource, MatPaginator, MatSort, MatDialog } from '@angular/m
 export class ProductComponent implements OnInit {
   displayedColumns: string[] = ['product_id', 'product_name', 'cat_name', 'product_mfg', 'product_price', 'actions'];
   dataSource: MatTableDataSource<prod>;
-  deleteFlag:boolean=false;
+  deleteFlag: boolean = false;
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -39,20 +39,17 @@ export class ProductComponent implements OnInit {
   onChange(item: prod) {
     if (this.del_arr.find(x => x == item)) {
       this.del_arr.splice(this.del_arr.indexOf(item), 1);
-      if(this.del_arr.length==0)
-      {
-      this.deleteFlag=false;
+      if (this.del_arr.length == 0) {
+        this.deleteFlag = false;
       }
     }
     else {
       this.del_arr.push(item);
-      this.deleteFlag=true;
+      this.deleteFlag = true;
     }
-    //console.log(this.del_arr);
   }
 
   onClick() {
-    // console.log(this.del_arr);
     this._prod.deleteAllProductData(this.del_arr).subscribe((data: any) => {
       for (let i = 0; i < this.del_arr.length; i++) {
         if (this.prodArr.find(x => x == this.del_arr[i])) {
@@ -83,7 +80,6 @@ export class ProductComponent implements OnInit {
     let x: number = this.prodArr.indexOf(item);
     this._prod.deleteProduct(item.product_id).subscribe(
       (data: any) => {
-        console.log(data)
         this.prodArr.splice(x, 1);
         this.dataSource.data = this.prodArr;
       }
@@ -97,43 +93,4 @@ export class ProductComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
-  // constructor(private _Router: Router, private _proddata: ProductService) { }
-  // flag: boolean = false;
-  // proarr: prod[] = [];
-
-  // ngOnInit() {
-  //   this._proddata.getAllProduct().subscribe(
-  //     (data: prod[]) => {
-  //       this.proarr = data;
-  //     }
-  //   );
-  // }
-  // onCancel() {
-  //   this.flag = false;
-  // }
-  // onEdit(item) {
-  //   // this._Router.navigate(['editproduct',item.p_id]);
-  //   this._Router.navigate(['editproduct', item.p_id]);
-
-  // }
-
-  // onDisplay() {
-  //   this._Router.navigate(['addProduct']);
-  // }
-  // onAdd(t1: number, t2: string, t3: number, t4: number, t5: number,t6:File) {
-  //   let x: prod = new prod(t1, t2, t3, t4, t5,t6);
-  //   this._proddata.addProduct(x).subscribe(
-  //     (data: any) => {
-  //       this.proarr.push(x);
-  //     }
-  //   ); this.flag = false;
-  // }
-  // onDelete(item) {
-  //   let x: number = this.proarr.indexOf(item);
-  //   this._proddata.deleteProduct(item.p_id).subscribe(
-  //     (data: any) => {
-  //       this.proarr.splice(x, 1);
-  //     }
-  //   );
-  // }
 }

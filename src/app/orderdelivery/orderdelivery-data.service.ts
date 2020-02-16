@@ -12,7 +12,7 @@ export class OrderdeliveryDataService {
   constructor(private _http:HttpClient) { }
   getAllOrder_deliveries()
   {
-    return this._http.get(this.url);
+    return this._http.get<orderDeliveryClass[]>(this.url);
   }
   deleteOrder_delivery(order_delivery_id:number)
   {
@@ -31,7 +31,7 @@ export class OrderdeliveryDataService {
      return this._http.get(this.url + order_delivery_id, { headers: x });
    }
    updateOrder_delivery(item: orderDeliveryClass) {
-     // console.log(item);
+      console.log(item);
      let body = JSON.stringify(item);
      // console.log(body);
      let x = new HttpHeaders().set(environment.header1,environment.header2);

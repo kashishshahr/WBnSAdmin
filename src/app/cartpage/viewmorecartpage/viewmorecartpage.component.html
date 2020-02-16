@@ -1,4 +1,7 @@
-
-<h6>User Type:</h6><p style="color: darkblue;">{{user_type | titlecase}}</p>
-<h6>Product Price:</h6><h1 style="color:darkblue;">{{product_price | currency:'INR'}}</h1>
-
+<h2 style="color:crimson;">
+  Cart Table Details</h2>
+<h5>User Type:</h5>
+<p style="color: darkblue;">{{user_type | titlecase}}</p>
+<h5>Product Price:</h5>
+<p style="color:darkblue;">{{product_price | currency:'INR'}}</p>
+<button type="button" class="btn btn-primary" (click)="onCancel()">Cancel</button>

@@ -58,7 +58,6 @@ export class PurchaseComponent implements OnInit {
     });
   }
   onEditPurchase(purchase_id) {
-    // console.log(row)
     this._router.navigate(['/nav/purchaseedit', purchase_id]);
   }
 

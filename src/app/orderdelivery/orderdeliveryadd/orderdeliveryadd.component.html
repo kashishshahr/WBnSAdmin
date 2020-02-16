@@ -1,0 +1,30 @@
+<div class="container">
+
+  <form [formGroup]="orderDeliveryAddForm" (ngSubmit)="onOrderDeliveryAdd()">
+
+    <select formControlName="fk_order_id">
+      <option *ngFor="let item of order_data" [value]="item.order_id">
+        {{item.order_status}}
+      <option>
+    </select>
+
+    <select formControlName="fk_employee_id">
+      <option *ngFor="let item of employee_data" [value]="item.employee_id">
+        {{item.employee_name}}
+      <option>
+    </select>
+
+    <div class="form-group">
+      <input class="form-control" type="date" placeholder="Enter Date" formControlName="delivery_date">
+    </div>
+
+    <div class="form-group">
+      <input class="form-control" placeholder="Enter comment" formControlName="comment">
+    </div>
+
+    <div class="form-group">
+      <button [disabled]="!orderDeliveryAddForm.valid" type="submit" class="btn btn-primary">Add Purchase</button> |
+      <button (click)="OnCancel()" class="btn btn-primary">Cancel</button>
+    </div>
+  </form>
+</div>

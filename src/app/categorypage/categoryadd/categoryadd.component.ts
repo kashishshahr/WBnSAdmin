@@ -26,6 +26,9 @@ export class CategoryaddComponent implements OnInit {
       }
     );
   }
+  onCancel() {
+    this._route.navigate(['/nav/categories']);
+  }
 }
 
 
