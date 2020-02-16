@@ -20,19 +20,23 @@ export class EditproductComponent implements OnInit {
 
   img1: string = '';
   CategoryDataArr: Category[] = [];
+
+  // URl: String = "http://localhost:3000/images";
+  // imageURL: string;
+
   EditProductForm: FormGroup;
   producturl: string = "http://localhost:3000/";
 
   ngOnInit() {
 
-    this.product_id = this._act.snapshot.params['product_id'];
+    this.product_id = this._act.snapshot.params['product_id']
     this.EditProductForm = new FormGroup({
-      product_id: new FormControl,
+      product_id: new FormControl(null),
       product_name: new FormControl(null, [Validators.required]),
       fk_cat_id: new FormControl(null),
       product_price: new FormControl(null),
       product_qty: new FormControl(null),
-      product_mfg: new FormControl(null),
+      product_mfg: new FormControl(),
       product_desc: new FormControl(null),
       product_img: new FormControl(null)
     });
@@ -46,7 +50,6 @@ export class EditproductComponent implements OnInit {
     this._proddata.getProductById(this.product_id).subscribe(
       (data: prod) => {
         this.editProductFormDataBind(data[0]);
-        //console.log(data[0].product_img);
       }
     );
 
@@ -65,6 +68,9 @@ export class EditproductComponent implements OnInit {
       product_desc: item.product_desc,
       product_img: item.product_img
     });
+
+    // this.prod_img = item.product_img;
+    // this.imageURL = this.URl + '/' + this.prod_img;
 
   }
   onSubmit() {
@@ -99,6 +105,10 @@ export class EditproductComponent implements OnInit {
 
   onChange(value) {
     this.selectedfile = <File>value.target.files[0];
+
+    // this.prod_img = this.selectedfile.name;
+    // this.imageURL = this.URl + '/' + this.prod_img;
+    // console.log(this.imageURL);
   }
 
   onCancel() {

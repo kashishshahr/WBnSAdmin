@@ -53,7 +53,7 @@ export class PurchaseaddComponent implements OnInit {
       }
     );
   }
-  OnCncel() {
+  OnCancel() {
     this._route.navigate(['/nav/purchase']);
   }
 }

@@ -1,28 +1,31 @@
 <form [formGroup]="EditProductForm" (submit)="onSubmit()" class="container">
-<div>
-    <input formControlName="product_id" class="form-control" readonly ><br>
-    <h3>Product NAME</h3>
-<input formControlName="product_name" class="form-control" type="string"><br>
+  <div>
 
-<h3>Product Category</h3>
-<select formControlName="fk_cat_id" class="form-control">
-  <option *ngFor="let item of CategoryDataArr" [value]="item.category_id" >
-    {{item.category_name}}</option>
-</select>
+    <h5>Product Name</h5>
+    <input formControlName="product_name" class="form-control" type="string"><br>
 
-<h3>Product Price</h3>
-<input formControlName="product_price" class="form-control"type="number"><br>
-<h3>Product QTY</h3>
-<input formControlName="product_qty" class="form-control" type="number" ><br>
-<h3>Product MFG</h3>
-<input formControlName="product_mfg" class="form-control" type="text" ><br>
-<h3>Product Desc</h3>
-<input formControlName="product_desc" class="form-control" type="text"><br>
+    <h5>Product Category</h5>
+    <select formControlName="fk_cat_id">
+      <option *ngFor="let item of CategoryDataArr" [value]="item.category_id">
+        {{item.category_name}}</option>
+    </select>
 
-<img mat-card-image width="150" height="150" src="{{producturl}}">
-  <input type="file" name="pic" (change)="onChange($event)">
+    <h5>Product Price</h5>
+    <input formControlName="product_price" class="form-control" type="number"><br>
+    <h5>Product Quantity</h5>
+    <input formControlName="product_qty" class="form-control" type="number"><br>
+    <h5>Product MFG</h5>
+    <input formControlName="product_mfg" class="form-control" type="date"><br>
+    <h5>Product Desc</h5>
+    <input formControlName="product_desc" class="form-control" type="text"><br>
+    <img width="150px" height="150px" [src]="imageURL"><br><br>
 
-<button class="btn btn-primary" type="submit" >Save</button><br>
-<button class="btn btn-primary" (click)="onCancel()">Cancel</button>
-</div>
+    <img mat-card-image width="150" height="150" src="{{producturl}}">
+    <input type="file" name="pic" (change)="onChange($event)">
+
+    <input type="file" name="product_img" #p_img1 (change)="onChange($event)">
+    <br><br>
+    <button class="btn btn-primary" type="submit">Save</button> |
+    <button class="btn btn-primary" (click)="onCancel()">Cancel</button>
+  </div>
 </form>

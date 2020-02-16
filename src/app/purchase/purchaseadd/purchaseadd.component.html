@@ -5,8 +5,7 @@
     <div class="form-group">
       <input class="form-control" placeholder="Enter Quantity" formControlName="quantity">
       <label class="alert alert-danger"
-        *ngIf="purchaseAddForm.get('quantity').hasError('required') && !purchaseAddForm.get('quantity').pristine">Name
-        is required</label>
+        *ngIf="purchaseAddForm.get('quantity').hasError('required') && !purchaseAddForm.get('quantity').pristine">Required</label>
       <label class="alert alert-danger"
         *ngIf="purchaseAddForm.get('quantity').hasError('pattern') && !purchaseAddForm.get('quantity').pristine"> Only
         Digit</label>
@@ -14,8 +13,7 @@
     <div class="form-group">
       <input class="form-control" placeholder="Enter Price" formControlName="purchase_price">
       <label class="alert alert-danger"
-        *ngIf="purchaseAddForm.get('purchase_price').hasError('required') && !purchaseAddForm.get('purchase_price').pristine">mobile
-        no is required</label>
+        *ngIf="purchaseAddForm.get('purchase_price').hasError('required') && !purchaseAddForm.get('purchase_price').pristine">Required</label>
       <label class="alert alert-danger" *ngIf="purchaseAddForm.get('purchase_price').hasError('pattern') "> Only
         digits</label>
     </div>
@@ -29,7 +27,6 @@
       <option>
     </select>
 
-
     <select formControlName="fk_supplier_id">
       <option *ngFor="let item of supplier_data" [value]="item.supplier_id">
         {{item.supplier_name}}
@@ -39,7 +36,7 @@
 
     <div class="form-group">
       <button [disabled]="!purchaseAddForm.valid" type="submit" class="btn btn-primary">Add Purchase</button> |
-      <button (click)="OnCncel()" class="btn btn-primary">Cancel</button>
+      <button (click)="OnCancel()" class="btn btn-primary">Cancel</button>
     </div>
   </form>
 </div>

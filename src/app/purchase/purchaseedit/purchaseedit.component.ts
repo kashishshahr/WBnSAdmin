@@ -3,6 +3,10 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { PurchasedataService } from '../purchasedata.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { purchase } from '../purchase';
+import { SupplierdataService } from 'src/app/supplier/supplierdata.service';
+import { prod } from 'src/app/product/product';
+import { supplier } from 'src/app/supplier/supplier';
+import { ProductService } from 'src/app/product/product.service';
 
 @Component({
   selector: 'app-purchaseedit',
@@ -12,8 +16,11 @@ import { purchase } from '../purchase';
 export class PurchaseeditComponent implements OnInit {
 
   purchase_id: number;
+  product_data: prod[];
+  supplier_data: supplier[];
   purchaseEditForm: FormGroup;
-  constructor(private _data: PurchasedataService, private _route: Router, private _activate_route: ActivatedRoute) { }
+  constructor(private _data: PurchasedataService, private _route: Router,
+    private _activate_route: ActivatedRoute, private pro_data: ProductService, private sup_data: SupplierdataService) { }
 
   ngOnInit() {
     this.purchase_id = this._activate_route.snapshot.params['purchase_id'];
@@ -26,6 +33,21 @@ export class PurchaseeditComponent implements OnInit {
       fk_supplier_id: new FormControl(null)
 
     });
+
+    this.pro_data.getAllProduct().subscribe(
+      (data: any[]) => {
+        this.product_data = data;
+        console.log(data);
+      }
+    );
+
+    this.sup_data.getAllSupplier().subscribe(
+      (data: any[]) => {
+        this.supplier_data = data;
+        console.log(data);
+      }
+    );
+
     this._data.getPurchaseById(this.purchase_id.toString()).subscribe(
       (data: purchase[]) => {
         this.formDataBind(data[0]);

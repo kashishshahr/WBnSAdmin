@@ -12,6 +12,19 @@
       <input class="form-control" placeholder="Enter Address" formControlName="purchase_date">
     </div>
 
+    <select formControlName="fk_product_id">
+      <option *ngFor="let item of product_data" [value]="item.product_id">
+        {{item.product_name}}
+      <option>
+    </select>
+
+
+    <select formControlName="fk_supplier_id">
+      <option *ngFor="let item of supplier_data" [value]="item.supplier_id">
+        {{item.supplier_name}}
+      <option>
+    </select>
+
     <div class="form-group">
       <button [disabled]="!purchaseEditForm.valid" type="submit" class="btn btn-primary">Edit Purchase</button> |
       <button (click)="OnCncel()" class="btn btn-primary">Cancel</button>

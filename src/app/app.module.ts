@@ -22,14 +22,13 @@ import { HomepageComponent } from './homepage/homepage/homepage.component';
 import { ViewmoreComponent } from './viewmore/viewmore.component';
 
 import { MatCardModule } from '@angular/material/card';
+
 import {  MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
-
-
 
 import { MyprofileComponent } from './myprofile/myprofile.component';
 import { EdituserdataComponent } from './signup/edituserdata/edituserdata.component';
@@ -42,6 +41,7 @@ import { EditemployeeComponent } from './employee/editemployee/editemployee.comp
 import { ViewmoreemployeeComponent } from './employee/viewmoreemployee/viewmoreemployee.component';
 
 import { CustomerComponent } from './customer/customer.component';
+import { CustomerdataService } from './customer/customerdata.service';
 import { EditcustomerComponent } from './customer/editcustomer/editcustomer.component';
 import { ViewmorecustomerComponent } from './customer/viewmorecustomer/viewmorecustomer.component';
 import { OrderComponent } from './order/order.component';
@@ -51,6 +51,7 @@ import { ViewmoreorderComponent } from './order/viewmoreorder/viewmoreorder.comp
 import { CartpageComponent } from './cartpage/cartpage.component';
 import { CartaddComponent } from './cartpage/cartadd/cartadd.component';
 import { CarteditComponent } from './cartpage/cartedit/cartedit.component';
+import { ViewmorecartpageComponent } from './cartpage/viewmorecartpage/viewmorecartpage.component';
 import { CategorypageComponent } from './categorypage/categorypage.component';
 import { CategoryaddComponent } from './categorypage/categoryadd/categoryadd.component';
 import { CategoryeditComponent } from './categorypage/categoryedit/categoryedit.component';
@@ -62,9 +63,13 @@ import { PurchaseComponent } from './purchase/purchase.component';
 import { PurchaseaddComponent } from './purchase/purchaseadd/purchaseadd.component';
 import { PurchaseeditComponent } from './purchase/purchaseedit/purchaseedit.component';
 import { PurchaseviewmoreComponent } from './purchase/purchaseviewmore/purchaseviewmore.component';
-import { OrderdetailComponent } from './orderdetail/orderdetail.component';
 import { OrderdeliveryComponent } from './orderdelivery/orderdelivery.component';
-import { ViewmorecartpageComponent } from './cartpage/viewmorecartpage/viewmorecartpage.component';
+
+import { OrderdetailComponent } from './orderdetail/orderdetail.component';
+import { OrderdeliveryaddComponent } from './orderdelivery/orderdeliveryadd/orderdeliveryadd.component';
+import { OrderdeliveryeditComponent } from './orderdelivery/orderdeliveryedit/orderdeliveryedit.component';
+import { ViewmoreorderdeliveryComponent } from './orderdelivery/viewmoreorderdelivery/viewmoreorderdelivery.component';
+
 import { ForgottenPasswordComponent } from './user_login/forgotten-password/forgotten-password.component';
 import { OtppageComponent } from './user_login/forgotten-password/otppage/otppage.component';
 import { BookPageComponent } from './book-page/book-page.component';
@@ -73,7 +78,6 @@ import { ViewmorebookComponent } from './book-page/viewmorebook/viewmorebook.com
 import { BookaddComponent } from './book-page/bookadd/bookadd.component';
 import { BookeditComponent } from './book-page/bookedit/bookedit.component';
 import { OrdertosupplierComponent } from './supplier/ordertosupplier/ordertosupplier.component';
-
 
 
 @NgModule({
@@ -124,6 +128,11 @@ import { OrdertosupplierComponent } from './supplier/ordertosupplier/ordertosupp
     OrderdeliveryComponent,
     ViewmorecartpageComponent,
 
+    OrderdeliveryaddComponent,
+    OrderdeliveryeditComponent,
+    ViewmoreorderdeliveryComponent,
+
+
     ForgottenPasswordComponent,
     OtppageComponent,
     BookPageComponent,
@@ -132,6 +141,7 @@ import { OrdertosupplierComponent } from './supplier/ordertosupplier/ordertosupp
     BookaddComponent,
     BookeditComponent,
     OrdertosupplierComponent
+
   ],
   imports: [
     BrowserModule,
@@ -149,8 +159,8 @@ import { OrdertosupplierComponent } from './supplier/ordertosupplier/ordertosupp
     MatListModule,
     MatTableModule,
     MatButtonModule,
-MatCheckboxModule,
-MatIconModule,
+    MatCheckboxModule,
+    MatIconModule,
     MatPaginatorModule,
     MatSortModule,
 
@@ -158,6 +168,7 @@ MatIconModule,
     MatCardModule,
 
     HttpClientModule,
+
 
   ],
   entryComponents: [
@@ -170,7 +181,8 @@ MatIconModule,
     ViewmoreemployeeComponent,
     ViewmorecustomerComponent,
     ViewmoreorderComponent,
-    ViewmorecartpageComponent
+    ViewmorecartpageComponent,
+    ViewmoreorderdeliveryComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

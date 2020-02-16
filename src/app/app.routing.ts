@@ -34,6 +34,11 @@ import { PurchaseaddComponent } from './purchase/purchaseadd/purchaseadd.compone
 import { PurchaseeditComponent } from './purchase/purchaseedit/purchaseedit.component';
 import { OrderdeliveryComponent } from './orderdelivery/orderdelivery.component';
 import { OrderdetailComponent } from './orderdetail/orderdetail.component';
+
+import { OrderdeliveryaddComponent } from './orderdelivery/orderdeliveryadd/orderdeliveryadd.component';
+import { OrderdeliveryeditComponent } from './orderdelivery/orderdeliveryedit/orderdeliveryedit.component';
+import { ViewmoreorderComponent } from './order/viewmoreorder/viewmoreorder.component';
+
 import { ForgottenPasswordComponent } from './user_login/forgotten-password/forgotten-password.component';
 import { OtppageComponent } from './user_login/forgotten-password/otppage/otppage.component';
 import { ProductsComponent } from './products/products.component';
@@ -41,17 +46,18 @@ import { BookPageComponent } from './book-page/book-page.component';
 import { BookaddComponent } from './book-page/bookadd/bookadd.component';
 import { BookeditComponent } from './book-page/bookedit/bookedit.component';
 import { OrdertosupplierComponent } from './supplier/ordertosupplier/ordertosupplier.component';
+
 const arr: Routes = [
   { path: '', component: UserLoginComponent },
-  { path: 'ForgotPassword', component:ForgottenPasswordComponent},
-  { path: 'OtpPage/:uid?', component:OtppageComponent},
+  { path: 'ForgotPassword', component: ForgottenPasswordComponent },
+  { path: 'OtpPage/:uid?', component: OtppageComponent },
 
   {
     path: 'nav', canActivate: [UserauthguardService], component: MainNavComponent, children: [
       { path: '', component: HomepageComponent },
       { path: 'users', component: UsersComponent },
-      { path: 'EditUserData', component:EdituserdataComponent},
-      {path:'MyProfile',component:MyprofileComponent},
+      { path: 'EditUserData', component: EdituserdataComponent },
+      { path: 'MyProfile', component: MyprofileComponent },
 
 
       { path: 'employees', component: EmployeeComponent },
@@ -66,8 +72,8 @@ const arr: Routes = [
       { path: 'AddProduct', component: AddProductComponent },
       { path: 'EditProduct/:product_id', component: EditproductComponent },
 
-      { path: 'productList', component: ProductsComponent},
-      { path: 'books', component: BookPageComponent},
+      { path: 'productList', component: ProductsComponent },
+      { path: 'books', component: BookPageComponent },
       { path: 'AddBook', component: BookaddComponent },
       { path: 'EditBook/:product_id', component: BookeditComponent },
 
@@ -77,17 +83,17 @@ const arr: Routes = [
       { path: 'EditUserData', component: EdituserdataComponent },
 
 
-      { path: 'orders', component:OrderComponent },
-      { path: 'AddOrder', component:AddOrderComponent},
-      { path: 'EditOrder/:order_id', component:EditOrderComponent},
+      { path: 'orders', component: OrderComponent },
+      { path: 'AddOrder', component: AddOrderComponent },
+      { path: 'EditOrder/:order_id', component: EditOrderComponent },
 
-      { path: 'order_deliveries', component:OrderdeliveryComponent },
-      // { path: 'AddOrder', component:AddOrderComponent},
-      // { path: 'EditOrder/:order_id', component:EditOrderComponent},
+      { path: 'order_deliveries/:order_id', component: OrderdeliveryComponent },
+      { path: 'AddOrderdelivery', component: OrderdeliveryaddComponent },
+      { path: 'EditOrderdelivery/:order_delivery_id', component: OrderdeliveryeditComponent },
 
-      { path: 'order_details', component:OrderdetailComponent },
-      // { path: 'AddOrder', component:AddOrderComponent},
-      // { path: 'EditOrder/:order_id', component:EditOrderComponent},
+      { path: 'order_details/:order_id', component: OrderdetailComponent },
+      // { path: 'AddOrderDetail', component: OrderdetailaddComponent },
+      // { path: 'EditOrderDetail/:order_id', component: OrderdetaileditComponent },
 
       { path: 'cart', component: CartpageComponent },
       { path: 'cartadd', component: CartaddComponent },
@@ -99,8 +105,10 @@ const arr: Routes = [
       { path: 'supplier', component: SupplierComponent },
       { path: 'supplieradd', component: SupplieraddComponent },
       { path: 'supplieredit/:supplier_id', component: SuppliereditComponent },
-      { path: 'ordertosuppliers', component:OrdertosupplierComponent },
+      { path: 'ordertosuppliers', component: OrdertosupplierComponent },
 
+
+      { path: 'orderdetails', component: ViewmoreorderComponent },
 
       { path: 'purchase', component: PurchaseComponent },
       { path: 'purchaseadd', component: PurchaseaddComponent },

@@ -3,25 +3,21 @@
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
+      <img src="assets/logo.png" height="60" width="150" allignment="center" >
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
 
-
-      <a mat-list-item routerLink="/nav/HomePage">Home</a>
-
-      <a mat-list-item routerLink='/nav/cart'>Cart</a>
-      <a mat-list-item routerLink='/nav/categories'>Category</a>
-      <a mat-list-item routerLink="/nav/productList">Product management</a>
-      <!-- <a mat-list-item routerLink="/nav/MyProfile">My Profile</a> -->
-      <a mat-list-item routerLink="/nav/users">User management</a>
-      <a mat-list-item routerLink="/nav/supplier">Supplier</a>
-      <a mat-list-item routerLink="/nav/purchase">Purchase</a>
-      <a mat-list-item routerLink="/nav/orders">Order management</a>
+      <a mat-list-item routerLink="/nav/HomePage"><i class="material-icons" >home</i>Home</a>
+      <a mat-list-item routerLink='/nav/cart'><i class="material-icons" >shopping_cart</i>Cart</a>
+      <a mat-list-item routerLink='/nav/categories'><i class="material-icons" >category</i>Category</a>
+      <a mat-list-item routerLink="/nav/productList"><i class="material-icons" >shopping_cart</i>Product management</a>
+      <!-- <a mat-list-item routerLink="/nav/MyProfile"><i class="material-icons" >account_circle</i>My Profile</a> -->
       <a mat-list-item routerLink="/nav/EditUserData">Edit Your Password</a>
-
-      <a mat-list-item routerLink="/nav/order_details">Order Details</a>
-      <a mat-list-item routerLink="/nav/order_deliveries">Order Delivery</a>
-      <a mat-list-item (click)="onLogOut()">Log Out</a>
+      <a mat-list-item routerLink="/nav/users"><i class="material-icons" >people_alt</i>User management</a>
+      <a mat-list-item routerLink="/nav/supplier"><img src="../../assets/supplier.png" height="35" width="35" >Supplier</a>
+      <a mat-list-item routerLink="/nav/purchase"><img src="../../assets/purchase.png" height="27" width="27" >Purchase</a>
+      <a mat-list-item routerLink="/nav/orders"><img src="../../assets/order.png" height="25" width="25" >Order management</a>
+      <a mat-list-item (click)="onLogOut()"><i class="material-icons" >exit_to_app</i>Log Out</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -32,6 +28,7 @@
         mat-icon-button
         (click)="drawer.toggle()"
         *ngIf="isHandset$ | async">
+
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>wbns,Welcome {{user_email | uppercase}}</span>
@@ -39,7 +36,7 @@
     </mat-toolbar>
     <div>
   <div  style="width:220px;height:120px;border:1px solid white ">
-    <img src="http://localhost:3000/images/logo.png" alt="Smiley face" height="100" width="200">
+    <!-- <img src="http://localhost:3000/images/logo.png" alt="Smiley face" height="100" width="200"> -->
   </div>
     <hr class="new1">
   </div>

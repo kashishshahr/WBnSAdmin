@@ -7,7 +7,6 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { orderClass } from './order';
-import { ViewmoreorderComponent } from './viewmoreorder/viewmoreorder.component';
 
 @Component({
   selector: 'app-order',
@@ -16,36 +15,30 @@ import { ViewmoreorderComponent } from './viewmoreorder/viewmoreorder.component'
 })
 export class OrderComponent implements OnInit {
 
-  constructor(private _router: Router, private _order: OrderDataService,private _dialog:MatDialog) { this.dataSource = new MatTableDataSource(); }
-  displayedColumns: string[] = [ 'order_status', 'order_amount', 'order_date', 'actions'];
+  constructor(private _router: Router, private _order: OrderDataService, private _dialog: MatDialog) { this.dataSource = new MatTableDataSource(); }
+  displayedColumns: string[] = ['order_id', 'customer_name', 'order_amount', 'order_date', 'order_status', 'actions'];
   dataSource: MatTableDataSource<orderClass>;
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
   order_id: number;
-  oc:number=0;
   orderArr: orderClass[] = [];
+
   ngOnInit() {
     this._order.getAllOrders().subscribe(
-      (data: orderClass[]) => {
+      (data: any[]) => {
+        console.log(data);
         this.dataSource.data = data;
         this.orderArr = data;
-        // console.log(data);
-        // console.log(this.prodArr)
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
-        // this.oc=data.length;
-        // console.log(this.oc);
-        // console.log(this.orderArr);
       }
     );
 
   }
   openDialog(row) {
-    this._dialog.open(ViewmoreorderComponent, {
-      data: row
-    });
+    this._router.navigate(['/nav/order_details', row.order_id]);
   }
 
   applyFilter(filterValue: string) {
@@ -55,26 +48,8 @@ export class OrderComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
-  onAddOrder()
-  {
-    this._router.navigate(['/nav/AddOrder']);
+  onEditOrder(item) {
+    this._router.navigate(['/nav/EditOrder', item.order_id]);
   }
-  onEditOrder(item)
-  {
-    this._router.navigate(['/nav/EditOrder',item.order_id]);
-  }
-  onDelete(row) {
-    console.log(row.order_id);
-    let x = this.orderArr.indexOf(row)
-    if ((confirm('Are YOu Sure You Wanna Delete ? '))) {
-      this._order.deleteOrder(row.order_id).subscribe(
-        (data: orderClass[]) => {
-          this.orderArr.splice(x, 1);
-          this.dataSource.data = this.orderArr;
-          alert('success');
-        }
-      );
-    }
-    this._router.navigate(['/nav/orders']);
-  }
+
 }
