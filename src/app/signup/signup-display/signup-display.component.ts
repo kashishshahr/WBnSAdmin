@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/fo
 import { SignupsService } from '../signups.service';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-signup-display',
   templateUrl: './signup-display.component.html',
@@ -10,7 +11,10 @@ import { Router } from '@angular/router';
 })
 export class SignupDisplayComponent implements OnInit {
   signUpForm: FormGroup;
+
+
   constructor(private _signup: SignupsService, private _route: Router) { }
+
 
   ngOnInit() {
     this.signUpForm = new FormGroup({
@@ -28,45 +32,46 @@ export class SignupDisplayComponent implements OnInit {
 
     });
   }
-  onSignUp() {
-    console.log(this.signUpForm.value.password_group.user_password);
-    let userobj = {
-      user_email: this.signUpForm.value.user_email,
-      user_password: this.signUpForm.value.password_group.user_password,
-      user_type: this.signUpForm.value.user_type
-    };
-    let customerobj = {
-      customer_name: this.signUpForm.value.customer_name,
-      customer_address: this.signUpForm.value.customer_address,
-      customer_mobileno: this.signUpForm.value.customer_mobileno,
-      fk_user_email: this.signUpForm.value.user_email
-    };
-    // console.log(userobj)
-    this._signup.signUp(userobj).subscribe(
-      (x: any) => {
-        // console.log(x);
-        this._signup.customerAdd(customerobj).subscribe(
-          (y: any) => {
-            // console.log(y);
-            // alert('done');
-            this._route.navigate(['/nav/users']);
-          }
-        );
-      }
-    );
-  }
-  passwordmatch(c: AbstractControl): { [s: string]: boolean } {
-    const pass = c.get('user_password').value;
-    const cpass = c.get('user_confirm_password').value;
-    if (pass != cpass) {
-      return { 'PasswordMatch': true };
+onSignUp() {
+
+  console.log(this.signUpForm.value.password_group.user_password);
+  let userobj = {
+    user_email: this.signUpForm.value.user_email,
+    user_password: this.signUpForm.value.password_group.user_password,
+    user_type: this.signUpForm.value.user_type
+  };
+  let customerobj = {
+    customer_name: this.signUpForm.value.customer_name,
+    customer_address: this.signUpForm.value.customer_address,
+    customer_mobileno: this.signUpForm.value.customer_mobileno,
+    fk_user_email: this.signUpForm.value.user_email
+  };
+  // console.log(userobj)
+  this._signup.signUp(userobj).subscribe(
+    (x: any) => {
+      // console.log(x);
+      this._signup.customerAdd(customerobj).subscribe(
+        (y: any) => {
+          // console.log(y);
+          // alert('done');
+          this._route.navigate(['/nav/users']);
+        }
+      );
     }
-    return null;
-
+  );
+}
+passwordmatch(c: AbstractControl): { [s: string]: boolean } {
+  const pass = c.get('user_password').value;
+  const cpass = c.get('user_confirm_password').value;
+  if (pass != cpass) {
+    return { 'PasswordMatch': true };
   }
+  return null;
 
-  onClick()
-  {
-    this._route.navigate(['/nav/users']);
-  }
+}
+
+onClick()
+{
+  this._route.navigate(['/nav/users']);
+}
 }

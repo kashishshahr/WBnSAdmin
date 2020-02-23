@@ -2,17 +2,20 @@
 <br>
 <div class="example-container">
   <mat-form-field  style="background-color: khaki;">
+    <!-- email -->
     <input readonly  matInput placeholder="Supplier's Email" [formControl]="email" required>
     <mat-error *ngIf="email.invalid">{{getMailErrorMessage()}}</mat-error>
   </mat-form-field>
 <br>
   <mat-form-field>
+    <!-- subject -->
     <input matInput [formControl]="subject" placeholder="Subject">
     <mat-error *ngIf="subject.invalid">{{getErrorMessage()}}</mat-error>
 
   </mat-form-field>
   <br>
   <mat-form-field>
+    <!-- message -->
     <textarea matInput  [formControl]="message" placeholder="Message For Supplier"></textarea>
     <mat-error *ngIf="message.invalid">{{getMessageErrorMessage()}}</mat-error>
 

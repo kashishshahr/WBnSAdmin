@@ -14,23 +14,29 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class CategorypageComponent implements OnInit {
   category_arr: Category[] = [];
-  displayedColumns: string[] = ['cat_id', 'category_name', 'action'];
+  displayedColumns: string[] = ['cat_id', 'category_name', 'category_img','action'];
   dataSource: MatTableDataSource<Category>;
   deleteFlag: boolean = false;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
+  cat_img:string[]=[];
   constructor(private _data: CategorydataService, private _route: Router, private router: Router, public _dialog: MatDialog) {
     this.dataSource = new MatTableDataSource();
   }
-
   ngOnInit() {
     this._data.getAllCategory().subscribe(
       (data: Category[]) => {
         this.category_arr = data;
+
+        for(let i=0;i<this.category_arr.length;i++)
+        {
+          this.cat_img[i]=this.category_arr[i].category_img;
+        }
         this.dataSource.data = data;
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
+        // console.log(this.cat_img)
       }
     );
   }

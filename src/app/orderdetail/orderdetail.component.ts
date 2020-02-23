@@ -52,14 +52,14 @@ export class OrderdetailComponent implements OnInit {
     );
     this._orderDetails.getOrderDetailsByOrderId(this.order_id).subscribe(
       (data1: prod[]) => {
-        // console.log(data1);
+        console.log(this.order_id);
         this.dataSource1.data = data1;
         this.orderDetailByIdArr = data1;
       }
     );
     this._orderDetails.getOrderDeliveryByOrderId(this.order_id).subscribe(
       (data2: any) => {
-
+console.log(data2);
         this.dataSource2.data = data2;
         this.orderDeliveryByIdArr = data2;
       }
