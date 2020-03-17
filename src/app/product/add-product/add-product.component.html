@@ -4,7 +4,7 @@
   <input ngModel class="form-control" #p_price1 name="product_price" type="number" placeholder="Enter price"><br>
   <input ngModel class="form-control" #p_qty1 name="product_qty" type="number" placeholder="Enter qty"><br>
   <input ngModel class="form-control" #p_mfg name="product_mfg" type="date" placeholder="Enter mfg"><br>
-  <select name="fk_cat_id">
+  <select ngModel #cat name="fk_cat_id">
     <option *ngFor="let item of catArr" [value]="item.category_id">{{item.category_name}}</option>
   </select><br><br>
 

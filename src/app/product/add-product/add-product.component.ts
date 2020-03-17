@@ -39,7 +39,7 @@ export class AddProductComponent implements OnInit {
     fd.append('fk_cat_id',f.value.fk_cat_id);
     fd.append('product_desc',f.value.product_desc);
     fd.append('product_img',this.selectedfile,this.selectedfile.name);
-    console.log(fd);
+    console.log(f.value.fk_cat_id);
     this.proddata.addProduct(fd).subscribe(
       (data: prod[]) => {
         // console.log(data);
