@@ -28,7 +28,6 @@ export class OrderComponent implements OnInit {
   ngOnInit() {
     this._order.getAllOrders().subscribe(
       (data: any[]) => {
-        console.log(data);
         this.dataSource.data = data;
         this.orderArr = data;
         this.dataSource.paginator = this.paginator;

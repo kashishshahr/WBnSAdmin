@@ -49,7 +49,7 @@ export class SignupDisplayComponent implements OnInit {
           (y: any) => {
             // console.log(y);
             // alert('done');
-            this._route.navigate(['/nav/users']);
+            this._route.navigate(['/nav/customers']);
           }
         );
       }
@@ -67,6 +67,6 @@ export class SignupDisplayComponent implements OnInit {
 
   onClick()
   {
-    this._route.navigate(['/nav/users']);
+    this._route.navigate(['/nav/customers']);
   }
 }

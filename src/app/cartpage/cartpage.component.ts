@@ -32,7 +32,7 @@ export class CartpageComponent implements OnInit {
   {
     this._data.getAllCart().subscribe(
       (data: cart[]) => {
-        // console.log(data[0]);
+         console.log(data);
         this.cart_arr = data;
         this.dataSource.data = data;
         this.dataSource.paginator = this.paginator;

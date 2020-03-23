@@ -67,6 +67,6 @@ export class AddEmployeeComponent implements OnInit {
 
   onClick()
   {
-    this._route.navigate(['/nav/users']);
+    this._route.navigate(['/nav/employees']);
   }
 }

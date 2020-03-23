@@ -5,6 +5,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { orderDetailClass } from './orderdetail';
+import { orderClass } from '../order/order';
+import { orderDeliveryClass } from '../orderdelivery/orderdelivery';
 
 @Component({
   selector: 'app-orderdetail',
@@ -13,12 +15,18 @@ import { orderDetailClass } from './orderdetail';
 })
 export class OrderdetailComponent implements OnInit {
 
-  constructor(private _router: Router, private _orderDetails: OrderdetailDataService, private _act: ActivatedRoute) { this.dataSource = new MatTableDataSource(); }
+  constructor(private _router: Router, private _orderDetails: OrderdetailDataService, private _act: ActivatedRoute) {
+    this.dataSource = new MatTableDataSource();
+    this.dataSource1 = new MatTableDataSource();
+    this.dataSource2 = new MatTableDataSource();
+  }
 
   displayedColumns: string[] = ['order_id', 'customer_name', 'order_amount', 'order_date', 'order_status'];
   displayedColumns1: string[] = ['product_name', 'quantity', 'product_price'];
   displayedColumns2: string[] = ['delivery_date', 'employee_name', 'employee_mobileno', 'comment'];
-  dataSource: MatTableDataSource<orderDetailClass>;
+  dataSource: MatTableDataSource<orderClass>;
+  dataSource1: MatTableDataSource<orderDetailClass>;
+  dataSource2: MatTableDataSource<orderDeliveryClass>;
 
   orderDetailArr: any[] = [];
   orderDetailByIdArr: any[] = [];
@@ -30,41 +38,28 @@ export class OrderdetailComponent implements OnInit {
 
   ngOnInit() {
     this.order_id = this._act.snapshot.params['order_id'];
-    console.log(this.order_id)
     this._orderDetails.getAllOrder_details(this.order_id).subscribe(
-      (data: any) => {
-        console.log(data)
-        //this.dataSource.data = data;
-        this.orderDetailArr = data;
-        // this.dataSource.paginator = this.paginator;
-        this.dataSource.sort = this.sort;
+      (data: orderClass[]) => {
+        this.dataSource.data = data;
       }
     );
     this._orderDetails.getOrderDetailsByOrderId(this.order_id).subscribe(
       (data1: any) => {
-
-        this.dataSource.data = data1;
-        this.orderDetailByIdArr = data1;
-        // this.dataSource1.paginator = this.paginator;
-        this.dataSource.sort = this.sort;
+        this.dataSource1.data = data1;
       }
     );
     this._orderDetails.getOrderDeliveryByOrderId(this.order_id).subscribe(
       (data2: any) => {
-
-        this.dataSource.data = data2;
-        this.orderDeliveryByIdArr = data2;
-        // this.dataSource1.paginator = this.paginator;
-        this.dataSource.sort = this.sort;
+        this.dataSource2.data = data2;
       }
     );
   }
 
-  applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
+  onStatusUpdate(row) {
+    this._router.navigate(['/nav/EditOrder', row.order_id]);
   }
 
+  onClick() {
+    this._router.navigate(['/nav/orders']);
+  }
 }

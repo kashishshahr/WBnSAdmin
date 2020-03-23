@@ -16,7 +16,7 @@ export class ViewmoreComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: prod, ) { }
   product_name: string = "";
   product_img: string;
-  product_desc: Text;
+  product_desc: string;
   product_price: Number;
 
 

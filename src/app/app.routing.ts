@@ -16,7 +16,6 @@ import { AddEmployeeComponent } from './employee/add-employee/add-employee.compo
 
 import { EditproductComponent } from './product/editproduct/editproduct.component';
 import { OrderComponent } from './order/order.component';
-import { AddOrderComponent } from './order/add-order/add-order.component';
 import { EditOrderComponent } from './order/edit-order/edit-order.component';
 import { EditcustomerComponent } from './customer/editcustomer/editcustomer.component';
 import { EditemployeeComponent } from './employee/editemployee/editemployee.component';
@@ -34,10 +33,6 @@ import { PurchaseaddComponent } from './purchase/purchaseadd/purchaseadd.compone
 import { PurchaseeditComponent } from './purchase/purchaseedit/purchaseedit.component';
 import { OrderdeliveryComponent } from './orderdelivery/orderdelivery.component';
 import { OrderdetailComponent } from './orderdetail/orderdetail.component';
-
-import { OrderdeliveryaddComponent } from './orderdelivery/orderdeliveryadd/orderdeliveryadd.component';
-import { OrderdeliveryeditComponent } from './orderdelivery/orderdeliveryedit/orderdeliveryedit.component';
-import { ViewmoreorderComponent } from './order/viewmoreorder/viewmoreorder.component';
 
 import { ForgottenPasswordComponent } from './user_login/forgotten-password/forgotten-password.component';
 import { OtppageComponent } from './user_login/forgotten-password/otppage/otppage.component';
@@ -84,16 +79,9 @@ const arr: Routes = [
 
 
       { path: 'orders', component: OrderComponent },
-      { path: 'AddOrder', component: AddOrderComponent },
       { path: 'EditOrder/:order_id', component: EditOrderComponent },
-
-      { path: 'order_deliveries/:order_id', component: OrderdeliveryComponent },
-      { path: 'AddOrderdelivery', component: OrderdeliveryaddComponent },
-      { path: 'EditOrderdelivery/:order_delivery_id', component: OrderdeliveryeditComponent },
-
       { path: 'order_details/:order_id', component: OrderdetailComponent },
-      // { path: 'AddOrderDetail', component: OrderdetailaddComponent },
-      // { path: 'EditOrderDetail/:order_id', component: OrderdetaileditComponent },
+      { path: 'order_delivery', component: OrderdeliveryComponent },
 
       { path: 'cart', component: CartpageComponent },
       { path: 'cartadd', component: CartaddComponent },
@@ -106,9 +94,6 @@ const arr: Routes = [
       { path: 'supplieradd', component: SupplieraddComponent },
       { path: 'supplieredit/:supplier_id', component: SuppliereditComponent },
       { path: 'ordertosuppliers', component: OrdertosupplierComponent },
-
-
-      { path: 'orderdetails', component: ViewmoreorderComponent },
 
       { path: 'purchase', component: PurchaseComponent },
       { path: 'purchaseadd', component: PurchaseaddComponent },

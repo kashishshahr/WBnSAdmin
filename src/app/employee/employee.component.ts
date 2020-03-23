@@ -14,9 +14,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./employee.component.css']
 })
 export class EmployeeComponent implements OnInit {
-  displayedColumns: string[] = ['employee_id','employee_name', 'employee_gender', 'actions'];
+  displayedColumns: string[] = ['employee_id', 'employee_name', 'employee_gender', 'actions'];
   dataSource: MatTableDataSource<empClass>;
-deleteFlag:boolean=false;
+  deleteFlag: boolean = false;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
@@ -34,14 +34,13 @@ deleteFlag:boolean=false;
   onChange(item: empClass) {
     if (this.del_arr.find(x => x == item)) {
       this.del_arr.splice(this.del_arr.indexOf(item), 1);
-      if(this.del_arr.length==0)
-      {
-      this.deleteFlag=false;
+      if (this.del_arr.length == 0) {
+        this.deleteFlag = false;
       }
     }
     else {
       this.del_arr.push(item);
-      this.deleteFlag=true;
+      this.deleteFlag = true;
     }
     // console.log(this.del_arr);
   }
@@ -50,15 +49,15 @@ deleteFlag:boolean=false;
     // console.log(this.del_arr);
     this._emp.deleteAllEmployeeData(this.del_arr).subscribe(
       (data: any) => {
-      for (let i = 0; i < this.del_arr.length; i++) {
-        if (this.empArr.find(x => x == this.del_arr[i])) {
-          this.empArr.splice(this.empArr.indexOf(this.del_arr[i]), 1);
-          this.dataSource.data = this.empArr;
-          this.dataSource.paginator = this.paginator;
-          this.dataSource.sort = this.sort;
+        for (let i = 0; i < this.del_arr.length; i++) {
+          if (this.empArr.find(x => x == this.del_arr[i])) {
+            this.empArr.splice(this.empArr.indexOf(this.del_arr[i]), 1);
+            this.dataSource.data = this.empArr;
+            this.dataSource.paginator = this.paginator;
+            this.dataSource.sort = this.sort;
+          }
         }
-      }
-    });
+      });
   }
 
   ngOnInit() {
@@ -78,8 +77,7 @@ deleteFlag:boolean=false;
       this.dataSource.paginator.firstPage();
     }
   }
-  onAddEmpClick()
-  {
+  onAddEmpClick() {
     this._route.navigate(['/nav/AddEmp'])
   }
   onDelete(item) {
@@ -93,12 +91,10 @@ deleteFlag:boolean=false;
 
       });
   }
-  onUsersClick()
-  {
+  onUsersClick() {
     this._route.navigate(['/nav/users']);
   }
-  onEdit(item)
-  {
-    this._route.navigate(['/nav/EditEmployee',item.employee_id]);
+  onEdit(item) {
+    this._route.navigate(['/nav/EditEmployee', item.employee_id]);
   }
 }

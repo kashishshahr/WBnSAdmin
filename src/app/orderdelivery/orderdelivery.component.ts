@@ -1,17 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
-import { MatDialog } from '@angular/material/dialog';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { OrderdeliveryDataService } from './orderdelivery-data.service';
-import { orderDeliveryClass } from './orderdelivery';
-import { FormGroup } from '@angular/forms';
-import { OrderdetailDataService } from '../orderdetail/orderdetail-data.service';
-import { orderDetailClass } from '../orderdetail/orderdetail';
-import { OrderDataService } from '../order/order-data.service';
 import { orderClass } from '../order/order';
-import { ViewmoreorderdeliveryComponent } from './viewmoreorderdelivery/viewmoreorderdelivery.component';
+import { EmployeeDataService } from 'src/app/employee/employee-data.service';
+import { empClass } from 'src/app/employee/employee';
 
 @Component({
   selector: 'app-orderdelivery',
@@ -20,64 +12,66 @@ import { ViewmoreorderdeliveryComponent } from './viewmoreorderdelivery/viewmore
 })
 export class OrderdeliveryComponent implements OnInit {
 
-  OrderForm: FormGroup;
-  constructor(private _router: Router, private _dialog: ViewmoreorderdeliveryComponent, private _orderdata: OrderDataService, private _orderDelivery: OrderdeliveryDataService, private _orderDetail: OrderdetailDataService) {
-    this.dataSource = new MatTableDataSource();
-  }
-  displayedColumns: string[] = ['delivery_date', 'comment', 'actions'];
-  dataSource: MatTableDataSource<orderDeliveryClass>;
-  orderArr: orderClass[] = [];
-  orderDetailArr: orderDetailClass[] = [];
-  orderDeliveryArr: orderDeliveryClass[] = [];
-  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
-  @ViewChild(MatSort, { static: true }) sort: MatSort;
+  order_delivery_id: any;
 
-  ngOnInit() {
+  displayedColumnsProduct: string[] = ['check', 'customer_name'];
+  selectedProductArr: number[] = [];
+  dataSourceProduct: MatTableDataSource<orderClass>;
 
-    this._orderdata.getAllOrders().subscribe(
-      (data: any[]) => {
+  displayedColumnsEmployee: string[] = ['check', 'employee_name'];
+  selectedEmployeeID: number = 0;
+  dataSourceEmployee: MatTableDataSource<empClass>;
 
-        this.dataSource.data = data;
-        this.orderDeliveryArr = data;
-        this.dataSource.paginator = this.paginator;
-        this.dataSource.sort = this.sort;
-      });
-    // this._orderDetail.getAllOrder_details().subscribe((data: orderDetailClass[]) => {
-    //   this.dataSource.data = data;
-    //   this.orderDetailArr = data;
-    //   this.dataSource.paginator = this.paginator;
-    //   this.dataSource.sort = this.sort;
-    // });
-
-    // this._orderDelivery.getAllOrder_deliveries().subscribe((data: orderDeliveryClass[]) => {
-    //   this.dataSource.data = data;
-    //   this.orderDeliveryArr = data;
-    //   this.dataSource.paginator = this.paginator;
-    //   this.dataSource.sort = this.sort;
-    // });
+  constructor(private _productAssignedData: OrderdeliveryDataService, private _emp: EmployeeDataService) {
+    this.dataSourceProduct = new MatTableDataSource();
+    this.dataSourceEmployee = new MatTableDataSource();
   }
 
-  onOrder() {
+  ngOnInit(): void {
+    this._productAssignedData.getDeliveryNotByEmp().subscribe(
+      (dataProduct: any[]) => {
+        console.log(dataProduct)
+        this.dataSourceProduct.data = dataProduct;
+      }
+    );
 
+    this._emp.getAllEmployee().subscribe(
+      (dataEmployee: any[]) => {
+        this.dataSourceEmployee.data = dataEmployee;
+      }
+    );
   }
 
-  applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
+  onRadioBtnChangeEmployee(item: number) {
+    this.selectedEmployeeID = item;
+  }
+
+  onCheckboxChangeProduct(item: orderClass) {
+    console.log(item)
+    if (this.selectedProductArr.find(x => x == item.order_id)) {
+      console.log(this.selectedProductArr)
+      this.selectedProductArr.splice(this.selectedProductArr.indexOf(item.order_id), 1);
+    }
+    else {
+      this.selectedProductArr.push(item.order_id);
     }
   }
 
-  onAddOrder() {
-    this._router.navigate(['/nav/AddOrderdelivery']);
+  onSubmit() {
+    if (this.dataSourceProduct.data.length > 0) {
+      let objProductAssigned = {
+        'selectedEmployeeID': this.selectedEmployeeID,
+        'selectedProductArr': this.selectedProductArr
+      };
+
+      this._productAssignedData.addOrder_delivery(objProductAssigned).subscribe(
+        (x: any) => {
+          if (x.insertId > 0) {
+            alert('Successfully Assgined');
+          }
+        });
+
+    }
   }
 
-  onEditOrder(row) {
-    this._router.navigate(['/nav/EditOrderdelivery', row.order_delivery_id]);
-  }
-  // openDialog(row) {
-  //   this._dialog.open(ViewmoreorderdeliveryComponent, {
-  //     data: row
-  //   });
-  // }
 }
