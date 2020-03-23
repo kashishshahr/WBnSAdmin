@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CategorydataService } from '../categorydata.service';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
+import { Category } from '../category';
 
 @Component({
   selector: 'app-categoryadd',
@@ -17,11 +18,23 @@ export class CategoryaddComponent implements OnInit {
       category_name: new FormControl(null, [Validators.required])
     });
   }
-  onCategoryAdd() {
+
+  selectedfile:File=null;
+
+  onChange(value){
+    this.selectedfile=<File>value.target.files[0];
+  }
+  onSubmit() {
+    // console.log(f);
+    let fd=new FormData();
+    fd.append('category_id ',this.categoryAddForm.value.category_id);
+    fd.append('category_name',this.categoryAddForm.value.category_name);
+    fd.append('category_img',this.selectedfile,this.selectedfile.name);
+
     console.log(this.categoryAddForm.value);
-    this._data.addCategory(this.categoryAddForm.value).subscribe(
-      (data: any[]) => {
-        console.log(data);
+    this._data.addCategory(fd).subscribe(
+      (data: Category[]) => {
+        // console.log(data);
         this._route.navigate(['/nav/categories']);
       }
     );

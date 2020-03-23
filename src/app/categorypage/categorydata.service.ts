@@ -26,10 +26,11 @@ export class CategorydataService {
   getCategorybyid(category_id) {
     return this._http.get(this.url + category_id);
   }
-  updateCategory(item: Category) {
-    let body = JSON.stringify(item);
-    let head1 = new HttpHeaders().set(environment.header1, environment.header2);
-    return this._http.put(this.url + item.category_id, body, { headers: head1 });
+  updateCategory(category_id,item) {
+    // let body = JSON.stringify(item);
+    // let head1 = new HttpHeaders().set(environment.header1, environment.header2);
+    // return this._http.put(this.url + item.category_id, body, { headers: head1 });
+    return this._http.put(this.url+category_id, item);
   }
   deleteAllCategoryData(id)
   {

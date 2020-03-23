@@ -15,7 +15,7 @@ import { ViewmorebookComponent } from './viewmorebook/viewmorebook.component';
 })
 export class BookPageComponent implements OnInit {
 
-  displayedColumns: string[] = ['checkbox', 'book_name','book_id', 'book_price', 'book_qty', 'book_description', 'actions'];
+  displayedColumns: string[] = ['checkbox', 'book_name','product_id', 'product_price', 'product_qty', 'book_description', 'actions'];
   dataSource: MatTableDataSource<bookClass>;
   deleteFlag: boolean = false;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
@@ -82,7 +82,7 @@ export class BookPageComponent implements OnInit {
         this.dataSource.data = this.bookArr;
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
-        console.log(data)
+        // console.log(data)
       }
     );
 
@@ -99,12 +99,12 @@ export class BookPageComponent implements OnInit {
     this._route.navigate(['/nav/AddBook']);
   }
   openEdit(row) {
-    this._route.navigate(['/nav/EditBook/', row.book_id]);
+    this._route.navigate(['/nav/EditBook/', row.product_id]);
   }
 
   onDelete(item) {
     let x: number = this.bookArr.indexOf(item);
-    this._book.deleteBookById(item.book_id).subscribe(
+    this._book.deleteBookById(item.product_id).subscribe(
       (data: any) => {
         console.log(data)
         this.bookArr.splice(x, 1);

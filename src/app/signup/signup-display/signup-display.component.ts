@@ -3,13 +3,16 @@ import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/fo
 import { SignupsService } from '../signups.service';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-signup-display',
   templateUrl: './signup-display.component.html',
   styleUrls: ['./signup-display.component.css']
 })
 export class SignupDisplayComponent implements OnInit {
+
   signUpForm: FormGroup;
+
   constructor(private _signup: SignupsService, private _route: Router) { }
 
   ngOnInit() {
@@ -29,6 +32,7 @@ export class SignupDisplayComponent implements OnInit {
     });
   }
   onSignUp() {
+
     console.log(this.signUpForm.value.password_group.user_password);
     let userobj = {
       user_email: this.signUpForm.value.user_email,
@@ -49,7 +53,7 @@ export class SignupDisplayComponent implements OnInit {
           (y: any) => {
             // console.log(y);
             // alert('done');
-            this._route.navigate(['/nav/customers']);
+            this._route.navigate(['/nav/users']);
           }
         );
       }
@@ -65,8 +69,7 @@ export class SignupDisplayComponent implements OnInit {
 
   }
 
-  onClick()
-  {
-    this._route.navigate(['/nav/customers']);
+  onClick() {
+    this._route.navigate(['/nav/users']);
   }
 }

@@ -1,3 +1,4 @@
+
 export class prod {
   public constructor(
     public product_id: number,
@@ -11,5 +12,6 @@ export class prod {
     public category_name?: string,
     public fk_cat_id?: number
   ) {
+
   }
 }

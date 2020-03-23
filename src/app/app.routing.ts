@@ -70,7 +70,7 @@ const arr: Routes = [
       { path: 'productList', component: ProductsComponent },
       { path: 'books', component: BookPageComponent },
       { path: 'AddBook', component: BookaddComponent },
-      { path: 'EditBook/:book_id', component: BookeditComponent },
+      { path: 'EditBook/:product_id', component: BookeditComponent },
 
 
       { path: 'HomePage', component: HomepageComponent },

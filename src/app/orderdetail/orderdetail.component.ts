@@ -5,8 +5,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { orderDetailClass } from './orderdetail';
-import { orderClass } from '../order/order';
 import { orderDeliveryClass } from '../orderdelivery/orderdelivery';
+import { orderClass } from '../order/order';
 
 @Component({
   selector: 'app-orderdetail',
@@ -28,10 +28,6 @@ export class OrderdetailComponent implements OnInit {
   dataSource1: MatTableDataSource<orderDetailClass>;
   dataSource2: MatTableDataSource<orderDeliveryClass>;
 
-  orderDetailArr: any[] = [];
-  orderDetailByIdArr: any[] = [];
-  orderDeliveryByIdArr: any[] = [];
-  arr: orderDetailClass[];
   order_id: number;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;

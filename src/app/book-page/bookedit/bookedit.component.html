@@ -12,9 +12,9 @@
     </select>
 
     <h3>Book Price</h3>
-    <input formControlName="book_price" class="form-control" type="number"><br>
+    <input formControlName="product_price" class="form-control" type="number"><br>
     <h3>Book QUANTITY</h3>
-    <input formControlName="book_qty" class="form-control" type="number"><br>
+    <input formControlName="product_qty" class="form-control" type="number"><br>
     <h3>Standard</h3>
     <input formControlName="standard" class="form-control" type="text"><br>
     <h3>Book Description</h3>
@@ -23,7 +23,7 @@
     <input formControlName="book_publication" class="form-control" type="text"><br>
 
     <img mat-card-image width="150" height="150" src="{{bookurl}}" >
-    <input type="file" name="book_img" (change)="onChange($event)">
+    <input type="file" name="pic" (change)="onChange($event)">
 
     <button class="btn btn-primary" type="submit">Save</button><br>
     <button class="btn btn-primary" (click)="onCancel()">Cancel</button>
