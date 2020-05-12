@@ -86,10 +86,7 @@ export class EditproductComponent implements OnInit {
     if (this.selectedfile != null) {
       fd.append('pic', this.selectedfile, this.selectedfile.name);
     }
-
-
     else {
-
       fd.append('pic', this.EditProductForm.get('product_img').value);
     }
     fd.append('fk_cat_id', this.EditProductForm.value.fk_cat_id);

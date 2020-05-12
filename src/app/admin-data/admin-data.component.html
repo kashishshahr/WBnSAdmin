@@ -1,0 +1,54 @@
+<div class="grid-container">
+  <h1 class="mat-h1">Dashboard</h1>
+  <mat-grid-list cols="2" rowHeight="500px">
+    <mat-grid-tile colspan="2" rowspan="1">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+
+
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div>
+            <select (change)="onMonthChange($event.target.value)">
+              <option value="JAN">Jan</option>
+              <option value="FEB">Feb</option>
+              <option value="MARCH">March</option>
+
+
+            </select>
+
+            <kendo-chart title="Genderwise Visitors">
+              <kendo-chart-legend position="bottom"></kendo-chart-legend>
+              <kendo-chart-series>
+                <kendo-chart-series-item
+                  type="pie"
+                  [data]="pieData"
+                  field="value"
+                  categoryField="category"
+                  [labels]="{ visible: true, content: labelContent }"
+                >
+                </kendo-chart-series-item>
+              </kendo-chart-series>
+            </kendo-chart>
+      </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="1" rowspan="2">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            card1
+
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div>Card Content Here</div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+  </mat-grid-list>
+</div>

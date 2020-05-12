@@ -78,6 +78,13 @@ import { ViewmorebookComponent } from './book-page/viewmorebook/viewmorebook.com
 import { BookaddComponent } from './book-page/bookadd/bookadd.component';
 import { BookeditComponent } from './book-page/bookedit/bookedit.component';
 import { OrdertosupplierComponent } from './supplier/ordertosupplier/ordertosupplier.component';
+import { ChartsModule } from '@progress/kendo-angular-charts';
+import 'hammerjs';
+import { AdminDataComponent } from './admin-data/admin-data.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatMenuModule } from '@angular/material/menu';
+
+
 
 
 @NgModule({
@@ -140,7 +147,8 @@ import { OrdertosupplierComponent } from './supplier/ordertosupplier/ordertosupp
     ViewmorebookComponent,
     BookaddComponent,
     BookeditComponent,
-    OrdertosupplierComponent
+    OrdertosupplierComponent,
+    AdminDataComponent
 
   ],
   imports: [
@@ -168,6 +176,12 @@ import { OrdertosupplierComponent } from './supplier/ordertosupplier/ordertosupp
     MatCardModule,
 
     HttpClientModule,
+
+    ChartsModule,
+
+    MatGridListModule,
+
+    MatMenuModule,
 
 
   ],

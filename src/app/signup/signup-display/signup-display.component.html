@@ -1,6 +1,6 @@
 
   <div class="container">
-    <h1>SignUp</h1>
+    <h1>SignUp Page</h1>
 
     <form [formGroup]="signUpForm" (ngSubmit)="onSignUp()">
 
@@ -23,10 +23,16 @@
       <label class="alert alert-danger" *ngIf="signUpForm.get('customer_name').hasError('required') && !signUpForm.get('customer_name').pristine" >Name is required</label>
       <label class="alert alert-danger" *ngIf="signUpForm.get('customer_name').hasError('minlength') && !signUpForm.get('customer_name').pristine" >Name shoul be > 5</label>
       <label class="alert alert-danger" *ngIf="signUpForm.get('customer_name').hasError('pattern') && !signUpForm.get('customer_name').pristine" > Only Chars</label>
-
+      </div>
+      <div class="form-group">
+        <input type="radio" value="Male" formControlName="customer_gender">Male
+        <input type="radio" value="Female" formControlName="customer_gender">Female
       </div>
       <div class="form-group">
       <input class="form-control" formControlName="customer_address" placeholder="Enter Your Address">
+      </div>
+      <div>
+        <input type="file" name="customer_photo" (change)="onChange($event)">
       </div>
       <div class="form-group">
         <input class="form-control" maxlength="10" formControlName="customer_mobileno" placeholder="Enter Your Mobile No">

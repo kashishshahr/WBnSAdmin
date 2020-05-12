@@ -46,6 +46,7 @@ import { BookPageComponent } from './book-page/book-page.component';
 import { BookaddComponent } from './book-page/bookadd/bookadd.component';
 import { BookeditComponent } from './book-page/bookedit/bookedit.component';
 import { OrdertosupplierComponent } from './supplier/ordertosupplier/ordertosupplier.component';
+import { AdminDataComponent } from './admin-data/admin-data.component';
 
 const arr: Routes = [
   { path: '', component: UserLoginComponent },
@@ -55,6 +56,7 @@ const arr: Routes = [
   {
     path: 'nav', canActivate: [UserauthguardService], component: MainNavComponent, children: [
       { path: '', component: HomepageComponent },
+      { path: 'adminData', component: AdminDataComponent },
       { path: 'users', component: UsersComponent },
       { path: 'EditUserData', component: EdituserdataComponent },
       { path: 'MyProfile', component: MyprofileComponent },

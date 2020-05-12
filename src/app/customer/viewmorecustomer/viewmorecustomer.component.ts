@@ -12,12 +12,14 @@ export class ViewmorecustomerComponent implements OnInit {
   constructor(private dialogRef:MatDialogRef<ViewmorecustomerComponent>,
     @Inject(MAT_DIALOG_DATA) public data:custClass) { }
     customer_name:string="";
+    customer_gender:string="";
     customer_mobileno:number;
     customer_address:string="";
 
 
   ngOnInit() {
     this.customer_name=this.data.customer_name;
+    this.customer_gender=this.data.customer_gender;
     this.customer_address=this.data.customer_address;
     this.customer_mobileno=this.data.customer_mobileno
   }

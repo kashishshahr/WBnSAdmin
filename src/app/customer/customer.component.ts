@@ -57,16 +57,34 @@ export class CustomerComponent implements OnInit {
     });
   }
 
+m:number=0;
+f:number=0;
 
   ngOnInit() {
     this._sign.getAllCustomer().subscribe(
       (data: any) => {
+        // console.log(data[0].customer_gender);
+        for(let i=0;i<data.length;i++)
+        {
+          console.log(data[i].customer_gender);
+          if(data[i].customer_gender=="Male")
+          {
+            this.m++;
+          }
+          else if(data[i].customer_gender=="Female")
+          {
+            this.f++;
+          }
+        }
+        console.log(this.f);
         this.dataSource.data = data;
         this.custArr = data;
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
       }
+
     );
+
   }
 
   applyFilter(filterValue: string) {
@@ -79,6 +97,7 @@ export class CustomerComponent implements OnInit {
   onAddCustClick() {
     this._route.navigate(['/nav/signupDisplay']);
   }
+  //viewmore
   openDialog(row) {
     this._dialog.open(ViewmorecustomerComponent, {
       data: row
