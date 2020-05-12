@@ -10,11 +10,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./signup-display.component.css']
 })
 export class SignupDisplayComponent implements OnInit {
+
   signUpForm: FormGroup;
 
-
   constructor(private _signup: SignupsService, private _route: Router) { }
-
 
   ngOnInit() {
     this.signUpForm = new FormGroup({
@@ -83,6 +82,7 @@ export class SignupDisplayComponent implements OnInit {
   onChange(value) {
     this.selectedfile = <File>value.target.files[0];
   }
+
   onClick() {
     this._route.navigate(['/nav/users']);
   }

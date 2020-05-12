@@ -21,24 +21,9 @@ export class OrderdetailDataService {
   getOrderDeliveryByOrderId(order_id) {
     return this._http.get(this.orderDelivery + order_id);
   }
-  deleteOrder_detail(order_detail_id: number) {
-    let header = new HttpHeaders().set(environment.header1, environment.header2);
-    return this._http.delete(this.url + order_detail_id, { headers: header });
-  }
-  addOrder_detail(item) {
-    let x = new HttpHeaders().set(environment.header1, environment.header2);
-    let body = JSON.stringify(item);
-    return this._http.post(this.url, body, { headers: x });
-  }
   getOrder_detailById(order_detail_id: number) {
     let x = new HttpHeaders().set(environment.header1, environment.header2);
     return this._http.get(this.url + order_detail_id, { headers: x });
   }
-  updateOrder_detail(item: orderDetailClass) {
-    let body = JSON.stringify(item);
-    let x = new HttpHeaders().set(environment.header1, environment.header2);
-    return this._http.put(this.url + item.order_detail_id, body, { headers: x });
-  }
-
 
 }

@@ -12,5 +12,8 @@ export class orderDeliveryClass {
     public employee_gender?: string,
     public employee_mobileno?: number,
     public employee_salary?: number,
+    public customer_name?: string,
+    public customer_mobileno?: number,
+    public customer_address?: string,
   ) { }
 }

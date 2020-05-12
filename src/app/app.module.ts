@@ -29,6 +29,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
+import { MatRadioModule } from '@angular/material/radio';
 
 import { MyprofileComponent } from './myprofile/myprofile.component';
 import { EdituserdataComponent } from './signup/edituserdata/edituserdata.component';
@@ -44,10 +45,6 @@ import { CustomerComponent } from './customer/customer.component';
 import { CustomerdataService } from './customer/customerdata.service';
 import { EditcustomerComponent } from './customer/editcustomer/editcustomer.component';
 import { ViewmorecustomerComponent } from './customer/viewmorecustomer/viewmorecustomer.component';
-import { OrderComponent } from './order/order.component';
-import { AddOrderComponent } from './order/add-order/add-order.component';
-import { EditOrderComponent } from './order/edit-order/edit-order.component';
-import { ViewmoreorderComponent } from './order/viewmoreorder/viewmoreorder.component';
 import { CartpageComponent } from './cartpage/cartpage.component';
 import { CartaddComponent } from './cartpage/cartadd/cartadd.component';
 import { CarteditComponent } from './cartpage/cartedit/cartedit.component';
@@ -63,12 +60,11 @@ import { PurchaseComponent } from './purchase/purchase.component';
 import { PurchaseaddComponent } from './purchase/purchaseadd/purchaseadd.component';
 import { PurchaseeditComponent } from './purchase/purchaseedit/purchaseedit.component';
 import { PurchaseviewmoreComponent } from './purchase/purchaseviewmore/purchaseviewmore.component';
-import { OrderdeliveryComponent } from './orderdelivery/orderdelivery.component';
 
+import { OrderComponent } from './order/order.component';
+import { EditOrderComponent } from './order/edit-order/edit-order.component';
+import { OrderdeliveryComponent } from './orderdelivery/orderdelivery.component';
 import { OrderdetailComponent } from './orderdetail/orderdetail.component';
-import { OrderdeliveryaddComponent } from './orderdelivery/orderdeliveryadd/orderdeliveryadd.component';
-import { OrderdeliveryeditComponent } from './orderdelivery/orderdeliveryedit/orderdeliveryedit.component';
-import { ViewmoreorderdeliveryComponent } from './orderdelivery/viewmoreorderdelivery/viewmoreorderdelivery.component';
 
 import { ForgottenPasswordComponent } from './user_login/forgotten-password/forgotten-password.component';
 import { OtppageComponent } from './user_login/forgotten-password/otppage/otppage.component';
@@ -111,7 +107,6 @@ import { MatMenuModule } from '@angular/material/menu';
 
     EditproductComponent,
     OrderComponent,
-    AddOrderComponent,
     EditOrderComponent,
 
     ViewmorecustomerComponent,
@@ -130,15 +125,9 @@ import { MatMenuModule } from '@angular/material/menu';
     PurchaseeditComponent,
     SupplierviewmoreComponent,
     PurchaseviewmoreComponent,
-    ViewmoreorderComponent,
     OrderdetailComponent,
     OrderdeliveryComponent,
     ViewmorecartpageComponent,
-
-    OrderdeliveryaddComponent,
-    OrderdeliveryeditComponent,
-    ViewmoreorderdeliveryComponent,
-
 
     ForgottenPasswordComponent,
     OtppageComponent,
@@ -171,10 +160,10 @@ import { MatMenuModule } from '@angular/material/menu';
     MatIconModule,
     MatPaginatorModule,
     MatSortModule,
-
     MatDialogModule,
     MatCardModule,
-
+    MatGridListModule,
+    MatRadioModule,
     HttpClientModule,
 
     ChartsModule,
@@ -185,6 +174,7 @@ import { MatMenuModule } from '@angular/material/menu';
 
 
   ],
+
   entryComponents: [
     OrdertosupplierComponent,
     ViewmoreComponent,
@@ -194,9 +184,7 @@ import { MatMenuModule } from '@angular/material/menu';
     ViewmorebookComponent,
     ViewmoreemployeeComponent,
     ViewmorecustomerComponent,
-    ViewmoreorderComponent,
     ViewmorecartpageComponent,
-    ViewmoreorderdeliveryComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

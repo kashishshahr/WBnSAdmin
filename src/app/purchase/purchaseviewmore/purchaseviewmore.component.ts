@@ -24,7 +24,7 @@ export class PurchaseviewmoreComponent implements OnInit {
     this.price = this._data.purchase_price;
     this.date = this._data.purchase_date;
     this.fk_product_id = this._data.fk_product_id;
-    this.fk_supplier_id = this.fk_supplier_id;
+    this.fk_supplier_id = this._data.fk_supplier_id;
   }
   onCancelClick() {
     this.dialogRef.close();

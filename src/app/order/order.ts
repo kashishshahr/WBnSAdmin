@@ -1,4 +1,3 @@
-import { prod } from '../product/product';
 import { orderDeliveryClass } from '../orderdelivery/orderdelivery';
 import { orderDetailClass } from '../orderdetail/orderdetail';
 
@@ -13,6 +12,7 @@ export class orderClass {
     public customer_address?: string,
     public fk_customer_id?: number,
     public fk_user_email?: string,
+    // public delivery_date: Date,
     public orderdel?: orderDeliveryClass,
     public orderdet?: orderDetailClass
   ) { }

@@ -12,16 +12,6 @@ export class OrderDataService {
   getAllOrders() {
     return this._http.get<orderClass[]>(this.url);
   }
-  deleteOrder(order_id: number) {
-    let header = new HttpHeaders().set(environment.header1, environment.header2);
-    return this._http.delete(this.url + order_id, { headers: header });
-  }
-  addOrder(item) {
-    let x = new HttpHeaders().set(environment.header1, environment.header2);
-    let body = JSON.stringify(item);
-
-    return this._http.post(this.url, body, { headers: x });
-  }
   getOrderById(order_id: number) {
     let x = new HttpHeaders().set(environment.header1, environment.header2);
     return this._http.get(this.url + order_id, { headers: x });

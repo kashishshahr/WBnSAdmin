@@ -18,11 +18,7 @@
     <input formControlName="product_mfg" class="form-control" type="date"><br>
     <h5>Product Desc</h5>
     <input formControlName="product_desc" class="form-control" type="text"><br>
-
-
     <img mat-card-image width="150" height="150" src="{{producturl}}">
-    <input type="file" name="pic" (change)="onChange($event)">
-
     <br><br>
     <button class="btn btn-primary" type="submit">Save</button> |
     <button class="btn btn-primary" (click)="onCancel()">Cancel</button>

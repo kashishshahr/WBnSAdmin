@@ -17,7 +17,7 @@ import { OrdertosupplierComponent } from './ordertosupplier/ordertosupplier.comp
 export class SupplierComponent implements OnInit {
 
   supplier_arr: supplier[];
-  displayedColumns: string[] = ['supplier_name','supplier_email', 'supplier_mobileno', 'action'];
+  displayedColumns: string[] = ['supplier_name', 'supplier_email', 'supplier_mobileno', 'action'];
   dataSource: MatTableDataSource<supplier>;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -53,10 +53,9 @@ export class SupplierComponent implements OnInit {
       );
     }
   }
-  onMailClick(row :supplier)
-  {
-    this._dialog.open(OrdertosupplierComponent,{
-      data:row
+  onMailClick(row: supplier) {
+    this._dialog.open(OrdertosupplierComponent, {
+      data: row
     });
   }
   onSupplierAdd() {
