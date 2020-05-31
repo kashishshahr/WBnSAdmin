@@ -21,7 +21,6 @@ export class CategoryeditComponent implements OnInit {
 
   ngOnInit() {
     this.category_id = this._activate_route.snapshot.params['category_id'];
-    // console.log(this.category_id);
     this.CategoryUpdateForm = new FormGroup({
       category_id: new FormControl,
       category_name: new FormControl(null),
@@ -35,14 +34,12 @@ export class CategoryeditComponent implements OnInit {
     );
   }
   formDataBind(item: Category) {
-    console.log(item);
     this.img1 = item.category_img;
     this.producturl = environment.url + item.category_img;
     this.CategoryUpdateForm.patchValue({
       category_id: item.category_id,
       category_name: item.category_name,
       category_img: item.category_img
-
     });
   }
 
@@ -54,7 +51,6 @@ export class CategoryeditComponent implements OnInit {
 
 
   onCategoryEdit() {
-    console.log(this.CategoryUpdateForm.value);
     let fd = new FormData();
     fd.append('category_name', this.CategoryUpdateForm.value.category_name);
     if (this.selectedfile != null) {
@@ -66,7 +62,6 @@ export class CategoryeditComponent implements OnInit {
     }
     this._data.updateCategory(this.category_id, fd).subscribe(
       (data: Category) => {
-        // console.log(data[0]);
         this._route.navigate(['/nav/categories']);
       }
     );

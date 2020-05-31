@@ -28,7 +28,6 @@ export class SupplierComponent implements OnInit {
   ngOnInit() {
     this._data.getAllSupplier().subscribe(
       (data: supplier[]) => {
-        // console.log(data);
         this.supplier_arr = data;
         this.dataSource.data = data;
         this.dataSource.paginator = this.paginator;
@@ -67,7 +66,6 @@ export class SupplierComponent implements OnInit {
     });
   }
   onEditSupplier(supplier_id) {
-    // console.log(row)
     this._router.navigate(['/nav/supplieredit', supplier_id]);
   }
 }

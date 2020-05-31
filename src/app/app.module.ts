@@ -5,12 +5,6 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainNavComponent } from './main-nav/main-nav.component';
-import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatButtonModule } from '@angular/material/button';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
 import { routingArr } from './app.routing';
 import { SignupDisplayComponent } from './signup/signup-display/signup-display.component';
 import { AddProductComponent } from './product/add-product/add-product.component';
@@ -19,18 +13,24 @@ import { UserLoginComponent } from './user_login/user-login/user-login.component
 import { HttpClientModule } from '@angular/common/http';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { HomepageComponent } from './homepage/homepage/homepage.component';
-import { ViewmoreComponent } from './viewmore/viewmore.component';
+import { ViewmoreComponent } from './product/viewmore/viewmore.component';
 
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 
-import {  MatCheckboxModule } from '@angular/material/checkbox';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { MatTableModule } from '@angular/material/table';
 import { MatRadioModule } from '@angular/material/radio';
-import { MatGridListModule } from '@angular/material';
 
 import { MyprofileComponent } from './myprofile/myprofile.component';
 import { EdituserdataComponent } from './signup/edituserdata/edituserdata.component';
@@ -75,7 +75,11 @@ import { ViewmorebookComponent } from './book-page/viewmorebook/viewmorebook.com
 import { BookaddComponent } from './book-page/bookadd/bookadd.component';
 import { BookeditComponent } from './book-page/bookedit/bookedit.component';
 import { OrdertosupplierComponent } from './supplier/ordertosupplier/ordertosupplier.component';
+import { DashboardpageComponent } from './dashboardpage/dashboardpage.component';
+// import { MatMenuModule } from '@angular/material/menu';
+import { ChartsModule } from '@progress/kendo-angular-charts';
 
+import 'hammerjs';
 
 @NgModule({
   declarations: [
@@ -131,6 +135,7 @@ import { OrdertosupplierComponent } from './supplier/ordertosupplier/ordertosupp
     BookaddComponent,
     BookeditComponent,
     OrdertosupplierComponent,
+    DashboardpageComponent,
 
   ],
   imports: [
@@ -150,14 +155,16 @@ import { OrdertosupplierComponent } from './supplier/ordertosupplier/ordertosupp
     MatTableModule,
     MatButtonModule,
     MatCheckboxModule,
+    MatGridListModule,
     MatIconModule,
     MatPaginatorModule,
     MatSortModule,
     MatDialogModule,
     MatCardModule,
-    MatGridListModule,
     MatRadioModule,
     HttpClientModule,
+    // MatMenuModule,
+    ChartsModule,
   ],
 
   entryComponents: [

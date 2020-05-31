@@ -1,8 +1,15 @@
-<h6> Name:</h6><h1 style="color: darkblue;">{{book_name | titlecase}}</h1>
-<h6>Desc:</h6><p style="color: darkblue;">{{book_description | titlecase}}</p>
-<h6>Price:</h6><h1 style="color:darkblue;">{{product_price | currency:'INR' }}</h1><h6> Name:</h6><h1 style="color: darkblue;">{{book_name | titlecase}}</h1>
-<h6>Qty:</h6><p style="color: darkblue;">{{product_qty}}</p>
-<h6>Publication:</h6><h1 style="color:darkblue;">{{book_publication}}</h1>
-<h6>Standard:</h6><h1 style="color: darkblue;">{{standard}}</h1>
-<h6>Description:</h6><h1 style="color:darkblue;">{{book_description}}</h1>
+<h1>Book Details</h1>
+<p>Book-Id : {{book_id}}</p>
+<p>Book-Name : {{book_name}}</p>
+<p>Book-Price : {{product_price}}</p>
+<p>Book-Quantity : {{product_qty}}</p>
+<p>Book-Description : {{book_description}}</p>
+<p>Book-Category : {{fk_cat_id}}</p>
+<p>Book-Publication : {{book_publication}}</p>
+<p>Book-Standard : {{standard}}</p>
+<p>Book-Image : </p>
 <img src="http://localhost:3000/{{book_img}}" height="130" width="130">
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancelClick()">Cancel</button>
+</div>

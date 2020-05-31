@@ -14,6 +14,7 @@ export class SupplierviewmoreComponent implements OnInit {
   mobileno: number;
   address: string;
   desc: string;
+  email: string;
 
   constructor(public dialogRef: MatDialogRef<SupplierviewmoreComponent>,
     @Inject(MAT_DIALOG_DATA) public _data: supplier) { }
@@ -21,6 +22,7 @@ export class SupplierviewmoreComponent implements OnInit {
   ngOnInit() {
     this.id = this._data.supplier_id;
     this.name = this._data.supplier_name;
+    this.email = this._data.supplier_email;
     this.mobileno = this._data.supplier_mobileno;
     this.address = this._data.supplier_address;
     this.desc = this._data.supplier_desc;

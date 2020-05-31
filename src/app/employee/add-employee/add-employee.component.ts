@@ -22,7 +22,7 @@ export class AddEmployeeComponent implements OnInit {
       user_type: new FormControl('Employee'),
       employee_name: new FormControl(null, [Validators.required, Validators.minLength(5), Validators.pattern('[a-zA-z]*')]),
       employee_gender:new FormControl(null),
-      employee_mobileno: new FormControl(null, [Validators.required, Validators.maxLength(10)]),
+      employee_mobileno: new FormControl(null, [Validators.required, Validators.maxLength(10),Validators.pattern('[0-9]*')]),
       employee_salary: new FormControl(null)
 
     });
@@ -42,10 +42,9 @@ export class AddEmployeeComponent implements OnInit {
       employee_salary: this.addEmpForm.value.employee_salary,
       fk_user_email: this.addEmpForm.value.user_email
     };
-    //console.log(userobj)
+    console.log(empobj)
     this._emp.addUser(userobj).subscribe(
       (x: any) => {
-        // console.log(x);
         this._emp.addEmployee(empobj).subscribe(
           (y: any) => {
             this._route.navigate(['/nav/employees']);

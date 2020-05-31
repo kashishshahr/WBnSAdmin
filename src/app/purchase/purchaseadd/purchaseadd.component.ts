@@ -26,29 +26,25 @@ export class PurchaseaddComponent implements OnInit {
       purchase_price: new FormControl(null, [Validators.required, Validators.pattern('[0-9]*')]),
       purchase_date: new FormControl(null),
       purchase_id: new FormControl(null),
-      fk_product_id: new FormControl(null),
-      fk_supplier_id: new FormControl(null)
+      fk_product_id: new FormControl(null, [Validators.required]),
+      fk_supplier_id: new FormControl(null, [Validators.required])
     });
 
     this.pro_data.getAllProduct().subscribe(
       (data: any[]) => {
         this.product_data = data;
-        console.log(data);
       }
     );
 
     this.sup_data.getAllSupplier().subscribe(
       (data: any[]) => {
         this.supplier_data = data;
-        console.log(data);
       }
     );
   }
   onPurchaseAdd() {
-    console.log(this.purchaseAddForm.value);
     this._data.addPurchase(this.purchaseAddForm.value).subscribe(
       (data: purchase[]) => {
-        console.log(data);
         this._route.navigate(['/nav/purchase']);
       }
     );

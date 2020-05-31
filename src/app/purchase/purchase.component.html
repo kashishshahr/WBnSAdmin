@@ -6,7 +6,7 @@
   <button (click)="onPurchaseAdd()" mat-raised-button color="primary" aria-label="Example icon-button with a heart icon">
   Add Purchase  <mat-icon>add</mat-icon>
   </button>
-</ng-container>
+</ng-container><br><br>
 
 <div class="mat-elevation-z8">
   <table mat-table [dataSource]="dataSource" matSort>
@@ -22,7 +22,7 @@
     </ng-container> -->
 
     <ng-container matColumnDef="product_name">
-      <th mat-header-cell *matHeaderCellDef> Purchase Name </th>
+      <th mat-header-cell *matHeaderCellDef> Product Name </th>
       <td mat-cell *matCellDef="let row"> {{row.product_name}} </td>
     </ng-container>
 

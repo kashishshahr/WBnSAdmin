@@ -19,27 +19,27 @@ export class AddProductComponent implements OnInit {
   // p_price: number;
   // p_qty: number;
   // p_soh: number;
-  catArr:Category[]=[];
-  constructor(private _cat:CategorydataService,private _Router: Router, private proddata: ProductService, private _act: ActivatedRoute) { }
+  catArr: Category[] = [];
+  constructor(private _cat: CategorydataService, private _Router: Router, private proddata: ProductService, private _act: ActivatedRoute) { }
   ngOnInit() {
-    this._cat.getAllCategory().subscribe((data:Category[])=>{
+    this._cat.getAllCategory().subscribe((data: Category[]) => {
       console.log(data);
-      this.catArr=data;
+      this.catArr = data;
     });
   }
 
   onSubmit(f) {
     // console.log(f);
-    let fd=new FormData();
-    fd.append('product_id ',f.value.product_id);
-    fd.append('product_name',f.value.product_name);
-    fd.append('product_price',f.value.product_price);
-    fd.append('product_qty',f.value.product_qty);
-    fd.append('product_mfg',f.value.product_mfg);
-    fd.append('fk_cat_id',f.value.fk_cat_id);
-    fd.append('product_desc',f.value.product_desc);
-    fd.append('product_img',this.selectedfile,this.selectedfile.name);
-    console.log(f.value.fk_cat_id);
+    let fd = new FormData();
+    fd.append('product_id ', f.value.product_id);
+    fd.append('product_name', f.value.product_name);
+    fd.append('product_price', f.value.product_price);
+    fd.append('product_qty', f.value.product_qty);
+    fd.append('product_mfg', f.value.product_mfg);
+    fd.append('fk_cat_id', f.value.fk_cat_id);
+    fd.append('product_desc', f.value.product_desc);
+    fd.append('product_img', this.selectedfile, this.selectedfile.name);
+    console.log(fd);
     this.proddata.addProduct(fd).subscribe(
       (data: prod[]) => {
         // console.log(data);
@@ -52,10 +52,10 @@ export class AddProductComponent implements OnInit {
   }
 
 
-  selectedfile:File=null;
+  selectedfile: File = null;
 
-  onChange(value){
-    this.selectedfile=<File>value.target.files[0];
+  onChange(value) {
+    this.selectedfile = <File>value.target.files[0];
   }
   // onAddtoCart(item) {
   //   this.p_id=item.p_id;

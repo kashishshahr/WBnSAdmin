@@ -1,14 +1,14 @@
-
 <form [formGroup]="CategoryUpdateForm" (ngSubmit)="onCategoryEdit()" class="container">
-  <mat-form-field>
-    <input matInput placeholder="Enter Name" formControlName="category_name"  type="text">
-  </mat-form-field>
-
-  <img mat-card-image width="150" height="150" src="{{producturl}}">
-  <input type="file" name="pic" (change)="onChange($event)">
-
+  <div class="form-group">
+    <mat-label>Name</mat-label><br>
+    <input class="form-control" placeholder="Enter Name" formControlName="category_name" type="text">
+  </div>
   <br>
-
-    <button type="submit" class="btn btn-primary" >Update</button> |
-    <button type="button" class="btn btn-primary" (click)="onCancel()" >Cancel</button>
+  <div>
+    <img mat-card-image width="150" height="150" src="{{producturl}}"><br>
+    <input type="file" name="pic" (change)="onChange($event)">
+  </div>
+  <br>
+  <button type="submit" class="btn btn-primary">Update</button> |
+  <button type="button" class="btn btn-primary" (click)="onCancel()">Cancel</button>
 </form>

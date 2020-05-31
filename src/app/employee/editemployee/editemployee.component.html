@@ -1,23 +1,21 @@
 <form [formGroup]="EditEmployeeForm" (submit)="onEditSubmit()" class="container">
   <div>
-    <h3>employee Name</h3>
-<input formControlName="employee_name" class="form-control" type="text"><br>
+    <label>Employee Name</label>
+    <input formControlName="employee_name" class="form-control" type="text"><br>
 
-<h3>employee Gender</h3>
-<input type="radio" name="employee_gender" value="male" formControlName="employee_gender">Male
-<input type="radio" name="employee_gender" value="female" formControlName="employee_gender">Female
-<input formControlName="employee_gender" class="form-control" type="text"><br>
+    <label>Employee Gender</label><br>
+    <input type="radio" name="employee_gender" value="male" formControlName="employee_gender">Male
+    <input type="radio" name="employee_gender" value="female" formControlName="employee_gender">Female<br><br>
 
-<h3>employee MobileNo</h3>
-<input formControlName="employee_mobileno" class="form-control" type="text" minlength="10" maxlength="10"><br>
+    <label>Employee MobileNo</label>
+    <input formControlName="employee_mobileno" class="form-control" type="text" minlength="10" maxlength="10"><br>
+
+    <label>Employee Salary</label>
+    <input formControlName="employee_salary" class="form-control" type="text"><br>
   </div>
 
-<h3>employee Salary</h3>
-<input formControlName="employee_salary" class="form-control" type="text">
-  <button mat-fab color="primary">
-    <mat-icon>done</mat-icon>
-  </button>
-  <button mat-fab color="primary" (click)="onCancel()">
-    <mat-icon>cancel</mat-icon>
-  </button>
-  </form>
+  <div>
+    <button class="btn btn-primary">Update</button> |
+    <button class="btn btn-primary" (click)="onCancel()">Cancel</button>
+  </div>
+</form>

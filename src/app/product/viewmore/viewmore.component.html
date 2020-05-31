@@ -1,0 +1,14 @@
+<h1>Product Details</h1>
+<p>Product-Id : {{product_id}}</p>
+<p>Product-Name : {{product_name}}</p>
+<p>Product-Price : {{product_price}}</p>
+<p>Product-Quantity : {{product_qty}}</p>
+<p>Product-manufacturer : {{product_mfg}}</p>
+<p>Product-Description : {{product_desc}}</p>
+<p>Product-Category : {{fk_cat_id}}</p>
+<p>Product-Image : </p>
+<img src="http://localhost:3000/{{product_img}}" height="130" width="130">
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancelClick()">Cancel</button>
+</div>

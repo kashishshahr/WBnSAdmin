@@ -6,7 +6,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 
 import { Router } from '@angular/router';
-import { ViewmoreComponent } from 'src/app/viewmore/viewmore.component';
+import { ViewmoreComponent } from 'src/app/product/viewmore/viewmore.component';
 import { prod } from 'src/app/product/product';
 import { OrderDataService } from 'src/app/order/order-data.service';
 import { orderClass } from 'src/app/order/order';

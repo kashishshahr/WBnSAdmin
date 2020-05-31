@@ -25,16 +25,13 @@ export class CategoryaddComponent implements OnInit {
     this.selectedfile=<File>value.target.files[0];
   }
   onSubmit() {
-    // console.log(f);
     let fd=new FormData();
     fd.append('category_id ',this.categoryAddForm.value.category_id);
     fd.append('category_name',this.categoryAddForm.value.category_name);
     fd.append('category_img',this.selectedfile,this.selectedfile.name);
 
-    console.log(this.categoryAddForm.value);
     this._data.addCategory(fd).subscribe(
       (data: Category[]) => {
-        // console.log(data);
         this._route.navigate(['/nav/categories']);
       }
     );

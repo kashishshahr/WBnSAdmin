@@ -1,26 +1,49 @@
-<form [formGroup]="EditProductForm" (submit)="onSubmit()" class="container">
-  <div>
+<div class="container">
 
-    <h5>Product Name</h5>
-    <input formControlName="product_name" class="form-control" type="string"><br>
+  <form [formGroup]="EditProductForm" (submit)="onSubmit()" class="container">
 
-    <h5>Product Category</h5>
-    <select formControlName="fk_cat_id">
-      <option *ngFor="let item of CategoryDataArr" [value]="item.category_id">
-        {{item.category_name}}</option>
-    </select>
+    <div class="form-group">
+      <mat-label>Product Name</mat-label>
+      <input formControlName="product_name" class="form-control" type="string">
+    </div><br>
 
-    <h5>Product Price</h5>
-    <input formControlName="product_price" class="form-control" type="number"><br>
-    <h5>Product Quantity</h5>
-    <input formControlName="product_qty" class="form-control" type="number"><br>
-    <h5>Product MFG</h5>
-    <input formControlName="product_mfg" class="form-control" type="date"><br>
-    <h5>Product Desc</h5>
-    <input formControlName="product_desc" class="form-control" type="text"><br>
-    <img mat-card-image width="150" height="150" src="{{producturl}}">
+    <div>
+      <mat-label>Product Category</mat-label><br>
+      <select formControlName="fk_cat_id">
+        <option *ngFor="let item of CategoryDataArr" [value]="item.category_id">
+          {{item.category_name}}</option>
+      </select>
+    </div><br>
+
+    <div>
+      <mat-label>Product Price</mat-label>
+      <input formControlName="product_price" class="form-control" type="number">
+    </div><br>
+
+    <div>
+      <mat-label>Product Quantity</mat-label>
+      <input formControlName="product_qty" class="form-control" type="number">
+    </div><br>
+
+    <div>
+      <mat-label>Product MFG</mat-label>
+      <input formControlName="product_mfg" class="form-control" type="date">
+    </div><br>
+
+    <div>
+      <mat-label>Product Desc</mat-label>
+      <input formControlName="product_desc" class="form-control" type="text">
+    </div><br>
+
+    <div>
+      <img mat-card-image width="150" height="150" src="{{producturl}}"><br>
+      <input type="file" name="pic" (change)="onChange($event)">
+    </div>
     <br><br>
-    <button class="btn btn-primary" type="submit">Save</button> |
-    <button class="btn btn-primary" (click)="onCancel()">Cancel</button>
-  </div>
-</form>
+
+    <div>
+      <button class="btn btn-primary" type="submit">Save</button> |
+      <button class="btn btn-primary" (click)="onCancel()">Cancel</button>
+    </div>
+  </form>
+</div>

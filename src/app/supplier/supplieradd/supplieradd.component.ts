@@ -24,7 +24,6 @@ export class SupplieraddComponent implements OnInit {
   onSupplierAdd() {
     this._data.addSupplier(this.supplierAddForm.value).subscribe(
       (data: any[]) => {
-        console.log(data);
         this._route.navigate(['/nav/supplier']);
       }
     );

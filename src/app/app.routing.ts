@@ -3,6 +3,7 @@ import { AppComponent } from './app.component';
 import { SignupDisplayComponent } from './signup/signup-display/signup-display.component';
 import { UserLoginComponent } from './user_login/user-login/user-login.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { DashboardpageComponent } from './dashboardpage/dashboardpage.component';
 import { HomepageComponent } from './homepage/homepage/homepage.component';
 import { MyprofileComponent } from './myprofile/myprofile.component';
 import { EdituserdataComponent } from './signup/edituserdata/edituserdata.component';
@@ -49,7 +50,7 @@ const arr: Routes = [
 
   {
     path: 'nav', canActivate: [UserauthguardService], component: MainNavComponent, children: [
-      { path: '', component: HomepageComponent },
+      { path: '', component: DashboardpageComponent },
       { path: 'users', component: UsersComponent },
       { path: 'EditUserData', component: EdituserdataComponent },
       { path: 'MyProfile', component: MyprofileComponent },
@@ -73,7 +74,7 @@ const arr: Routes = [
       { path: 'EditBook/:product_id', component: BookeditComponent },
 
 
-      { path: 'HomePage', component: HomepageComponent },
+      { path: 'HomePage', component: DashboardpageComponent },
       { path: 'MyProfile', component: MyprofileComponent },
       { path: 'EditUserData', component: EdituserdataComponent },
 

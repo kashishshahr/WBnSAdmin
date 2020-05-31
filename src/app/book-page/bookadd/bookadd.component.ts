@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BookDataService } from '../book-data.service';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CategorydataService } from 'src/app/categorypage/categorydata.service';
 import { Category } from 'src/app/categorypage/category';
 
@@ -12,53 +12,49 @@ import { Category } from 'src/app/categorypage/category';
 })
 export class BookaddComponent implements OnInit {
 
-  constructor(private _cat:CategorydataService,private _route:Router,private _book:BookDataService) { }
-bookAddForm:FormGroup;
-catArr:Category[]=[];
-  ngOnInit()
-  {
-    this.bookAddForm=new FormGroup({
-      product_id:new FormControl(null),
-    book_name:new FormControl("A"),
-    product_price:new FormControl(3),
-    product_qty:new FormControl(5),
-    fk_cat_id:new FormControl(null),
-    book_img:new FormControl(null),
-    book_publication:new FormControl("abc"),
-    standard:new FormControl("2nd"),
-    book_description:new FormControl("abc")
+  constructor(private _cat: CategorydataService, private _route: Router, private _book: BookDataService) { }
+  bookAddForm: FormGroup;
+  catArr: Category[] = [];
+  ngOnInit() {
+    this.bookAddForm = new FormGroup({
+      product_id: new FormControl(null),
+      book_name: new FormControl(null, [Validators.required, Validators.pattern('[a-zA-Z]*')]),
+      product_price: new FormControl(null),
+      product_qty: new FormControl(null),
+      fk_cat_id: new FormControl(null),
+      book_img: new FormControl(null),
+      book_publication: new FormControl(null, [Validators.required]),
+      standard: new FormControl(null, [Validators.required]),
+      book_description: new FormControl(null, [Validators.required])
     });
-    this._cat.getAllCategory().subscribe((data:Category[])=>
-      {
-      this.catArr=data;
+    this._cat.getAllCategory().subscribe((data: Category[]) => {
+      this.catArr = data;
     })
   }
-  selectedfile:File=null;
+  selectedfile: File = null;
 
-  onChange(value){
-    this.selectedfile=<File>value.target.files[0];
+  onChange(value) {
+    this.selectedfile = <File>value.target.files[0];
   }
 
-  onAddBook()
-  {
+  onAddBook() {
 
-    let fd=new FormData();
-    fd.append('book_name',this.bookAddForm.value.book_name);
-    fd.append('product_price',this.bookAddForm.value.product_price);
-    fd.append('product_qty',this.bookAddForm.value.product_qty);
-    fd.append('book_publication',this.bookAddForm.value.book_publication);
-    fd.append('standard',this.bookAddForm.value.standard);
-    fd.append('book_description',this.bookAddForm.value.book_description);
-    fd.append('book_img',this.selectedfile,this.selectedfile.name);
-    fd.append('fk_cat_id',this.bookAddForm.value.fk_cat_id)
+    let fd = new FormData();
+    fd.append('book_name', this.bookAddForm.value.book_name);
+    fd.append('product_price', this.bookAddForm.value.product_price);
+    fd.append('product_qty', this.bookAddForm.value.product_qty);
+    fd.append('book_publication', this.bookAddForm.value.book_publication);
+    fd.append('standard', this.bookAddForm.value.standard);
+    fd.append('book_description', this.bookAddForm.value.book_description);
+    fd.append('book_img', this.selectedfile, this.selectedfile.name);
+    fd.append('fk_cat_id', this.bookAddForm.value.fk_cat_id)
     this._book.addBook(fd).subscribe(
-      (x:any)=>{
+      (x: any) => {
         this._route.navigate(['/nav/books']);
       }
     )
   }
-  onClick()
-  {
+  onClick() {
     this._route.navigate(['/nav/books']);
   }
 }
