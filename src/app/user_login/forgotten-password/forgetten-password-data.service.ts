@@ -20,6 +20,13 @@ export class ForgettenPasswordDataService {
     return this._http.post(this.url, body, { headers: x });
   }
 
+  sendMailToSupplier(item,subject, message) {
+
+    let obj = { "name": item, "subject": subject, "message":"Message:"+ message };
+    let x = new HttpHeaders().set(environment.header1, environment.header2);
+    let body = JSON.stringify(obj);
+    return this._http.post(this.url, body, { headers: x });
+  }
 
   sendMailByOtp(item, message) {
 

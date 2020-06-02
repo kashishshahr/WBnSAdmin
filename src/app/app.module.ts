@@ -79,6 +79,9 @@ import 'hammerjs';
 import { AdminDataComponent } from './admin-data/admin-data.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
+import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
+import { SnackbarcompComponent } from './snackbarcomp/snackbarcomp.component';
+import { ThankyouComponent } from './thankyou/thankyou.component';
 
 
 
@@ -137,7 +140,9 @@ import { MatMenuModule } from '@angular/material/menu';
     BookaddComponent,
     BookeditComponent,
     OrdertosupplierComponent,
-    AdminDataComponent
+    AdminDataComponent,
+    SnackbarcompComponent,
+    ThankyouComponent
 
   ],
   imports: [
@@ -169,6 +174,7 @@ import { MatMenuModule } from '@angular/material/menu';
     ChartsModule,
 
     MatGridListModule,
+    MatSnackBarModule,
 
     MatMenuModule,
 

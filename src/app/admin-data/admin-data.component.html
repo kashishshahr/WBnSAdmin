@@ -22,33 +22,79 @@
             <kendo-chart title="Genderwise Visitors">
               <kendo-chart-legend position="bottom"></kendo-chart-legend>
               <kendo-chart-series>
-                <kendo-chart-series-item
-                  type="pie"
-                  [data]="pieData"
-                  field="value"
-                  categoryField="category"
-                  [labels]="{ visible: true, content: labelContent }"
-                >
+                <kendo-chart-series-item type="pie" [data]="pieData" field="value" categoryField="category"
+                  [labels]="{ visible: true, content: labelContent }">
                 </kendo-chart-series-item>
               </kendo-chart-series>
             </kendo-chart>
-      </div>
+          </div>
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>
-    <mat-grid-tile colspan="1" rowspan="2">
+    <mat-grid-tile colspan="2" rowspan="1">
       <mat-card class="dashboard-card">
         <mat-card-header>
           <mat-card-title>
-            card1
 
           </mat-card-title>
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
-          <div>Card Content Here</div>
+          <div>
+            <kendo-chart>
+              <kendo-chart-title text="Units sold"></kendo-chart-title>
+              <kendo-chart-category-axis>
+                <kendo-chart-category-axis-item [categories]="categories" [title]="{ text: 'Months' }">
+                </kendo-chart-category-axis-item>
+              </kendo-chart-category-axis>
+              <kendo-chart-series>
+                <kendo-chart-series-item type="area" [data]="count">
+                </kendo-chart-series-item>
+
+              </kendo-chart-series>
+            </kendo-chart>
+          </div>
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>
 
+    <mat-grid-tile colspan="2" rowspan="1">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            DOnuT Chart
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <kendo-chart [style.height.px]="200">
+            <kendo-chart-series>
+              <kendo-chart-series-item
+                [autoFit]="autofit"
+                  type="donut" [data]="trackdata"
+                  categoryField="kind" field="share">
+                <kendo-chart-series-item-labels
+                  position="outsideEnd"
+                  color="#000"
+                  [content]="labelContent1"
+                  >
+                </kendo-chart-series-item-labels>
+              </kendo-chart-series-item>
+            </kendo-chart-series>
+            <kendo-chart-legend [visible]="false"></kendo-chart-legend>
+          </kendo-chart>
+          <label>
+            <input type="checkbox" [(ngModel)]="autofit" />
+            <span>Toggle Autofit</span>
+          </label>
+          <!-- <label>
+            <input type="checkbox" [(ngModel)]="autofit" />
+            <span>Toggle Autofit</span>
+          </label> -->
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
   </mat-grid-list>
+
 </div>
+
+
+

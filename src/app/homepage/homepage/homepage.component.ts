@@ -50,6 +50,7 @@ export class HomepageComponent implements OnInit {
 
     this._order.getAllOrders().subscribe(
       (data: orderClass[]) => {
+        console.log(data);
         this.orderArray = data;
         this.oc = data.length;
         for (this.i = 0; this.i < this.orderArray.length; this.i++) {

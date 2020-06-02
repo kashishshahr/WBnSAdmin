@@ -4,6 +4,9 @@ import { FormControl, Validators } from '@angular/forms';
 import { bookClass } from 'src/app/book-page/book';
 import { supplier } from '../supplier';
 import { ForgettenPasswordDataService } from 'src/app/user_login/forgotten-password/forgetten-password-data.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { SupplierComponent } from '../supplier.component';
+import { SnackbarcompComponent } from 'src/app/snackbarcomp/snackbarcomp.component';
 
 @Component({
   selector: 'app-ordertosupplier',
@@ -12,7 +15,7 @@ import { ForgettenPasswordDataService } from 'src/app/user_login/forgotten-passw
 })
 export class OrdertosupplierComponent implements OnInit {
 
-  constructor(private mail:ForgettenPasswordDataService,private _dialogRef: MatDialogRef<OrdertosupplierComponent>,
+  constructor(private _snackBar: MatSnackBar,private mail:ForgettenPasswordDataService,private _dialogRef: MatDialogRef<OrdertosupplierComponent>,
     @Inject(MAT_DIALOG_DATA) public data: supplier, ) { }
 
 
@@ -41,9 +44,12 @@ getMessageErrorMessage() {
 }
   onDoneClick()
   {
-this.mail.sendMail(this.email.value,this.subject.value,this.message.value).subscribe(
+this.mail.sendMailToSupplier(this.email.value,this.subject.value,this.message.value).subscribe(
   (data)=>{
 this._dialogRef.close();
+this._snackBar.openFromComponent(SnackbarcompComponent, {
+  duration: 5 * 1000,
+});
 });
   }
 
