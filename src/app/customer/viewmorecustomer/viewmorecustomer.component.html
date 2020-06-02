@@ -1,5 +1,9 @@
-<h6> Name:</h6><h1 style="color: darkblue;">{{customer_name}}</h1>
-<h6> Gender:</h6><h1 style="color: darkblue;">{{customer_gender}}</h1>
-<h6>Address:</h6><p style="color: darkblue;">{{customer_address}}</p>
-<h6>MobileNO:</h6><h1 style="color:darkblue;">{{customer_mobileno}}</h1>
+<h1>Customer Details</h1>
+<!-- <p>Customer-Email : {{fk_user_email}}</p> -->
+<p>Customer-Name : {{customer_name}}</p>
+<p>Customer-Address : {{customer_address}}</p>
+<p>Customer-MobileNo : {{customer_mobileno}}</p>
 
+<div mat-dialog-actions>
+  <button mat-stroked-button (click)="onCancelClick()">Cancel</button>
+</div>

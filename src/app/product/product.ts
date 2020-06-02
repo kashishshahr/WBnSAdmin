@@ -5,7 +5,7 @@ export class prod {
     public product_name: string,
     public product_price: number,
     public product_qty: number,
-    public product_mfg: Date,
+    public product_mfg: string,
     public product_desc: string,
     public product_img: string,
     public category_id?: number,

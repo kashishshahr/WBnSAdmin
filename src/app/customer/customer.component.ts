@@ -14,40 +14,35 @@ import { Router } from '@angular/router';
   styleUrls: ['./customer.component.css']
 })
 export class CustomerComponent implements OnInit {
-  displayedColumns: string[] = ['customer_id','customer_name', 'actions'];
+  displayedColumns: string[] = ['customer_id', 'customer_name', 'fk_user_email', 'actions'];
   dataSource: MatTableDataSource<custClass>;
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  constructor(private _route:Router, private _dialog:MatDialog,private _sign:SignupsService) {
+  constructor(private _route: Router, private _dialog: MatDialog, private _sign: SignupsService) {
     this.dataSource = new MatTableDataSource();
   }
   custArr: custClass[] = [];
   del_arr: custClass[] = [];
-  deleteFlag:boolean=false;
+  deleteFlag: boolean = false;
   onChange(item) {
     if (this.del_arr.find(x => x == item)) {
       this.del_arr.splice(this.del_arr.indexOf(item), 1);
-      if(this.del_arr.length==0)
-      {
-      this.deleteFlag=false;
+      if (this.del_arr.length == 0) {
+        this.deleteFlag = false;
       }
     }
     else {
       this.del_arr.push(item);
-
-      this.deleteFlag=true;
+      this.deleteFlag = true;
     }
-    //console.log(this.del_arr);
   }
 
   onClick() {
-    // console.log(this.del_arr);
     this._sign.deleteAllCustomerData(this.del_arr).subscribe((data) => {
       for (let i = 0; i < this.del_arr.length; i++) {
         if (this.custArr.find(x => x == this.del_arr[i])) {
-          console.log("SUCCESS");
           this.custArr.splice(this.custArr.indexOf(this.del_arr[i]), 1);
           this.dataSource.data = this.custArr;
           this.dataSource.paginator = this.paginator;
@@ -94,6 +89,7 @@ f:number=0;
       this.dataSource.paginator.firstPage();
     }
   }
+
   onAddCustClick() {
     this._route.navigate(['/nav/signupDisplay']);
   }
@@ -103,27 +99,27 @@ f:number=0;
       data: row
     });
   }
-  onDelete(item)
-  {
 
-    let x = this.custArr.indexOf(item);
-    this._sign.deleteCustomer(item.customer_id).subscribe(
-      (data: any) => {
-        alert('deleted');
-        this.custArr.splice(x, 1);
-        this.dataSource.data = this.custArr;
-        this._route.navigate(['/nav/customers']);
+  onDelete(item) {
+    if (confirm("do you want to delete?")) {
+      let x = this.custArr.indexOf(item);
+      this._sign.deleteCustomer(item.customer_id).subscribe(
+        (data: any) => {
+          alert('deleted');
+          this.custArr.splice(x, 1);
+          this.dataSource.data = this.custArr;
+          this._route.navigate(['/nav/customers']);
 
-      });
-  }
-  openEdit(item)
-  {
-    this._route.navigate(['/nav/EditCustomer',item.customer_id]);
+        });
+    }
   }
 
-  onUsersClick()
-  {
+  openEdit(item) {
+    this._route.navigate(['/nav/EditCustomer', item.customer_id]);
+  }
+
+  onUsersClick() {
     this._route.navigate(['/nav/users']);
   }
-  }
+}
 

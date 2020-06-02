@@ -67,7 +67,6 @@ export class SupplierComponent implements OnInit {
     });
   }
   onEditSupplier(supplier_id) {
-    // console.log(row)
     this._router.navigate(['/nav/supplieredit', supplier_id]);
   }
 }

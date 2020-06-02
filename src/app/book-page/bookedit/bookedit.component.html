@@ -1,31 +1,53 @@
-<form [formGroup]="EditBookForm" (submit)="onSubmit()" class="container">
-  <div>
-    <!-- <input formControlName="book_id" class="form-control" readonly ><br> -->
+<div class="container">
 
-    <h3>Book NAME</h3>
-    <input formControlName="book_name" class="form-control" type="string"><br>
+  <form [formGroup]="EditBookForm" (submit)="onSubmit()" class="container">
 
-    <h3>Book Category</h3>
-    <select formControlName="fk_cat_id" class="form-control">
-      <option *ngFor="let item of CategoryDataArr" [value]="item.category_id" >
-        {{item.category_name}}</option>
-    </select>
+    <div>
+      <mat-label>Book Name</mat-label>
+      <input formControlName="book_name" class="form-control" type="string"><br>
+    </div>
 
-    <h3>Book Price</h3>
-    <input formControlName="product_price" class="form-control" type="number"><br>
-    <h3>Book QUANTITY</h3>
-    <input formControlName="product_qty" class="form-control" type="number"><br>
-    <h3>Standard</h3>
-    <input formControlName="standard" class="form-control" type="text"><br>
-    <h3>Book Description</h3>
-    <input formControlName="book_description" class="form-control" type="text"><br>
-    <h3>Book Publication</h3>
-    <input formControlName="book_publication" class="form-control" type="text"><br>
+    <div>
+      <mat-label>Book Category</mat-label>
+      <select formControlName="fk_cat_id" class="form-control">
+        <option *ngFor="let item of CategoryDataArr" [value]="item.category_id">
+          {{item.category_name}}</option>
+      </select>
+    </div>
 
-    <img mat-card-image width="150" height="150" src="{{bookurl}}" >
-    <input type="file" name="pic" (change)="onChange($event)">
+    <div>
+      <mat-label>Book Price</mat-label>
+      <input formControlName="product_price" class="form-control" type="number"><br>
+    </div>
 
-    <button class="btn btn-primary" type="submit">Save</button><br>
-    <button class="btn btn-primary" (click)="onCancel()">Cancel</button>
-  </div>
-</form>
+    <div>
+      <mat-label>Book Quantity</mat-label>
+      <input formControlName="product_qty" class="form-control" type="number"><br>
+    </div>
+
+    <div>
+      <mat-label>Standard</mat-label>
+      <input formControlName="standard" class="form-control" type="text"><br>
+    </div>
+
+    <div>
+      <mat-label>Book Description</mat-label>
+      <input formControlName="book_description" class="form-control" type="text"><br>
+    </div>
+
+    <div>
+      <mat-label>Book Publication</mat-label>
+      <input formControlName="book_publication" class="form-control" type="text"><br>
+    </div>
+
+    <div>
+      <img mat-card-image width="150" height="150" src="{{bookurl}}">
+      <input type="file" name="pic" (change)="onChange($event)">
+    </div>
+<br>
+    <div>
+      <button class="btn btn-primary" type="submit">Save</button> |
+      <button class="btn btn-primary" (click)="onCancel()">Cancel</button>
+    </div>
+  </form>
+</div>

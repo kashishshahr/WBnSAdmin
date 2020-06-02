@@ -81,15 +81,16 @@ export class EmployeeComponent implements OnInit {
     this._route.navigate(['/nav/AddEmp'])
   }
   onDelete(item) {
-    let x = this.empArr.indexOf(item);
-    this._emp.deleteEmployee(item.employee_id).subscribe(
-      (data: any) => {
-        alert('deleted');
-        this.empArr.splice(x, 1);
-        this.dataSource.data = this.empArr;
-        this._route.navigate(['/nav/employees']);
+    if (confirm("do you want to delete?")) {
+      let x = this.empArr.indexOf(item);
+      this._emp.deleteEmployee(item.employee_id).subscribe(
+        (data: any) => {
+          this.empArr.splice(x, 1);
+          this.dataSource.data = this.empArr;
+          this._route.navigate(['/nav/employees']);
 
-      });
+        });
+    }
   }
   onUsersClick() {
     this._route.navigate(['/nav/users']);

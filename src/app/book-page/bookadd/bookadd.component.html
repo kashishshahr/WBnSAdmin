@@ -1,40 +1,51 @@
+<div class="container">
+  <h1>Add Book</h1>
 
-  <div class="container">
-    <h1>SignUp</h1>
-
-    <form [formGroup]="bookAddForm" (ngSubmit)="onAddBook()">
-
-      <div>
-        Book Name:<input class="form-control" formControlName="book_name" placeholder="Enter Book Name">
-      </div>
+  <form [formGroup]="bookAddForm" (ngSubmit)="onAddBook()">
 
     <div>
-      Categories<br>
-      <select class="form-control" formControlName="fk_cat_id"><option *ngFor="let item of catArr" [value]="item.category_id">{{item.category_name}}</option></select>
-    </div>
-      <div>
-        Book Price:<input class="form-control" type="number" formControlName="product_price" placeholder="Enter Book Price">
-      </div>
-      <div>
-        Book Quantity:<input class="form-control" type="number" formControlName="product_qty" placeholder="Enter Book Quantity">
-      </div>
-      <div>
-        Book Publication:<input class="form-control" type="text" formControlName="book_publication" placeholder="Enter Book Publication">
-      </div>
-      <div>
-        Standard:<input class="form-control" type="text" formControlName="standard" placeholder="Enter Standard">
-      </div>
-      <div>
-      <input type="file" name="product_img"  (change)="onChange($event)">
-    </div>
-      <div>
-        Description:<input class="form-control" type="text" style="width:190px;height:100px" formControlName="book_description" placeholder="Enter Book Description">
-      </div>
-          <div class="form-group">
-            <button type="submit" class="btn btn-primary">AddBook</button>
-            <button (click)="onClick()" type="submit" class="btn btn-primary">Cancel</button>
+      <input class="form-control" formControlName="book_name" placeholder="Enter Book Name">
+      <label class="alert alert-danger" *ngIf="bookAddForm.get('book_name').hasError('required') && !bookAddForm.get('book_name').pristine" >Name is required</label>
+      <label class="alert alert-danger" *ngIf="bookAddForm.get('book_name').hasError('pattern') && !bookAddForm.get('book_name').pristine" > Only Chars</label>
+    </div><br>
 
-       </div>
+    <div>
+      <mat-label>Category</mat-label><br>
+      <select class="form-control" formControlName="fk_cat_id">
+        <option *ngFor="let item of catArr" [value]="item.category_id">{{item.category_name}}</option>
+      </select>
+    </div><br>
+
+    <div>
+      <input class="form-control" type="number" formControlName="product_price" placeholder="Enter Book Price">
+    </div><br>
+
+    <div>
+      <input class="form-control" type="number" formControlName="product_qty" placeholder="Enter Book Quantity">
+    </div><br>
+
+    <div>
+      <input class="form-control" type="text" formControlName="book_publication" placeholder="Enter Book Publication">
+      <label class="alert alert-danger" *ngIf="bookAddForm.get('book_publication').hasError('required') && !bookAddForm.get('book_publication').pristine" >Publication is required</label>
+    </div><br>
+
+    <div>
+      <input class="form-control" type="text" formControlName="standard" placeholder="Enter Standard">
+      <label class="alert alert-danger" *ngIf="bookAddForm.get('standard').hasError('required') && !bookAddForm.get('standard').pristine" >Standard is required</label>
+    </div><br>
+
+    <div>
+      <input type="file" name="product_img" (change)="onChange($event)">
+    </div><br>
+
+    <div>
+      <input class="form-control" type="text" style="width:190px;height:100px" formControlName="book_description" placeholder="Enter Book Description">
+      <label class="alert alert-danger" *ngIf="bookAddForm.get('book_description').hasError('required') && !bookAddForm.get('book_description').pristine" >Description is required</label>
+    </div><br>
+
+    <div class="form-group">
+      <button type="submit" [disabled]="!bookAddForm.valid" class="btn btn-primary">AddBook</button> |
+      <button (click)="onClick()" type="submit" class="btn btn-primary">Cancel</button>
+    </div>
   </form>
-  </div>
-
+</div>

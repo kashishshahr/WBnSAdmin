@@ -36,7 +36,6 @@ export class CategorypageComponent implements OnInit {
         this.dataSource.data = data;
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
-        // console.log(this.cat_img)
       }
     );
   }
@@ -60,10 +59,8 @@ export class CategorypageComponent implements OnInit {
       this.del_arr.push(item);
       this.deleteFlag = true;
     }
-    // console.log(this.del_arr);
   }
   onClick() {
-    console.log(this.del_arr);
     this._data.deleteAllCategoryData(this.del_arr).subscribe((data) => {
       for (let i = 0; i < this.del_arr.length; i++) {
 
@@ -77,11 +74,9 @@ export class CategorypageComponent implements OnInit {
     });
   }
   onDelete(row) {
-    console.log(row)
     if (confirm("do you want to delete?")) {
       this._data.deleteCategory(row.category_id).subscribe(
         (data: Category[]) => {
-          console.log(data)
           this.category_arr.splice(this.category_arr.indexOf(row), 1);
           this.dataSource.data = this.category_arr;
         }

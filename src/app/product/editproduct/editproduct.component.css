@@ -1,5 +1,5 @@
-input{
-    font-size: 30px;
-  text-align: center;
-  font-family:'Times New Roman', Times, serif;
+::ng-deep .mat-form-field {
+  .mat-label {
+    color: maroon;
+  }
 }

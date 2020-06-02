@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { prod } from './product';
 import { ProductService } from './product.service';
 import { ActivatedRoute, RouterModule, Router } from '@angular/router';
-import { ViewmoreComponent } from '../viewmore/viewmore.component';
+import { ViewmoreComponent } from './viewmore/viewmore.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -14,7 +14,7 @@ import { MatTableDataSource } from '@angular/material/table';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-  displayedColumns: string[] = ['product_id', 'product_name', 'cat_name', 'product_mfg', 'product_price', 'actions'];
+  displayedColumns: string[] = ['product_id', 'product_name', 'product_price', 'product_qty', 'actions'];
   dataSource: MatTableDataSource<prod>;
   deleteFlag: boolean = false;
 
@@ -38,8 +38,7 @@ export class ProductComponent implements OnInit {
       }
     );
   }
-  onProductListClick()
-  {
+  onProductListClick() {
     this._route.navigate(['/nav/productList']);
   }
   del_arr: prod[] = [];
@@ -81,14 +80,16 @@ export class ProductComponent implements OnInit {
     this._route.navigate(['/nav/EditProduct/', row.product_id]);
   }
   onDelete(item) {
-    let x: number = this.prodArr.indexOf(item);
-    this._prod.deleteProduct(item.product_id).subscribe(
-      (data: any) => {
-        this.prodArr.splice(x, 1);
-        this.dataSource.data = this.prodArr;
-      }
-    );
-    this._route.navigate(['/nav/products']);
+    if (confirm("do you want to delete?")) {
+      let x: number = this.prodArr.indexOf(item);
+      this._prod.deleteProduct(item.product_id).subscribe(
+        (data: any) => {
+          this.prodArr.splice(x, 1);
+          this.dataSource.data = this.prodArr;
+        }
+      );
+      this._route.navigate(['/nav/products']);
+    }
   }
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();

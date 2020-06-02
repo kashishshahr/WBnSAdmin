@@ -19,12 +19,12 @@ export class AddProductComponent implements OnInit {
   // p_price: number;
   // p_qty: number;
   // p_soh: number;
-  catArr:Category[]=[];
-  constructor(private _cat:CategorydataService,private _Router: Router, private proddata: ProductService, private _act: ActivatedRoute) { }
+  catArr: Category[] = [];
+  constructor(private _cat: CategorydataService, private _Router: Router, private proddata: ProductService, private _act: ActivatedRoute) { }
   ngOnInit() {
-    this._cat.getAllCategory().subscribe((data:Category[])=>{
+    this._cat.getAllCategory().subscribe((data: Category[]) => {
       console.log(data);
-      this.catArr=data;
+      this.catArr = data;
     });
   }
 
@@ -54,10 +54,10 @@ export class AddProductComponent implements OnInit {
   }
 
 
-  selectedfile:File=null;
+  selectedfile: File = null;
 
-  onChange(value){
-    this.selectedfile=<File>value.target.files[0];
+  onChange(value) {
+    this.selectedfile = <File>value.target.files[0];
   }
   // onAddtoCart(item) {
   //   this.p_id=item.p_id;

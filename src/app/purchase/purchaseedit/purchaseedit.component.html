@@ -3,27 +3,32 @@
   <form [formGroup]="purchaseEditForm" (ngSubmit)="onPurchaseEdit()">
 
     <div class="form-group">
+      <mat-label>Quantity</mat-label><br>
       <input class="form-control" formControlName="quantity">
     </div>
     <div class="form-group">
+      <mat-label>Price</mat-label><br>
       <input class="form-control" formControlName="purchase_price">
     </div>
     <div class="form-group">
+      <mat-label>Address</mat-label><br>
       <input class="form-control" placeholder="Enter Address" formControlName="purchase_date">
     </div>
 
+    <mat-label>Products</mat-label><br>
     <select formControlName="fk_product_id">
       <option *ngFor="let item of product_data" [value]="item.product_id">
         {{item.product_name}}
       <option>
     </select>
+    <br><br>
 
-
+    <mat-label>Suppliers</mat-label><br>
     <select formControlName="fk_supplier_id">
       <option *ngFor="let item of supplier_data" [value]="item.supplier_id">
         {{item.supplier_name}}
       <option>
-    </select>
+    </select><br><br>
 
     <div class="form-group">
       <button [disabled]="!purchaseEditForm.valid" type="submit" class="btn btn-primary">Edit Purchase</button> |

@@ -37,14 +37,12 @@ export class PurchaseeditComponent implements OnInit {
     this.pro_data.getAllProduct().subscribe(
       (data: any[]) => {
         this.product_data = data;
-        console.log(data);
       }
     );
 
     this.sup_data.getAllSupplier().subscribe(
       (data: any[]) => {
         this.supplier_data = data;
-        console.log(data);
       }
     );
 

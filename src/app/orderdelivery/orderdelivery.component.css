@@ -1,4 +1,12 @@
-th {
+.example-container {
+  height: 400px;
+  width: 550px;
+  overflow: scroll;
+}
+table {
+  width: 100%;
+}
+/* th {
   font-size: large;
   color: maroon;
   border-bottom: solid black;
@@ -7,26 +15,24 @@ hr.new1 {
   border-top: 10px solid red;
   border-radius: 5px;
   width: 80%;
-}
-table {
-  width: 100%;
-}
+} */
 
-.mat-form-field {
+/* .mat-form-field {
   font-size: 14px;
   width: 100%;
-}
+} */
 
-td,
+/* td,
 th {
-  width: 25%;
+  width: 35%;
 }
 div.sign {
-  position: absolute;
+  position: relative;
   top: 100px;
   left: 300px;
 }
 .left {
   justify-content: left;
   align-items: left;
-}
+} */
+
