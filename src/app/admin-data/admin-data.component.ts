@@ -66,8 +66,7 @@ export class AdminDataComponent {
       // console.log(data);
       for (let i = 0; i < data.length; i++) {
 
-        if (data[this.c].MONTH == i+1)
-        {
+        if (data[this.c].MONTH == i + 1) {
           console.log("i=" + i);
           console.log("c=" + this.c);
           this.count[this.c] = data[i].COUNT;

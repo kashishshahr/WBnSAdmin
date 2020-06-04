@@ -76,7 +76,7 @@ const arr: Routes = [
       { path: 'EditBook/:product_id', component: BookeditComponent },
 
 
-      { path: 'HomePage', component: DashboardpageComponent },
+      { path: 'HomePage', component: HomepageComponent},
       { path: 'MyProfile', component: MyprofileComponent },
       { path: 'EditUserData', component: EdituserdataComponent },
 

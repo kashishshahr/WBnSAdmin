@@ -26,33 +26,28 @@ export class SignupDisplayComponent implements OnInit {
       }, [this.passwordmatch.bind(this)]),
       user_type: new FormControl('visitor'),
       customer_name: new FormControl('kashish', [Validators.required, Validators.minLength(5), Validators.pattern('[a-zA-z]*')]),
-        customer_gender:new FormControl(null),
-        customer_address: new FormControl('abc'),
-        customer_photo: new FormControl(null),
+      customer_gender: new FormControl(null),
+      customer_address: new FormControl('abc'),
+      customer_photo: new FormControl(null),
       customer_mobileno: new FormControl('9408956502', [Validators.required, Validators.maxLength(10), Validators.pattern('[0-9]*')])
     });
   }
   onSignUp() {
 
-    console.log(this.signUpForm.value.password_group.user_password);
+    console.log(this.signUpForm.value);
     let userobj = {
       user_email: this.signUpForm.value.user_email,
       user_password: this.signUpForm.value.password_group.user_password,
       user_type: this.signUpForm.value.user_type
     };
-    // let customerobj = {
-    //   customer_name: this.signUpForm.value.customer_name,
-    //   customer_address: this.signUpForm.value.customer_address,
-    //   customer_mobileno: this.signUpForm.value.customer_mobileno,
-    //   customer_photo:this.signUpForm.value.customer_photo,
-    //   fk_user_email: this.signUpForm.value.user_email
-    // };
     let fd = new FormData();
+
     fd.append('customer_name', this.signUpForm.value.customer_name);
     fd.append('customer_gender', this.signUpForm.value.customer_gender);
     fd.append('customer_address', this.signUpForm.value.customer_address);
     fd.append('customer_photo', this.selectedfile, this.selectedfile.name);
     fd.append('customer_mobileno', this.signUpForm.value.customer_mobileno);
+    fd.append('fk_user_email', this.signUpForm.value.user_email);
     // console.log(this.selectedfile.name);
 
     this._signup.signUp(userobj).subscribe(

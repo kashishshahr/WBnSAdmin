@@ -5,6 +5,7 @@ export class custClass {
     public customer_gender: string,
     public customer_mobileno: number,
     public customer_address: string,
+    public customer_photo: string,
     public fk_user_email: string
   ) { }
 }

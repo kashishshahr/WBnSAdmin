@@ -7,6 +7,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ViewmorecustomerComponent } from './viewmorecustomer/viewmorecustomer.component';
 import { SignupsService } from '../signup/signups.service';
 import { Router } from '@angular/router';
+import { UsersDataService } from '../users/users-data.service';
 
 @Component({
   selector: 'app-customer',
@@ -14,13 +15,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./customer.component.css']
 })
 export class CustomerComponent implements OnInit {
-  displayedColumns: string[] = ['customer_id', 'customer_name', 'fk_user_email', 'actions'];
+  displayedColumns: string[] = ['customer_id', 'customer_name', 'actions'];
   dataSource: MatTableDataSource<custClass>;
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  constructor(private _route: Router, private _dialog: MatDialog, private _sign: SignupsService) {
+  constructor(private _route: Router, private _dialog: MatDialog, private _sign: SignupsService, private _user: UsersDataService) {
     this.dataSource = new MatTableDataSource();
   }
   custArr: custClass[] = [];
@@ -52,26 +53,23 @@ export class CustomerComponent implements OnInit {
     });
   }
 
-m:number=0;
-f:number=0;
+  m: number = 0;
+  f: number = 0;
 
   ngOnInit() {
     this._sign.getAllCustomer().subscribe(
       (data: any) => {
-        // console.log(data[0].customer_gender);
-        for(let i=0;i<data.length;i++)
-        {
-          console.log(data[i].customer_gender);
-          if(data[i].customer_gender=="Male")
-          {
+
+        for (let i = 0; i < data.length; i++) {
+
+          if (data[i].customer_gender == "Male") {
             this.m++;
           }
-          else if(data[i].customer_gender=="Female")
-          {
+          else if (data[i].customer_gender == "Female") {
             this.f++;
           }
         }
-        console.log(this.f);
+
         this.dataSource.data = data;
         this.custArr = data;
         this.dataSource.paginator = this.paginator;
@@ -95,6 +93,7 @@ f:number=0;
   }
   //viewmore
   openDialog(row) {
+    console.log(row);
     this._dialog.open(ViewmorecustomerComponent, {
       data: row
     });
@@ -107,6 +106,11 @@ f:number=0;
         (data: any) => {
           alert('deleted');
           this.custArr.splice(x, 1);
+
+          this._user.DeleteUserByEmail(item.fk_user_email).subscribe((data: any) => {
+            console.log(data);
+            alert('success on DELITING USER');
+          });
           this.dataSource.data = this.custArr;
           this._route.navigate(['/nav/customers']);
 
@@ -115,6 +119,7 @@ f:number=0;
   }
 
   openEdit(item) {
+
     this._route.navigate(['/nav/EditCustomer', item.customer_id]);
   }
 

@@ -1,8 +1,11 @@
 <h1>Customer Details</h1>
 <!-- <p>Customer-Email : {{fk_user_email}}</p> -->
 <p>Customer-Name : {{customer_name}}</p>
+<p>Customer-Gender: {{customer_gender}}</p>
 <p>Customer-Address : {{customer_address}}</p>
 <p>Customer-MobileNo : {{customer_mobileno}}</p>
+<p>   <img style="height: 150px;width: 150px;"
+  src="{{imgPath}}{{customer_photo}}" alt="Product Image"></p>
 
 <div mat-dialog-actions>
   <button mat-stroked-button (click)="onCancelClick()">Cancel</button>

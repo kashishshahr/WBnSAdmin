@@ -8,6 +8,7 @@ import { userCLass } from './users';
 })
 export class UsersDataService {
 private url:string=environment.url+'user/';
+private udurl:string=environment.url+'userDelete/';
 
   constructor(private _http:HttpClient) { }
   getAllUser()
@@ -30,6 +31,7 @@ private url:string=environment.url+'user/';
     let x = new HttpHeaders().set(environment.header1, environment.header2);
     return this._http.get(this.url + user_email, { headers: x });
   }
+
   deleteAllUserData(id: userCLass[]) {
     // console.log(id);
     let body = JSON.stringify(id);
@@ -37,6 +39,11 @@ private url:string=environment.url+'user/';
     return this._http.post(this.url + id, body, { headers: head });
   }
 
+  DeleteUserByEmail(obj) {
+    let x = new HttpHeaders().set(environment.header1, environment.header2);
+    let body = JSON.stringify(obj);
+    return this._http.post(this.udurl,body, { headers: x });
+  }
 updateAdminPass(obj)
 { console.log(obj);
   let body=JSON.stringify(obj);

@@ -171,12 +171,8 @@ import 'hammerjs';
     MatCardModule,
     MatRadioModule,
     HttpClientModule,
-
     ChartsModule,
-
-    MatGridListModule,
     MatSnackBarModule,
-
     MatMenuModule,
 
 
