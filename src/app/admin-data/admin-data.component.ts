@@ -63,7 +63,7 @@ export class AdminDataComponent {
 
     });
     this.serobj.getOrder().subscribe((data: any) => {
-      // console.log(data);
+      console.log(data);
       for (let i = 0; i < data.length; i++) {
 
         if (data[this.c].MONTH == i + 1) {

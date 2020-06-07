@@ -15,7 +15,7 @@ import { SnackbarcompComponent } from 'src/app/snackbarcomp/snackbarcomp.compone
 })
 export class OrdertosupplierComponent implements OnInit {
 
-  constructor(private _snackBar: MatSnackBar,private mail:ForgettenPasswordDataService,private _dialogRef: MatDialogRef<OrdertosupplierComponent>,
+  constructor(private _snackBar: MatSnackBar, private mail: ForgettenPasswordDataService, private _dialogRef: MatDialogRef<OrdertosupplierComponent>,
     @Inject(MAT_DIALOG_DATA) public data: supplier, ) { }
 
 
@@ -24,33 +24,32 @@ export class OrdertosupplierComponent implements OnInit {
   }
 
   email = new FormControl(this.data.supplier_email, [Validators.required, Validators.email]);
-subject=new FormControl(null,[Validators.required]);
-message=new FormControl(null,[Validators.required]);
-getMailErrorMessage() {
-  return this.email.hasError('required') ? 'You must enter a value' :
-    this.email.hasError('email') ? 'Not a valid email' :
+  subject = new FormControl(null, [Validators.required]);
+  message = new FormControl(null, [Validators.required]);
+  getMailErrorMessage() {
+    return this.email.hasError('required') ? 'You must enter a value' :
+      this.email.hasError('email') ? 'Not a valid email' :
+        '';
+
+  }
+  getErrorMessage() {
+    return this.subject.hasError('required') ? 'You must enter a Subject' :
       '';
 
-}
-getErrorMessage() {
-  return this.subject.hasError('required') ? 'You must enter a Subject' :
-    '';
+  }
+  getMessageErrorMessage() {
+    return this.message.hasError('required') ? 'You must enter a Message' :
+      '';
 
-}
-getMessageErrorMessage() {
-  return this.message.hasError('required') ? 'You must enter a Message' :
-    '';
-
-}
-  onDoneClick()
-  {
-this.mail.sendMailToSupplier(this.email.value,this.subject.value,this.message.value).subscribe(
-  (data)=>{
-this._dialogRef.close();
-this._snackBar.openFromComponent(SnackbarcompComponent, {
-  duration: 5 * 1000,
-});
-});
+  }
+  onDoneClick() {
+    this.mail.sendMailToSupplier(this.email.value, this.subject.value, this.message.value).subscribe(
+      (data) => {
+        this._dialogRef.close();
+        this._snackBar.openFromComponent(SnackbarcompComponent, {
+          duration: 5 * 1000,
+        });
+      });
   }
 
 }

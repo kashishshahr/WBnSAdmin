@@ -7,6 +7,9 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { BookDataService } from './book-data.service';
 import { ViewmorebookComponent } from './viewmorebook/viewmorebook.component';
+import { ProductService } from '../product/product.service';
+import { prod } from '../product/product';
+import { ViewmoreComponent } from '../product/viewmore/viewmore.component';
 
 @Component({
   selector: 'app-book-page',
@@ -15,42 +18,36 @@ import { ViewmorebookComponent } from './viewmorebook/viewmorebook.component';
 })
 export class BookPageComponent implements OnInit {
 
-  displayedColumns: string[] = ['checkbox', 'book_name', 'product_id', 'product_price', 'product_qty', 'actions'];
-  dataSource: MatTableDataSource<bookClass>;
+  displayedColumns: string[] = ['product_id', 'product_name', 'product_price', 'product_qty', 'actions'];
+  dataSource: MatTableDataSource<prod>;
   deleteFlag: boolean = false;
+
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  constructor(private _book: BookDataService, private _route: Router, private _dialog: MatDialog) {
+  constructor(private _prod: ProductService, private _route: Router, public _dialog: MatDialog, private _book: BookDataService) {
     this.dataSource = new MatTableDataSource();
   }
-  bookArr: bookClass[] = [];
 
+  bookArr: prod[] = [];
+  prod_table: prod[] = [];
   ngOnInit() {
     this._book.getAllBook().subscribe(
-      (data: bookClass[]) => {
+      (data: prod[]) => {
+        console.log(data)
+
+        this.dataSource.data = data;
         this.bookArr = data;
-        this.dataSource.data = this.bookArr;
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
       }
     );
   }
-  applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
+  onProductListClick() {
+    this._route.navigate(['/nav/productList']);
   }
-
-  openDialog(row) {
-    this._dialog.open(ViewmorebookComponent, {
-      data: row
-    });
-  }
-
-  onChange(item: bookClass) {
+  del_arr: prod[] = [];
+  onChange(item: prod) {
     if (this.del_arr.find(x => x == item)) {
       this.del_arr.splice(this.del_arr.indexOf(item), 1);
       if (this.del_arr.length == 0) {
@@ -63,39 +60,36 @@ export class BookPageComponent implements OnInit {
     }
   }
 
-  onProductListClick() {
-    this._route.navigate(['/nav/productList']);
-  }
-
-  del_arr: bookClass[] = [];
-
-  onDeleteSelectedClick() {
-    this._book.deleteAllBookData(this.del_arr).subscribe(
-      (data: any) => {
-        for (let i = 0; i < this.del_arr.length; i++) {
-          if (this.bookArr.find(x => x == this.del_arr[i])) {
-            this.bookArr.splice(this.bookArr.indexOf(this.del_arr[i]), 1);
-            this.dataSource.data = this.bookArr;
-            this.dataSource.paginator = this.paginator;
-            this.dataSource.sort = this.sort;
-          }
+  onClick() {
+    this._prod.deleteAllProductData(this.del_arr).subscribe((data: any) => {
+      for (let i = 0; i < this.del_arr.length; i++) {
+        if (this.bookArr.find(x => x == this.del_arr[i])) {
+          this.bookArr.splice(this.bookArr.indexOf(this.del_arr[i]), 1);
+          this.dataSource.data = this.bookArr;
+          this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
         }
-      });
+      }
+    });
   }
 
+  openDialog(row) {
+    this._dialog.open(ViewmoreComponent, {
+      data: row
+    });
+  }
   onAddClick() {
-    this._route.navigate(['/nav/AddBook']);
+    this._route.navigate(['/nav/AddProduct']);
   }
-
   openEdit(row) {
-    this._route.navigate(['/nav/EditBook/', row.product_id]);
+    this._route.navigate(['/nav/EditProduct/', row.product_id]);
   }
-
   onDelete(item) {
     if (confirm("do you want to delete?")) {
       let x: number = this.bookArr.indexOf(item);
-      this._book.deleteBookById(item.product_id).subscribe(
+      this._prod.deleteProduct(item.product_id).subscribe(
         (data: any) => {
+          console.log(data);
           this.bookArr.splice(x, 1);
           this.dataSource.data = this.bookArr;
         }
@@ -103,4 +97,12 @@ export class BookPageComponent implements OnInit {
       this._route.navigate(['/nav/books']);
     }
   }
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
 }
+

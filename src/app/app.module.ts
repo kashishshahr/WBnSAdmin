@@ -86,6 +86,7 @@ import { ThankyouComponent } from './thankyou/thankyou.component';
 
 
 import 'hammerjs';
+import { DashboardpageComponent } from './dashboardpage/dashboardpage.component';
 
 @NgModule({
   declarations: [
@@ -105,6 +106,7 @@ import 'hammerjs';
     EmployeeComponent,
     AddEmployeeComponent,
     EditemployeeComponent,
+    DashboardpageComponent,
     ViewmoreemployeeComponent,
     CustomerComponent,
     EditcustomerComponent,
@@ -157,7 +159,9 @@ import 'hammerjs';
     MatIconModule,
     MatButtonModule,
     MatInputModule,
+    MatGridListModule,
     MatToolbarModule,
+
     MatSidenavModule,
     MatListModule,
     MatTableModule,

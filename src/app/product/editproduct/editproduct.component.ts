@@ -38,7 +38,7 @@ export class EditproductComponent implements OnInit {
       fk_cat_id: new FormControl(null),
       product_price: new FormControl(null),
       product_qty: new FormControl(null),
-      product_mfg: new FormControl(),
+      product_mfg: new FormControl(null),
       product_desc: new FormControl(null),
       product_img: new FormControl(null)
     });
@@ -51,6 +51,7 @@ export class EditproductComponent implements OnInit {
 
     this._proddata.getProductById(this.product_id).subscribe(
       (data: prod) => {
+        console.log(data)
         this.editProductFormDataBind(data[0]);
       }
     );
@@ -70,11 +71,9 @@ export class EditproductComponent implements OnInit {
       product_desc: item.product_desc,
       product_img: item.product_img
     });
-
-    // this.prod_img = item.product_img;
-    // this.imageURL = this.URl + '/' + this.prod_img;
-
+    console.log(this.EditProductForm.value);
   }
+
   onSubmit() {
     console.log(this.EditProductForm.value);
     let fd = new FormData();
@@ -94,6 +93,8 @@ export class EditproductComponent implements OnInit {
     this._proddata.updateProductData(this.product_id, fd).subscribe(
       (data: prod) => {
         // alert("SUCCESSSS");
+console.log(data);
+
         this._router.navigate(['/nav/products']);
 
       }

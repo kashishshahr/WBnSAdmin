@@ -5,8 +5,7 @@
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
 
-      <a mat-list-item routerLink="/nav/HomePage"><i class="material-icons" >home</i>Home</a>
-      <a mat-list-item routerLink="/nav/adminData">Dashboard</a>
+      <a mat-list-item routerLink="/nav/DashBoard"><i class="material-icons" >home</i>Home</a>
       <a mat-list-item routerLink="/nav/orders"><img src="../../assets/order.png" height="25" width="25">Order Management</a>
       <a mat-list-item routerLink="/nav/order_delivery"><img src="../../assets/order.png" height="25" width="25">Delivery Management</a>
       <a mat-list-item routerLink='/nav/categories'><i class="material-icons">category</i>Category</a>
@@ -25,7 +24,6 @@
     <mat-toolbar color="primary">
       <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
         *ngIf="isHandset$ | async">
-
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>wbns,Welcome {{user_email | uppercase}}</span>
@@ -33,7 +31,7 @@
     </mat-toolbar>
     <div>
       <div style="width:220px;height:120px;border:1px solid white ">
-        <!-- <img src="http://localhost:3000/images/logo.png" alt="Smiley face" height="100" width="200"> -->
+        <img src="http://localhost:3000/images/logo.png" alt="Smiley face" height="100" width="200">
       </div>
       <hr class="new1">
     </div>
