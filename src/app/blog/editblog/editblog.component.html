@@ -1,0 +1,37 @@
+<div class="container">
+
+  <form [formGroup]="EditBlogForm" (submit)="onSubmit()" class="container">
+
+    <div class="form-group">
+      <mat-label>Blog Title</mat-label>
+      <input formControlName="blog_head" class="form-control" type="string">
+    </div><br>
+
+    <div>
+      <img mat-card-image width="150" height="150" src="{{blogurl}}"><br>
+      <input type="file" name="pic" (change)="onChange($event)">
+    </div>
+
+    <br><br>
+    <div>
+      <mat-label>Blog Quote</mat-label>
+      <input formControlName="blog_quote" class="form-control" type="text">
+    </div><br>
+    <div>
+      <mat-label>Blog Paragraph 1</mat-label>
+      <input formControlName="blog_paragraph" class="form-control" type="text">
+    </div><br>
+    <div>
+      <mat-label>Blog Paragraph 2</mat-label>
+      <input formControlName="blog_paragraph2" class="form-control" type="text">
+    </div><br>
+
+    <div>
+      <button class="btn btn-primary" type="submit">Save</button> |
+      <button class="btn btn-primary" (click)="onCancel()">Cancel</button>
+    </div>
+  </form>
+</div>
+
+
+

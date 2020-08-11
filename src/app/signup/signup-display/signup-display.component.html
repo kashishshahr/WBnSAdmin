@@ -32,12 +32,14 @@
       <div class="form-group">
         <input type="radio" value="Male" formControlName="customer_gender">Male
         <input type="radio" value="Female" formControlName="customer_gender">Female
+        <label class="alert alert-danger" *ngIf="signUpForm.get('customer_gender').hasError('required') && !signUpForm.get('customer_gender').pristine" >Gender is required</label>
       </div>
       <div class="form-group">
       <input class="form-control" formControlName="customer_address" placeholder="Enter Your Address">
       </div>
       <div>
         <input type="file" name="customer_photo" (change)="onChange($event)">
+        <label class="alert alert-danger" *ngIf="signUpForm.get('customer_photo').hasError('required') && !signUpForm.get('customer_photo').pristine" >No Photo selected</label>
       </div>
       <div class="form-group">
         <input class="form-control" maxlength="10" formControlName="customer_mobileno" placeholder="Enter Your Mobile No">

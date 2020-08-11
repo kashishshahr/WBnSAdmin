@@ -1,0 +1,53 @@
+<div class="container">
+
+  <form #f="ngForm" (submit)="onSubmit(f)">
+
+    <div>
+      Title For Blog Post
+      <input ngModel required class="form-control" #b_head="ngModel" pattern="[A-Za-z ]*" name="blog_head" type="string" placeholder="Enter Title"><br>
+    </div>
+
+    <div>
+      Quote For Blog Post
+      <textarea
+      ngModel required
+      class="form-control" #b_quote="ngModel"
+       name="blog_quote" type="text"
+        placeholder="Enter a Quote for you blog Post"
+       cols="30" rows="5"></textarea>
+
+    </div><br>
+    <div>
+      Paragraph 1 For Blog Post
+      <textarea
+      ngModel required
+      class="form-control" #b_para="ngModel"
+       name="blog_paragraph" type="text"
+        placeholder="Enter First Paragraph for you blog Post"
+       cols="30" rows="10"></textarea>
+
+    </div><br>
+    <div>
+      Paragraph 2 For Blog Post
+      <textarea
+       ngModel required
+      class="form-control" #b_para2="ngModel"
+       name="blog_paragraph2" type="text"
+        placeholder="Enter Second Paragraph for you blog Post"
+       cols="30" rows="10"></textarea>
+
+    </div><br>
+
+    <div>
+      Image For Your Blog Post<br>
+      <input type="file" required name="blog_photo" #p_img1 ngModel (change)="onChange($event)">
+    </div>
+    <br>
+
+    <div>
+      <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Add</button> |
+      <button class="btn btn-primary" (click)="onCancel()">Cancel</button>
+    </div>
+  </form>
+</div>
+

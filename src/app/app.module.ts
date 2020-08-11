@@ -87,6 +87,11 @@ import { ThankyouComponent } from './thankyou/thankyou.component';
 
 import 'hammerjs';
 import { DashboardpageComponent } from './dashboardpage/dashboardpage.component';
+import { BlogComponent } from './blog/blog.component';
+import { AddblogComponent } from './blog/addblog/addblog.component';
+
+import { MatSelectModule } from '@angular/material/select';
+import { EditBlogComponent } from './blog/editblog/editblog.component';
 
 @NgModule({
   declarations: [
@@ -145,7 +150,10 @@ import { DashboardpageComponent } from './dashboardpage/dashboardpage.component'
     OrdertosupplierComponent,
     AdminDataComponent,
     SnackbarcompComponent,
-    ThankyouComponent
+    ThankyouComponent,
+    BlogComponent,
+    AddblogComponent,
+EditBlogComponent
 
   ],
   imports: [
@@ -178,6 +186,7 @@ import { DashboardpageComponent } from './dashboardpage/dashboardpage.component'
     ChartsModule,
     MatSnackBarModule,
     MatMenuModule,
+    MatSelectModule,
 
 
   ],

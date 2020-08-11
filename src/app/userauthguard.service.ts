@@ -10,7 +10,7 @@ export class UserauthguardService implements CanActivate {
     if (localStorage.getItem('user_email') != null) {
       return true;
     }
-    alert('login kar pela');
+    alert('Login Is Must');
 
         this._route.navigate(['/']);
     return false;

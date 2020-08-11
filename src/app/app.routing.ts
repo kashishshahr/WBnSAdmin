@@ -43,6 +43,9 @@ import { BookaddComponent } from './book-page/bookadd/bookadd.component';
 import { BookeditComponent } from './book-page/bookedit/bookedit.component';
 import { OrdertosupplierComponent } from './supplier/ordertosupplier/ordertosupplier.component';
 import { AdminDataComponent } from './admin-data/admin-data.component';
+import { BlogComponent } from './blog/blog.component';
+import { AddblogComponent } from './blog/addblog/addblog.component';
+import {EditBlogComponent } from './blog/editblog/editblog.component';
 
 const arr: Routes = [
   { path: '', component: UserLoginComponent },
@@ -57,6 +60,11 @@ const arr: Routes = [
       { path: 'users', component: UsersComponent },
       { path: 'EditUserData', component: EdituserdataComponent },
       { path: 'MyProfile', component: MyprofileComponent },
+
+
+      { path: 'blog', component: BlogComponent},
+      { path: 'AddBlog', component: AddblogComponent},
+      { path: 'EditBlog/:blog_id', component: EditBlogComponent},
 
 
       { path: 'employees', component: EmployeeComponent },
