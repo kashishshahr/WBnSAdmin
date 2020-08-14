@@ -92,7 +92,7 @@ export class DashboardpageComponent {
     });
     this.serobj.getStatus().subscribe((data3: any[]) => {
       this.DonutData = data3;
-      // console.log(this.DonutData);
+      console.log(this.DonutData);
       for (let i = 0; i < data3.length; i++) {
         this.pieData = [
           { category: 'Delivered', value: this.DonutData[i].Delivered },
