@@ -3,38 +3,52 @@
   <form #f="ngForm" (submit)="onSubmit(f)">
 
     <div>
-      <input ngModel required class="form-control" #p_name1="ngModel" pattern="[A-Za-z ]*" name="product_name" type="string" placeholder="Enter name"><br>
-      <label class="alert alert-danger" *ngIf="p_name1.hasError('required') && !p_name1.pristine " >Name is required</label>
-      <label class="alert alert-danger" *ngIf="p_name1.hasError('pattern') && !p_name1.pristine " >Enter Only Alphabets</label>
+      <input ngModel required class="form-control" #p_name1="ngModel" pattern="[A-Za-z0-9-/ ]*" name="product_name"
+        type="string" placeholder="Enter name"><br>
+      <label class="alert alert-danger" *ngIf="p_name1.hasError('required') && !p_name1.pristine ">Name is
+        required</label>
+      <label class="alert alert-danger" *ngIf="p_name1.hasError('pattern') && !p_name1.pristine ">Enter Only
+        Alphabets</label>
     </div>
 
     <div>
-      <input ngModel class="form-control" #p_price1 name="product_price" type="number" placeholder="Enter price"><br>
+      <input ngModel required class="form-control" #p_price1="ngModel" name="product_price" type="number" placeholder="Enter price"><br>
+      <label class="alert alert-danger" *ngIf="p_price1.hasError('required') && !p_price1.pristine ">Price is
+        required</label>
     </div>
 
     <div>
-      <input ngModel class="form-control" #p_qty1 name="product_qty" type="number" placeholder="Enter qty"><br>
+      <input ngModel required class="form-control" #p_qty1="ngModel" name="product_qty" type="number" placeholder="Enter qty"><br>
+      <label class="alert alert-danger" *ngIf="p_qty1.hasError('required') && !p_qty1.pristine ">Quantity is
+        required</label>
     </div>
 
     <div>
-      <input ngModel class="form-control" #p_mfg name="product_mfg" type="date" placeholder="Enter mfg"><br>
+      <input ngModel required class="form-control" #p_mfg="ngModel" name="product_mfg" type="text" placeholder="Enter mfg"><br>
+      <label class="alert alert-danger" *ngIf="p_mfg.hasError('required') && !p_mfg.pristine ">Manufacturer is
+        required</label>
     </div>
 
     <div>
       <mat-label>Category</mat-label><br>
-      <select ngModel #cat name="fk_cat_id">
+      <select ngModel #cat="ngModel" required name="fk_cat_id">
         <option *ngFor="let item of catArr" [value]="item.category_id">{{item.category_name}}</option>
       </select>
+      <label class="alert alert-danger" *ngIf="cat.hasError('required') && !cat.pristine ">Description is
+        required</label>
     </div><br>
 
     <div>
-      <input style="height: 80px;" ngModel required class="form-control" #p_desc1="ngModel" name="product_desc" type="text"
-        placeholder="Enter Desc">
-        <label class="alert alert-danger" *ngIf="p_desc1.hasError('required') && !p_desc1.pristine " >Description is required</label>
+      <input style="height: 80px;" ngModel required required class="form-control" #p_desc1="ngModel" name="product_desc"
+        type="text" placeholder="Enter Desc">
+      <label class="alert alert-danger" *ngIf="p_desc1.hasError('required') && !p_desc1.pristine ">Description is
+        required</label>
     </div><br>
 
     <div>
-      <input type="file" name="product_img" #p_img1 ngModel (change)="onChange($event)">
+      <input type="file" required name="product_img" #p_img1="ngModel" ngModel (change)="onChange($event)">
+      <label class="alert alert-danger" *ngIf="p_img1.hasError('required') && !p_img1.pristine ">Image is
+        required</label>
     </div>
     <br>
 

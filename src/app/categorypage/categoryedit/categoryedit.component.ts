@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CategorydataService } from '../categorydata.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Category } from '../category';
@@ -23,7 +23,7 @@ export class CategoryeditComponent implements OnInit {
     this.category_id = this._activate_route.snapshot.params['category_id'];
     this.CategoryUpdateForm = new FormGroup({
       category_id: new FormControl,
-      category_name: new FormControl(null),
+      category_name: new FormControl(null, [Validators.required, Validators.pattern('[0-9a-zA-Z -/]*')]),
       category_img: new FormControl(null)
     });
     this._data.getCategorybyid(this.category_id).subscribe(

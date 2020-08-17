@@ -45,6 +45,8 @@ export class OrdertosupplierComponent implements OnInit {
   onDoneClick() {
     this.mail.sendMailToSupplier(this.email.value, this.subject.value, this.message.value).subscribe(
       (data) => {
+        console.log(data);
+
         this._dialogRef.close();
         this._snackBar.openFromComponent(SnackbarcompComponent, {
           duration: 5 * 1000,

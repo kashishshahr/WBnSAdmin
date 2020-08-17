@@ -21,9 +21,9 @@ export class AddEmployeeComponent implements OnInit {
       }, [this.passwordmatch.bind(this)]),
       user_type: new FormControl('Employee'),
       employee_name: new FormControl(null, [Validators.required, Validators.minLength(5), Validators.pattern('[a-zA-z]*')]),
-      employee_gender:new FormControl(null),
-      employee_mobileno: new FormControl(null, [Validators.required, Validators.maxLength(10),Validators.pattern('[0-9]*')]),
-      employee_salary: new FormControl(null)
+      employee_gender: new FormControl(null, [Validators.required]),
+      employee_mobileno: new FormControl(null, [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern('[0-9]*')]),
+      employee_salary: new FormControl(null, [Validators.required])
 
     });
   }

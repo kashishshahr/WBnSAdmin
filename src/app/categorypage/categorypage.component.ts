@@ -64,11 +64,14 @@ export class CategorypageComponent implements OnInit {
     this._data.deleteAllCategoryData(this.del_arr).subscribe((data) => {
       for (let i = 0; i < this.del_arr.length; i++) {
 
-        let x = this.category_arr.find(x => x == this.del_arr[i]);
-        this.category_arr.splice(this.category_arr.indexOf(x), 1);
+
+        if(this.category_arr.find(x => x == this.del_arr[i]))
+        {
+        this.category_arr.splice(this.category_arr.indexOf(this.del_arr[i]), 1);
         this.dataSource.data = this.category_arr;
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
+        }
       }
 
     });

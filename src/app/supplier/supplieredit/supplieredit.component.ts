@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SupplierdataService } from '../supplierdata.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { supplier } from '../supplier';
 
 @Component({
@@ -20,10 +20,10 @@ export class SuppliereditComponent implements OnInit {
   ngOnInit() {
     this.supplier_id = this._activate_route.snapshot.params['supplier_id'];
     this.SupplierUpdateForm = new FormGroup({
-      supplier_name: new FormControl(null),
-      supplier_email: new FormControl(null),
-      supplier_mobileno: new FormControl(null),
-      supplier_address: new FormControl(null),
+      supplier_name: new FormControl(null, [Validators.required, Validators.minLength(5), Validators.pattern('[0-9a-zA-Z ]*')]),
+      supplier_email: new FormControl(null, [Validators.required, Validators.email]),
+      supplier_mobileno: new FormControl(null, [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern('[0-9]*')]),
+      supplier_address: new FormControl(null, [Validators.required, Validators.minLength(5)]),
       supplier_desc: new FormControl(null),
       supplier_id: new FormControl(null)
     });

@@ -1,9 +1,19 @@
-.example-container {
-  height: 400px;
-  width: 550px;
-  overflow: scroll;
+.t1 {
+  width: 100%;
+  /* margin-top: 0%; */
 }
-table {
+.t2 {
+  width: 100%;
+  margin-top: 10%;
+}
+
+td,
+th {
+  width: 35%;
+  height: 100%;
+}
+.mat-form-field {
+  font-size: 16px;
   width: 100%;
 }
 /* th {
@@ -15,18 +25,14 @@ hr.new1 {
   border-top: 10px solid red;
   border-radius: 5px;
   width: 80%;
-} */
+}
 
-/* .mat-form-field {
+.mat-form-field {
   font-size: 14px;
   width: 100%;
-} */
-
-/* td,
-th {
-  width: 35%;
 }
-div.sign {
+ */
+/* div.sign {
   position: relative;
   top: 100px;
   left: 300px;
@@ -35,4 +41,25 @@ div.sign {
   justify-content: left;
   align-items: left;
 } */
+/* table {
+  width: 100%;
+  overflow: scroll;
+}
 
+
+
+td, th {
+  width: 35%;
+  height: 100%;
+}
+
+id
+{
+  align-content: center;
+  align-items: center;
+}
+
+
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 16px;
+} */

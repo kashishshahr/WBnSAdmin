@@ -50,7 +50,7 @@ export class AddProductComponent implements OnInit {
     );
   }
   onCancel() {
-    this._Router.navigate(['/nav/products']);
+    this._Router.navigate(["/nav/productList"]);
   }
 
 

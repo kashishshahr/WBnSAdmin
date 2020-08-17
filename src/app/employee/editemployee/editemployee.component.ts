@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { EmployeeDataService } from '../employee-data.service';
 import { empClass } from '../employee';
@@ -17,13 +17,12 @@ employee_id:number;
   ngOnInit() {
     this.employee_id=this._act.snapshot.params['employee_id'];
     this.EditEmployeeForm=new FormGroup({
-      employee_id:new FormControl,
-      employee_name:new FormControl(null),
-      employee_gender:new FormControl(null),
-      employee_mobileno:new FormControl(null),
-      employee_salary:new FormControl(null),
-      fk_user_email:new FormControl(null)
-
+      employee_id: new FormControl,
+      employee_name: new FormControl(null, [Validators.required, Validators.minLength(5), Validators.pattern('[a-zA-z]*')]),
+      employee_gender: new FormControl(null, [Validators.required]),
+      employee_mobileno: new FormControl(null, [Validators.required, Validators.pattern('[0-9]*')]),
+      employee_salary: new FormControl(null, [Validators.required]),
+      fk_user_email: new FormControl(null)
     });
 
     this._emp.getEmployeeById(this.employee_id).subscribe((data:empClass[])=>{

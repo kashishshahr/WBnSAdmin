@@ -32,8 +32,8 @@ export class ForgottenPasswordComponent implements OnInit {
     this._forgot.getRecordByEmail(Address).subscribe((data) => {
       console.log(data[0].user_password);
       this.u_id=data[0].user_id;
-      this._forgot.sendMail(Address,"Forgotten Password",data[0].user_password).subscribe((data) => {
-        console.log("success");
+      this._forgot.sendMail(Address,"Forgotten Password",data[0].user_password).subscribe((data1) => {
+        console.log(data1);
         this._rout.navigate(['/']);
 
       });

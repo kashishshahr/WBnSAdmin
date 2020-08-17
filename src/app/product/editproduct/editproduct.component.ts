@@ -34,12 +34,12 @@ export class EditproductComponent implements OnInit {
     this.product_id = this._act.snapshot.params['product_id']
     this.EditProductForm = new FormGroup({
       product_id: new FormControl(null),
-      product_name: new FormControl(null, [Validators.required]),
+      product_name: new FormControl(null, [Validators.required,Validators.pattern('[0-9a-zA-Z -/]*')]),
       fk_cat_id: new FormControl(null),
-      product_price: new FormControl(null),
-      product_qty: new FormControl(null),
-      product_mfg: new FormControl(null),
-      product_desc: new FormControl(null),
+      product_price: new FormControl(null,[Validators.required]),
+      product_qty: new FormControl(null,[Validators.required]),
+      product_mfg: new FormControl(null,[Validators.required]),
+      product_desc: new FormControl(null,[Validators.required]),
       product_img: new FormControl(null)
     });
 
@@ -112,7 +112,7 @@ console.log(data);
   }
 
   onCancel() {
-    this._router.navigate(["/nav/products"]);
+    this._router.navigate(["/nav/productList"]);
   }
 
 }

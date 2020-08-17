@@ -16,8 +16,8 @@ export class UserLoginComponent implements OnInit {
   ngOnInit() {
     this.showPassw = 'password';
     this.loginForm = new FormGroup({
-      user_email: new FormControl('kashishshahr@gmail.com', [Validators.required, Validators.email]),
-      user_password: new FormControl('kashish', [Validators.required])
+      user_email: new FormControl(null, [Validators.required, Validators.email]),
+      user_password: new FormControl(null, [Validators.required])
     });
   }
   id: number = 1;

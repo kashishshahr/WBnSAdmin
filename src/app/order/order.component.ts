@@ -16,7 +16,7 @@ import { orderClass } from './order';
 export class OrderComponent implements OnInit {
 
   constructor(private _router: Router, private _order: OrderDataService, private _dialog: MatDialog) { this.dataSource = new MatTableDataSource(); }
-  displayedColumns: string[] = ['order_id', 'customer_name', 'order_amount', 'order_date', 'order_status', 'actions'];
+  displayedColumns: string[] = ['order_id', 'customer_name', 'order_amount', 'order_date', 'shipping_address', 'order_notes','payment_type', 'order_status', 'actions'];
   dataSource: MatTableDataSource<orderClass>;
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;

@@ -64,6 +64,16 @@ export class DashboardpageComponent {
   }
   ngOnInit() {
 
+    this.serobj.getOrder(this.selectedYear).subscribe((data2: any[]) => {
+      this.monthOrderCount = data2;
+      // console.log(this.monthOrderCount);
+
+      for (let j = 0; j < data2.length; j++) {
+        this.orderData[this.monthOrderCount[j].MONTH - 1] = this.monthOrderCount[j].COUNT;
+      }
+      console.log(this.orderData);
+    });
+
     this.serobj.getTotalCutomer().subscribe(
       (dataCustomerCount: any) => {
         // console.log(dataCustomerCount);
@@ -112,16 +122,6 @@ export class DashboardpageComponent {
       }
     );
     // console.log(this.selectedYear);
-    this.serobj.getOrder(this.selectedYear).subscribe((data2: any[]) => {
-      this.monthOrderCount = data2;
-      // console.log(this.monthOrderCount);
-
-      for (let j = 0; j < data2.length; j++) {
-        this.orderData[this.monthOrderCount[j].MONTH - 1] = this.monthOrderCount[j].COUNT;
-      }
-      console.log(this.orderData);
-    });
-
   }
   onYearChange(value) {
     this.serobj.getOrder(value).subscribe((data2: any[]) => {

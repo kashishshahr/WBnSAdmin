@@ -1,5 +1,7 @@
 <body style="background-image: url('http://localhost:3000/images/bg.jpg');">
-  <mat-card class="example-card">
+  <mat-card class="example-card" style="
+  background: linear-gradient(to right, #f6f1d3, #648880 85%, #293f50);
+  border-radius: 10%;">
     <mat-card-header>
 
       <mat-card-title style="font-size: 30px;">Log In to WBnS</mat-card-title>
@@ -14,9 +16,9 @@
         <label style="font-size: 20px;">Email</label>
         <div>
           <input style="width: 240px;height: 40px;font-size: 20px;background-color: black;color:white"
-            formControlName="user_email" placeholder="Enter Email............." type="text">
+            formControlName="user_email" placeholder="Enter Email" type="text"><br>
           <mat-label *ngIf="loginForm.get('user_email').hasError('required') && !loginForm.get('user_email').pristine">
-            Email Should NOT be empty</mat-label>
+            Email should not be empty</mat-label>
           <mat-label *ngIf="loginForm.get('user_email').hasError('email') && !loginForm.get('user_email').pristine">
             Invalid Email</mat-label>
         </div>
@@ -25,19 +27,19 @@
         <label style="font-size: 20px;"> Password</label>
         <br>
         <input style="width: 240px;height: 40px;font-size: 20px;background-color: black;color:white"
-          formControlName="user_password" matInput placeholder="Enter your password"
+          formControlName="user_password" matInput placeholder="Enter Password"
           [type]="hide ? 'password' : 'text'">
 
         <a mat-icon-button matSuffix (click)="onShowPass()">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </a>
-        <mat-label
+        <br><mat-label
           *ngIf="loginForm.get('user_password').hasError('required') && !loginForm.get('user_password').pristine">
-          Password Should NOT be empty</mat-label>
+          Password should not be empty</mat-label>
         <div class="forgotpass"><a routerLink="/ForgotPassword">Forgot Password?</a></div>
       </mat-card-content>
       <mat-card-actions>
-        <button type="submit" style="width: 380px;" mat-flat-button color="primary">LogIn</button>
+        <button type="submit" style="width: 380px;background-color: indigo;color: ivory;" mat-flat-button>LogIn</button>
       </mat-card-actions>
     </form>
   </mat-card>

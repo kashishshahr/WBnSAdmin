@@ -2,7 +2,7 @@
   <img src="./../../assets/Loader.gif">
 </div>
 <div>
-  <button mat-button style="width: 150px;; color:mediumseagreen;font-size: 20px;" disabled>Stationery</button>
+  <button mat-button style="width: 150px;; color:mediumseagreen;font-size: 20px;" disabled>Write Your Blogs here</button>
 </div>
 <mat-form-field>
   <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
@@ -37,7 +37,7 @@
 
     <ng-container matColumnDef="blog_paragraph">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Blog Paragraph1 </th>
-      <td mat-cell *matCellDef="let row"> {{row.blog_paragraph}} </td>
+      <td  mat-cell *matCellDef="let row"> {{row.blog_paragraph}} </td>
     </ng-container>
 
     <ng-container matColumnDef="blog_paragraph2">

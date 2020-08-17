@@ -3,34 +3,38 @@
 
     <mat-grid-tile-header style="text-align: center;"> Products </mat-grid-tile-header>
 
-    <div class="example-container mat-elevation-z8">
-      <table mat-table [dataSource]="dataSourceProduct" matSort>
+      <table class="t1" mat-table [dataSource]="dataSourceProduct" matSort>
 
         <ng-container matColumnDef="check">
-          <th mat-header-cell *matHeaderCellDef></th>
+          <th mat-header-cell *matHeaderCellDef style="font-size: large;
+  color:maroon;
+  border-bottom: solid black;">Check</th>
           <td mat-cell *matCellDef="let row">
             <mat-checkbox (change)="onCheckboxChangeProduct(row)"></mat-checkbox>
           </td>
         </ng-container>
 
-        <ng-container matColumnDef="customer_name">
-          <th mat-header-cell *matHeaderCellDef> </th>
+        <ng-container matColumnDef="customer_name" >
+          <th style="font-size: large;
+          color:maroon;
+          border-bottom: solid black;" mat-header-cell *matHeaderCellDef >Customer name </th>
           <td mat-cell *matCellDef="let row"> {{row.customer_name}} </td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumnsProduct"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumnsProduct;"></tr>
       </table>
-    </div>
+
   </mat-grid-tile>
 
   <mat-grid-tile>
-    <mat-grid-tile-header style="text-align: center;"> Workers </mat-grid-tile-header>
+    <mat-grid-tile-header style="text-align: center;"> Workerss </mat-grid-tile-header>
 
-    <div class="example-container mat-elevation-z8">
-      <table mat-table [dataSource]="dataSourceEmployee" matSort>
+      <table class="t2" mat-table [dataSource]="dataSourceEmployee" matSort>
         <ng-container matColumnDef="check">
-          <th mat-header-cell *matHeaderCellDef></th>
+          <th style="font-size: large;
+          color:maroon;
+          border-bottom: solid black;" mat-header-cell *matHeaderCellDef>Select</th>
           <td mat-cell *matCellDef="let row">
             <mat-radio-button [value]="row.employee_id" #rbtEmployeeSelected
               (change)="onRadioBtnChangeEmployee(rbtEmployeeSelected.value)"></mat-radio-button>
@@ -38,14 +42,16 @@
         </ng-container>
 
         <ng-container matColumnDef="employee_name">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> </th>
+          <th style="font-size: large;
+          color:maroon;
+          border-bottom: solid black;" mat-header-cell *matHeaderCellDef mat-sort-header> Delivery boy</th>
           <td mat-cell *matCellDef="let row"> {{row.employee_name}} </td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumnsEmployee"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumnsEmployee;"></tr>
       </table>
-    </div>
+
   </mat-grid-tile>
 
   <mat-grid-tile>
@@ -53,7 +59,6 @@
       aria-label="Example icon-button with a heart icon">
       Submit<mat-icon></mat-icon>
     </button>
-
   </mat-grid-tile>
 </mat-grid-list>
 

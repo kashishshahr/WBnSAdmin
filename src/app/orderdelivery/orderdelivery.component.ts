@@ -4,6 +4,7 @@ import { OrderdeliveryDataService } from './orderdelivery-data.service';
 import { orderClass } from '../order/order';
 import { EmployeeDataService } from 'src/app/employee/employee-data.service';
 import { empClass } from 'src/app/employee/employee';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-orderdelivery',
@@ -22,7 +23,7 @@ export class OrderdeliveryComponent implements OnInit {
   selectedEmployeeID: number = 0;
   dataSourceEmployee: MatTableDataSource<empClass>;
 
-  constructor(private _productAssignedData: OrderdeliveryDataService, private _emp: EmployeeDataService) {
+  constructor(private _productAssignedData: OrderdeliveryDataService, private _emp: EmployeeDataService, private _router: Router) {
     this.dataSourceProduct = new MatTableDataSource();
     this.dataSourceEmployee = new MatTableDataSource();
   }
@@ -68,6 +69,12 @@ export class OrderdeliveryComponent implements OnInit {
         (x: any) => {
           if (x.insertId > 0) {
             alert('Successfully Assgined');
+            this._productAssignedData.getDeliveryNotByEmp().subscribe(
+              (dataProduct: any[]) => {
+                console.log(dataProduct)
+                this.dataSourceProduct.data = dataProduct;
+              }
+            );
           }
         });
 
@@ -75,3 +82,4 @@ export class OrderdeliveryComponent implements OnInit {
   }
 
 }
+

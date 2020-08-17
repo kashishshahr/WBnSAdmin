@@ -23,6 +23,8 @@ export class SupplierdataService {
     return this._http.get(this.url + supplier_id);
   }
   updateSupplier(item: supplier) {
+    console.log(item);
+
     let body = JSON.stringify(item);
     let head1 = new HttpHeaders().set(environment.header1, environment.header2);
     return this._http.put(this.url + item.supplier_id, body, { headers: head1 });

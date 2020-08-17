@@ -5,6 +5,8 @@
     <div class="form-group">
       <mat-label>Product Name</mat-label>
       <input formControlName="product_name" class="form-control" type="string">
+      <label class="alert alert-danger" *ngIf="EditProductForm.get('product_name').hasError('required') && !EditProductForm.get('product_name').pristine">Required</label>
+      <label class="alert alert-danger" *ngIf="EditProductForm.get('product_name').hasError('pattern') ">Use only alphabets and digits</label>
     </div><br>
 
     <div>
@@ -13,26 +15,31 @@
         <option *ngFor="let item of CategoryDataArr" [value]="item.category_id">
           {{item.category_name}}</option>
       </select>
+      <label class="alert alert-danger" *ngIf="EditProductForm.get('fk_cat_id').hasError('required') && !EditProductForm.get('fk_cat_id').pristine">Required</label>
     </div><br>
 
     <div>
       <mat-label>Product Price</mat-label>
       <input formControlName="product_price" class="form-control" type="number">
+      <label class="alert alert-danger" *ngIf="EditProductForm.get('product_price').hasError('required') && !EditProductForm.get('product_price').pristine">Required</label>
     </div><br>
 
     <div>
       <mat-label>Product Quantity</mat-label>
       <input formControlName="product_qty" class="form-control" type="number">
+      <label class="alert alert-danger" *ngIf="EditProductForm.get('product_qty').hasError('required') && !EditProductForm.get('product_qty').pristine">Required</label>
     </div><br>
 
     <div>
       <mat-label>Product MFG</mat-label>
       <input formControlName="product_mfg" class="form-control" type="text">
+      <label class="alert alert-danger" *ngIf="EditProductForm.get('product_mfg').hasError('required') && !EditProductForm.get('product_mfg').pristine">Required</label>
     </div><br>
 
     <div>
       <mat-label>Product Desc</mat-label>
       <input formControlName="product_desc" class="form-control" type="text">
+      <label class="alert alert-danger" *ngIf="EditProductForm.get('product_desc').hasError('required') && !EditProductForm.get('product_desc').pristine">Required</label>
     </div><br>
 
     <div>

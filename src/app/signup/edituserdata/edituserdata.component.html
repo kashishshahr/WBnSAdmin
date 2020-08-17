@@ -3,13 +3,14 @@
 
   <form [formGroup]="AdminPassChangeForm" (ngSubmit)="onDone()">
     <div formGroupName="password_group" class="form-group">
-      <input class="form-control" type="password" placeholder="Enter Password" formControlName="user_password"><br>
-      <input class="form-control" type="password" placeholder="Enter confirm Password" formControlName="user_confirm_password">
+      <input class="form-control" type="password" maxlength=10 placeholder="Enter Password" formControlName="user_password"><br>
+      <input class="form-control" type="password" maxlength=10 placeholder="Enter confirm Password" formControlName="user_confirm_password">
 
       <label class="alert alert-danger" *ngIf="AdminPassChangeForm.get('password_group').hasError('PasswordMatch')">Both
         password and confirm password should be same.</label>
-      <label class="alert alert-danger"
-        *ngIf="AdminPassChangeForm.get('password_group').get('user_password').hasError('minlength')">Password >5</label>
+        <label class="alert alert-danger"
+        *ngIf="AdminPassChangeForm.get('password_group').get('user_password').hasError('minlength')">Password >5</label><label class="alert alert-danger"
+        *ngIf="AdminPassChangeForm.get('password_group').get('user_password').hasError('minlength')">Password < 10 </label>
     </div>
     <div class="form-group">
       <button mat-raised-button color="primary" [disabled]="!AdminPassChangeForm.valid" type="submit">Done</button> |

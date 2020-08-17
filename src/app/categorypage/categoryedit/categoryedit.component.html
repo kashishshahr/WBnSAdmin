@@ -2,6 +2,8 @@
   <div class="form-group">
     <mat-label>Name</mat-label><br>
     <input class="form-control" placeholder="Enter Name" formControlName="category_name" type="text">
+    <label class="alert alert-danger" *ngIf="CategoryUpdateForm.get('category_name').hasError('required') && !CategoryUpdateForm.get('category_name').pristine">Required</label>
+    <label class="alert alert-danger" *ngIf="CategoryUpdateForm.get('category_name').hasError('pattern') ">Use only alphabets and digits</label>
   </div>
   <br>
   <div>

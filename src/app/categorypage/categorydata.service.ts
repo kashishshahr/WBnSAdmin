@@ -36,7 +36,7 @@ export class CategorydataService {
   {
     let body=JSON.stringify(id);
     let head=new HttpHeaders().set(environment.header1, environment.header2);
-    return this._http.post(this.deleteUrl,body,{headers:head});
+    return this._http.post(this.url+id,body,{headers:head});
     // console.log(id);
   }
 }

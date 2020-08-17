@@ -17,10 +17,13 @@
       <input class="form-control" placeholder="Enter Mobile" formControlName="supplier_mobileno" >
       <label class="alert alert-danger" *ngIf="supplierAddForm.get('supplier_mobileno').hasError('required') && !supplierAddForm.get('supplier_mobileno').pristine" >Mobile no is required</label>
       <label class="alert alert-danger" *ngIf="supplierAddForm.get('supplier_mobileno').hasError('maxlength')" >only 10 digits</label>
+      <label class="alert alert-danger" *ngIf="supplierAddForm.get('supplier_mobileno').hasError('minlength')" >only 10 digits</label>
       <label class="alert alert-danger" *ngIf="supplierAddForm.get('supplier_mobileno').hasError('pattern') " > Only digits</label>
     </div>
     <div class="form-group" >
       <input class="form-control" placeholder="Enter Address" formControlName="supplier_address" >
+      <label class="alert alert-danger" *ngIf="supplierAddForm.get('supplier_address').hasError('required') && !supplierAddForm.get('supplier_address').pristine" >Address is required</label>
+      <label class="alert alert-danger" *ngIf="supplierAddForm.get('supplier_address').hasError('minlength') " >Address shoul be > 5</label>
     </div>
     <div class="form-group" >
       <input class="form-control" placeholder="Enter Description" formControlName="supplier_desc" >

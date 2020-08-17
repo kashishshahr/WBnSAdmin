@@ -15,11 +15,11 @@ table {
 
 .mat-form-field {
   font-size: 14px;
-  width: 100%;
+  width: 90%;
 }
 
 td, th {
-  width: 25%;
+  width: 10%;
 }
 div.sign{
   position: absolute;

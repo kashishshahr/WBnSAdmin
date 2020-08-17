@@ -2,16 +2,37 @@
   <div>
     <label>Employee Name</label>
     <input formControlName="employee_name" class="form-control" type="text"><br>
-
+    <label class="alert alert-danger"
+    *ngIf="EditEmployeeForm.get('employee_name').hasError('required') && !EditEmployeeForm.get('employee_name').pristine">Name
+    is required</label>
+  <label class="alert alert-danger" *ngIf="EditEmployeeForm.get('employee_name').hasError('minlength') ">Name shoul be
+    > 5</label>
+  <label class="alert alert-danger" *ngIf="EditEmployeeForm.get('employee_name').hasError('pattern') "> Only
+    Chars</label>
+  </div>
+<div>
     <label>Employee Gender</label><br>
     <input type="radio" name="employee_gender" value="male" formControlName="employee_gender">Male
     <input type="radio" name="employee_gender" value="female" formControlName="employee_gender">Female<br><br>
-
+    <label class="alert alert-danger"
+      *ngIf="EditEmployeeForm.get('employee_gender').hasError('required') && !EditEmployeeForm.get('employee_gender').pristine">Gender
+      is required</label>
+</div>
+<div>
     <label>Employee MobileNo</label>
-    <input formControlName="employee_mobileno" class="form-control" type="text" minlength="10" maxlength="10"><br>
-
+    <input formControlName="employee_mobileno" class="form-control" type="number" minlength="10" maxlength="10"><br>
+    <label class="alert alert-danger"
+      *ngIf="EditEmployeeForm.get('employee_mobileno').hasError('required') && !EditEmployeeForm.get('employee_mobileno').pristine">mobile
+      no is required</label>
+    <label class="alert alert-danger" *ngIf="EditEmployeeForm.get('employee_mobileno').hasError('pattern') "> Only
+      digits</label>
+  </div>
+<div>
     <label>Employee Salary</label>
-    <input formControlName="employee_salary" class="form-control" type="text"><br>
+    <input formControlName="employee_salary" class="form-control" type="number"><br>
+    <label class="alert alert-danger"
+    *ngIf="EditEmployeeForm.get('employee_salary').hasError('required') && !EditEmployeeForm.get('employee_salary').pristine">Salary Required</label>
+
   </div>
 
   <div>
